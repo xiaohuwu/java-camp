@@ -9,6 +9,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 
+//实现简易的http服务
 public class NettyServer {
     public static void main(String[] args) throws Exception {
         //创建两个线程组 boosGroup、workerGroup
@@ -30,7 +31,7 @@ public class NettyServer {
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             //给pipeline管道设置处理器
-                            socketChannel.pipeline().addLast(new MyChannelInitializer());
+                            socketChannel.pipeline().addLast(new MyChannelInitializer()); //真正业务逻辑的处理
                         }
                     });//给workerGroup的EventLoop对应的管道设置处理器
             System.out.println("java技术爱好者的服务端已经准备就绪...");

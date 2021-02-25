@@ -59,8 +59,8 @@ class Ticket {
 
     //老师的版本
     public void sale() {
+        lock.lock();
         try {
-            lock.lock();
             number++;
         } catch (Exception e) {
 

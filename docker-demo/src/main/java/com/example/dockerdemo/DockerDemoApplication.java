@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.HashMap;
 import java.util.Map;
 
-@RestController
+
 @SpringBootApplication(exclude={DataSourceAutoConfiguration.class})
 public class DockerDemoApplication {
 
@@ -17,12 +17,5 @@ public class DockerDemoApplication {
         SpringApplication.run(DockerDemoApplication.class, args);
     }
 
-    @RequestMapping("/")
-    public Map<String, Object> getUser() {
-        Map<String, Object> map = new HashMap<>();
-        map.put("name", "zhangxing");
-        map.put("age", 27);
-        return map;
-    }
 
 }

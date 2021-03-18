@@ -1,17 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Lai_Ivy
-  Date: 2020/2/13
-  Time: 21:33
+  User: xiaohuge
+  Date: 2021-03-18
+  Time: 13:51
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <html>
 <head>
-    <title>七宝</title>
+    <title>Title</title>
+
 </head>
 <body>
-<h1>nihao</h1>
 
 </body>
 </html>

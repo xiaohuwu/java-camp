@@ -9,13 +9,36 @@
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!-- 开启注解 -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven >
+        <mvc:message-converters register-defaults="true">
+            <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                <property name="objectMapper">
+                    <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                        <property name="serializationInclusion">
+                            <value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+                        </property>
+                    </bean>
+                </property>
+            </bean>
+
+            <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+                <property name="converters">
+                    <set>
+                        <ref bean="stringToDateConverter"/>
+                    </set>
+                </property>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!--指明 controller 所在包，并扫描其中的注解-->
     <context:component-scan base-package="com.ktb.controller"/>
 
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
+
+    <bean class="com.ktb.controller.StringToDateConverter" id="stringToDateConverter"/>
+
 
 
 

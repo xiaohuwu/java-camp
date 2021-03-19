@@ -20,7 +20,6 @@
         </environment>
     </environments>
     <mappers>
-        <mapper class="com.ktb.mapper.StudentMapper" />
-<!--        <mapper resource="mapper/StudentMapper.xml"/>-->
+        <mapper resource="mapper/StudentMapper.xml"/>
     </mappers>
 </configuration>

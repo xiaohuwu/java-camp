@@ -13,6 +13,6 @@ public interface StudentMapper {
 
     Student getStudentByIdAndName(Integer id, @Param("name") String name);
 
-
+    Student getStudentByNumber(@Param("number") Integer  number);
 }
 

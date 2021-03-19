@@ -22,12 +22,12 @@ public class test {
         //从 SqlSessionFactory 中获取 SqlSession
         SqlSession sqlSession = sqlSessionFactory.openSession();
         StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-        Student tom = mapper.getStudentByIdAndName(1, "tom");
+        Student tom = mapper.getStudentByNumber(0);
         System.out.println(tom);
-        // 使用 SqlSession 查询
-        HashMap map = new HashMap<>();
-        map.put("id",1);
-        map.put("lastName","知识追寻者");
+//        // 使用 SqlSession 查询
+//        HashMap map = new HashMap<>();
+//        map.put("id",1);
+//        map.put("lastName","知识追寻者");
         //Student getStudent = mapper.getStudentByMap(map);
         //System.out.println("getStudent:" + getStudent);
         // 关闭 SqlSession

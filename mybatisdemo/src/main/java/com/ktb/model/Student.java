@@ -6,7 +6,7 @@ public class Student {
     // 学生姓名
     private String name;
     // 学生编号
-    private String number;
+    private Integer number;
 
     public String getId() {
         return id;
@@ -24,11 +24,11 @@ public class Student {
         this.name = name;
     }
 
-    public String getNumber() {
+    public Integer getNumber() {
         return number;
     }
 
-    public void setNumber(String number) {
+    public void setNumber(Integer number) {
         this.number = number;
     }
 

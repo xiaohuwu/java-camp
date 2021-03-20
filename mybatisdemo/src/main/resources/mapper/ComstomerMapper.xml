@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ktb.mapper.CustomerMapper">
+
+    <!--返回主键-->
+    <insert id="save" parameterType="com.ktb.model.Customer" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+       INSERT INTO t_customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
+   </insert>
+
+
+    <!--不是用object直接传值 而是object的包装类型-->
+    <insert id="testParameterType" parameterType="com.ktb.model.CustomerVo">
+         INSERT INTO t_customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
+    </insert>
+
+    <update id="update" parameterType="com.ktb.model.Customer">
+        update t_customer set name =#{name} where id=#{id}
+    </update>
+
+    <!--返回一个对象类型-->
+    <select id="get" parameterType="int" resultType="com.ktb.model.Customer">
+        select * from t_customer where id = #{id}
+    </select>
+
+
+    <select id="queryTotalCount" resultType="java.lang.Long">
+         select count(*)from t_customer
+    </select>
+
+    <!-- 自定义ResultMap -->
+    <resultMap type="com.ktb.model.CustomerRM" id="customerResultMap">
+        <!-- id:映射主键 -->
+        <id column="id" property="custId"/>
+        <result column="name" property="custName"/>
+        <result column="gender" property="custGender"/>
+        <result column="telephone" property="custTelephone"/>
+    </resultMap>
+
+    <select id="queryCustomerResultMap" resultMap="customerResultMap" parameterType="int">
+
+    </select>
+
+    <select id="queryByNameAndTelephone" resultType="com.ktb.model.Customer"
+            parameterType="com.ktb.model.Customer">
+        select * from t_customer
+        <where>
+            <if test="name !=null">and name =#{name}</if>
+            <if test="telephone !=null">and telephone =#{telephone}</if>
+        </where>
+    </select>
+
+
+    <!-- where 标签能把跟在它后面的 or and 去掉 choose  when 相当于 if else if  else-->
+    <select id="queryByNameAndTelephone2" resultType="com.ktb.model.Customer"
+            parameterType="com.ktb.model.Customer">
+
+        select * from t_customer
+
+        <where>
+            <choose>
+                <when test="name !=null">and name =#{name}</when>
+                <when test="telephone !=null">and telephone =#{telephone}</when>
+                <otherwise>
+                </otherwise>
+            </choose>
+
+        </where>
+
+    </select>
+
+
+</mapper>

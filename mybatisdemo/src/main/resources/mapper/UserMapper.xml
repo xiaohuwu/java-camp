@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ktb.mapper.UserDao">
+    <!--一对多映射-->
+    <resultMap id="OrderResultMap" type="com.ktb.model.User">
+        <id property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <collection property="orders" column="user_id" ofType="com.ktb.model.Order">
+            <id property="id" column="oid"/>
+            <result property="orderno" column="orderno"/>
+            <result property="amount" column="amount"/>
+        </collection>
+    </resultMap>
+
+    <select id="findAllUsers" resultMap="OrderResultMap" resultType="com.ktb.model.User">
+        SELECT
+          u.*,
+          o.id oid,
+          o.orderno orderno,
+          o.amount amount
+        FROM t_user u
+          LEFT JOIN t_order o
+            ON o.user_id = u.id
+    </select>
+
+</mapper>

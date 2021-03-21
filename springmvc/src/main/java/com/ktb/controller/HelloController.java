@@ -1,7 +1,10 @@
 package com.ktb.controller;
 
 import com.google.gson.Gson;
-import com.ktb.controller.model.User;
+import com.ktb.model.MybatisUser;
+import com.ktb.model.User;
+import com.ktb.sevice.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,6 +18,9 @@ import java.io.IOException;
 public class HelloController {
 
     private User user;
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping(value = "/hello", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_XML_VALUE)
     //response header  Content-Type: application/xml
@@ -74,5 +80,12 @@ public class HelloController {
         return user;
     }
 
+
+    @RequestMapping(value = "/saveUser", method = RequestMethod.POST)
+    @ResponseBody
+    public String saveUser(@RequestBody MybatisUser user) {
+        userService.saveUser(user);
+        return "success";
+    }
 
 }

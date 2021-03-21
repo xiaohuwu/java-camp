@@ -1,8 +1,7 @@
-package com.ktb.controller.model;
+package com.ktb.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 

@@ -2,23 +2,38 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
-    <!-- 开启注解 -->
-    <mvc:annotation-driven >
-    </mvc:annotation-driven>
 
 
     <!--指明 controller 所在包，并扫描其中的注解-->
-    <context:component-scan base-package="com.ktb.controller"/>
+    <context:component-scan base-package="com.ktb.controller,com.ktb.converter"/>
+
+    <!-- 装配自定义的类型转换器 -->
+    <mvc:annotation-driven/>
 
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
 
-    <bean class="com.ktb.controller.StringToDateConverter" id="stringToDateConverter"/>
+
+
+<!--    <mvc:annotation-driven conversion-service="conversionService"/>-->
+
+    <!-- 自定义的类型转换器 -->
+<!--    <bean id="conversionService"-->
+<!--          class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+<!--        <property name="converters">-->
+<!--            <list>-->
+<!--                <bean class="com.ktb.converter.StringToDateConverter"-->
+<!--                      p:datePattern="yyyy-MM-dd">-->
+<!--                </bean>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
 
 
     <!--ViewResolver 视图解析器-->

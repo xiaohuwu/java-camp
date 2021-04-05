@@ -1,0 +1,37 @@
+server:
+  port: 8888
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=yes&characterEncoding=utf8
+    username: root
+    password: 123456
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: auto
+      table-prefix: t_
+
+logging:
+  level:
+    root: info
+#    web: debug
+    com:
+      ktb:
+        springbootdemo: debug
+    org:
+      springframework:
+        web: debug
+        servlet:
+          mvc:
+            method:
+              annotation:
+                RequestResponseBodyMethodProcessor: INFO
+
+  pattern:
+    console=: "[%X{trade_id}]%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%C{56}.%method:%L %msg%n"
+
+#返回处理内容的
+#logging.level.org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor=INFO

@@ -11,8 +11,8 @@ import java.util.List;
 @Slf4j
 public class UserController {
 
-    @RequestMapping(value="/get",method= RequestMethod.GET)
-    public Object getList(){
+    @RequestMapping(value="/get",method= RequestMethod.POST)
+    public Object getList(@RequestBody UserEntity userEntity){
         log.info("getList===");
         List<UserEntity> list= new ArrayList<UserEntity>();
         UserEntity u1 = new UserEntity(null, "shanghai");
@@ -22,7 +22,7 @@ public class UserController {
 
     @RequestMapping(method = RequestMethod.POST, value = "/convert")
     public @ResponseBody
-    UserEntity converter(UserEntity user) {
+    UserEntity converter(@RequestBody UserEntity user) {
         return user;
     }
 

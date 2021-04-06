@@ -17,21 +17,19 @@ mybatis-plus:
 logging:
   level:
     root: info
-#    web: debug
-    com:
-      ktb:
-        springbootdemo: debug
     org:
       springframework:
         web: debug
-        servlet:
-          mvc:
-            method:
-              annotation:
-                RequestResponseBodyMethodProcessor: INFO
+        core:
+          log:
+            LogFormatUtils: info
+
+
 
   pattern:
     console=: "[%X{trade_id}]%date{yyyy-MM-dd HH:mm:ss.SSS} %-5level[%thread]%C{56}.%method:%L %msg%n"
 
 #返回处理内容的
 #logging.level.org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor=INFO
+
+

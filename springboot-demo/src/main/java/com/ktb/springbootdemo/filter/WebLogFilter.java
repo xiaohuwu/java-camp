@@ -22,8 +22,7 @@ import java.util.UUID;
  * @Author: xxx
  * @Description:
  * @Date: created in 13:46 2018/7/7
- */
-@Component
+ */@Component
 @Slf4j
 public class WebLogFilter implements Filter {
 

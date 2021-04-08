@@ -48,4 +48,7 @@ public class RedisConfig {
                 .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisTemplate.getValueSerializer()));
         return new RedisCacheManager(redisCacheWriter, redisCacheConfiguration);
     }
+
+
+
 }

@@ -1,12 +1,17 @@
 package com.ktb.springbootredis.model;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
 import java.io.Serializable;
 
 
+@JacksonXmlRootElement(localName = "User")
 public class User implements Serializable {
 
+    @JacksonXmlProperty(localName = "id")
     private Integer id;
-
+    @JacksonXmlProperty(localName = "name")
     private String username;
     private String password;
 
@@ -46,5 +51,14 @@ public class User implements Serializable {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

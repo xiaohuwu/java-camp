@@ -1,6 +1,7 @@
 package com.ktb.springbootredis;
 
 import com.ktb.springbootredis.model.User;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,16 +16,26 @@ import org.springframework.web.bind.annotation.*;
 
 import java.lang.reflect.Method;
 
+/**
+ * 此项目还包括shiro xml等
+ */
 @RestController
 @EnableCaching
 @SpringBootApplication
+@MapperScan(value = "com.ktb.springbootredis.mapper")
 public class SpringBootRedisApplication {
 
-    @Autowired
-    private StringRedisTemplate stringRedisTemplate;
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootRedisApplication.class, args);
+    }
+
+    // 缓存结果key：addUser::KeyGenerator:addUser
+    @Cacheable(value = "addUser",keyGenerator="oneKeyGenerator")
+    @PostMapping("/addUser")
+    public User addUser(@RequestBody User user) {
+        System.out.println("addUser==============>");
+        return user ;
     }
 
     @PostMapping("/getUser")
@@ -50,7 +61,7 @@ public class SpringBootRedisApplication {
 
 
 
-    @Bean
+    @Bean("oneKeyGenerator")
     public KeyGenerator keyGenerator() {
         return new KeyGenerator() {
             @Override
@@ -65,5 +76,7 @@ public class SpringBootRedisApplication {
             }
         };
     }
+
+
 
 }

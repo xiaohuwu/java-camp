@@ -1,9 +1,11 @@
 spring:
   jpa:
     show-sql: true
+    format_sql: true
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        enable_lazy_load_no_trans: true
         hbm2ddl:
           auto: update
 
@@ -59,9 +61,11 @@ logging:
     root: info
     web: debug
     org:
-      flywaydb: debug
+      flywaydb: info
+      hibernate:
+        type: trace
       apache:
-        shiro: debug
+        shiro: info
     com:
       ktb:
         springbootredis:

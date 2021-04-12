@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ktb.springbootredis.dao.ClassRoomDao">
+
+    <resultMap type="com.ktb.springbootredis.entity.ClassRoom" id="ClassRoomMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="classname" column="className" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ClassRoomMap">
+        select
+          id, className
+        from test.class_room
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ClassRoomMap">
+        select
+          id, className
+        from test.class_room
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="ClassRoomMap">
+        select
+        id, className
+        from test.class_room
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="classname != null and classname != ''">
+                and className = #{classname}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into test.class_room(className)
+        values (#{classname})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.class_room(className)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.classname})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into test.class_room(className)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.classname})
+        </foreach>
+        on duplicate key update
+        className = values(className)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update test.class_room
+        <set>
+            <if test="classname != null and classname != ''">
+                className = #{classname},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from test.class_room where id = #{id}
+    </delete>
+
+</mapper>
+

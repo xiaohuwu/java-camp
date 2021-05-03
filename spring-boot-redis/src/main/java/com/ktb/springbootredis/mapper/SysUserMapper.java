@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-@Mapper
+
 public interface SysUserMapper {
     /**
      * 查询用户的所有权限

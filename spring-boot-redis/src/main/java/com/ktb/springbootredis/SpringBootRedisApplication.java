@@ -11,6 +11,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +23,7 @@ import java.lang.reflect.Method;
 @RestController
 @EnableCaching
 @SpringBootApplication
-@MapperScan(value = "com.ktb.springbootredis.mapper")
+@MapperScan(value = {"com.ktb.springbootredis.mapper", "com.ktb.springbootredis.dao"})
 public class SpringBootRedisApplication {
 
 
@@ -31,34 +32,33 @@ public class SpringBootRedisApplication {
     }
 
     // 缓存结果key：addUser::KeyGenerator:addUser
-    @Cacheable(value = "addUser",keyGenerator="oneKeyGenerator")
+    @Cacheable(value = "addUser", keyGenerator = "oneKeyGenerator")
     @PostMapping("/addUser")
     public User addUser(@RequestBody User user) {
         System.out.println("addUser==============>");
-        return user ;
+        return user;
     }
 
     @PostMapping("/getUser")
-    @Cacheable(value = "user", key ="'id:'+#user.id")
+    @Cacheable(value = "user", key = "'id:'+#user.id")
     public User getUser(@RequestBody User user) {
         System.out.println("用户对象缓存不存在，返回一个新的用户对象。");
         return user;
     }
 
     @PostMapping("/updateUser")
-    @CachePut(value = "user", key ="'id:'+#user.id")
+    @CachePut(value = "user", key = "'id:'+#user.id")
     public User updateUser(@RequestBody User user) {
         System.out.println("用户对象缓存不存在，返回一个新的用户对象。");
         return user;
     }
 
     @GetMapping("/delUser")
-    @CacheEvict(value = "user", key ="'id:'+ #p0")
-    public String  delUser(Integer id) {
+    @CacheEvict(value = "user", key = "'id:'+ #p0")
+    public String delUser(Integer id) {
         System.out.println("用户对象缓存不存在，返回一个新的用户对象。");
         return "ok";
     }
-
 
 
     @Bean("oneKeyGenerator")
@@ -76,7 +76,6 @@ public class SpringBootRedisApplication {
             }
         };
     }
-
 
 
 }

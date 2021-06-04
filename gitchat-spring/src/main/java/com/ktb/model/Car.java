@@ -11,6 +11,11 @@ public class Car {
         this.id = id;
     }
 
+    public Car(int id, String brand) {
+        this.id = id;
+        this.brand = brand;
+    }
+
     public String getBrand() {
         return brand;
     }
@@ -22,5 +27,14 @@ public class Car {
     private String brand;
     public Car() {
         System.out.println("创建了Car对象");
+    }
+
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", brand='" + brand + '\'' +
+                '}';
     }
 }

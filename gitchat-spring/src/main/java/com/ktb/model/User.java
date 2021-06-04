@@ -2,11 +2,22 @@ package com.ktb.model;
 
 import org.springframework.stereotype.Component;
 
-@Component(value = "user")
-public class User {
 
-    public User() {
-        System.out.println("创建了User对象");
+public class User {
+    private int id;
+    private String name;
+
+    public User(int i, String name) {
+         this.id = i;
+         this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 
     public void add(){

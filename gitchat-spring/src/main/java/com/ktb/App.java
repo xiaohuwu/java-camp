@@ -35,6 +35,9 @@ public class App
         Student stu4 = (Student) context.getBean("stu4");
         System.out.println(stu4);
 
+        new Thread(()->{
+            System.out.println("启动了");
+        }).start();
 
     }
 }

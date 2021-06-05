@@ -11,7 +11,7 @@ import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
-   LoginService loginService = new LoginService();
+    LoginService loginService = new LoginService();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 //        PrintWriter out = response.getWriter();

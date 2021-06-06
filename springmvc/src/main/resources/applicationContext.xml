@@ -43,15 +43,18 @@
     </bean>
 
 
-    <!-- 对哪些方法进行事务增强 -->
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*"/>
-        </tx:attributes>
-    </tx:advice>
-    <aop:config>
-        <aop:pointcut id="txPoint" expression="execution(* com.ktb.sevice.*.*(..))"/>
-        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"></aop:advisor>
-    </aop:config>
+    <!-- 对哪些方法进行事务增强  基于XML 形式的事务声明 -->
+<!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+<!--        <tx:attributes>-->
+<!--            <tx:method name="*"/>-->
+<!--        </tx:attributes>-->
+<!--    </tx:advice>-->
+<!--    -->
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="txPoint" expression="execution(* com.ktb.sevice.*.*(..))"/>-->
+<!--        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPoint"></aop:advisor>-->
+<!--    </aop:config>-->
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
 
 </beans>

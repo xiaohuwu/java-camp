@@ -27,7 +27,7 @@ public class LoginServlet extends HttpServlet {
         String name = request.getParameter("name");
         System.out.println("name="+name);
 
-        request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request,response);
+        request.getRequestDispatcher("/WEB-INF/views/pre_login.jsp").forward(request,response);
 
     }
 
@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
             httpServletRequest.getRequestDispatcher("/WEB-INF/views/welcome.jsp").forward(httpServletRequest,httpServletResponse);
         }else {
             httpServletRequest.setAttribute("error","name or password not correct");
-            httpServletRequest.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(httpServletRequest,httpServletResponse);
+            httpServletRequest.getRequestDispatcher("/WEB-INF/views/pre_login.jsp").forward(httpServletRequest,httpServletResponse);
         }
 
     }

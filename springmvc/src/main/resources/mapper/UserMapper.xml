@@ -21,6 +21,12 @@
         FROM user
         WHERE user_id=#{id,jdbcType=INTEGER};
     </select>
+
+    <select id="getAllUser" resultType="com.ktb.model.User">
+        SELECT name ,age
+        FROM users
+    </select>
+
     <insert id="saveUser"
             parameterType="com.ktb.model.MybatisUser"
             useGeneratedKeys="true" keyColumn="user_id" keyProperty="userId">

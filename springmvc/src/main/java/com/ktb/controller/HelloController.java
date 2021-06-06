@@ -55,7 +55,7 @@ public class HelloController {
 
     @RequestMapping(value = "/param.do", method = RequestMethod.POST)
     public String saveData(User user) {
-        System.out.println("用户名：" + user.getUsername());
+        System.out.println("用户名：" + user.getName());
         System.out.println("年龄：" + user.getAge());
         return "success";
     }
@@ -94,6 +94,13 @@ public class HelloController {
     public List getAllUser() {
        List userList =  userService.getAllUser();
         return userList;
+    }
+
+    @RequestMapping(value = "/addUser", method = RequestMethod.POST)
+    @ResponseBody
+    public String addUser(@RequestBody  User user) {
+        userService.addUser(user);
+        return "ok";
     }
 
 }

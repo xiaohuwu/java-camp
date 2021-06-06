@@ -1,6 +1,8 @@
 package com.ktb;
 
 import com.ktb.model.User;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -9,9 +11,10 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @SessionAttributes("name")
-@RequestMapping("hello")
+@RequestMapping("user")
 public class LoginController {
 
+    private Logger logger = LogManager.getLogger(getClass());
     @Autowired
     LoginService loginService;
 
@@ -31,7 +34,29 @@ public class LoginController {
         return "pre_login";
     }
 
+    @RequestMapping(value = "/restful/{id}/{name}",method = RequestMethod.GET)
+    public String restful(@PathVariable Integer id, @PathVariable String name){
+        logger.info("id:"+id+"name:"+name);
+        return "pre_login";
+    }
 
+
+    @RequestMapping(value = "/restful",method = RequestMethod.GET)
+    public String getCookie(@CookieValue("JSESSIONID") String jsSessionId){
+        logger.info("jsSessionId:"+jsSessionId);
+        return "pre_login";
+    }
+
+    @RequestMapping(value = "/new",method = RequestMethod.GET)
+    public String userNew(User user){
+        return "user_new";
+    }
+
+    @RequestMapping(value = "/add",method = RequestMethod.POST)
+    public String restful(User user){
+        logger.info("user:"+user);
+        return "pre_login";
+    }
 
 
 //    @RequestMapping(value = "/do_login",method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)

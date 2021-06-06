@@ -31,13 +31,13 @@ public class SysLogAspect {
         // 接收到请求，记录请求内容
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = attributes.getRequest();
-
         // 记录下请求内容
-        logger.info("URL : " + request.getRequestURL().toString());
-        logger.info("HTTP_METHOD : " + request.getMethod());
-        logger.info("IP : " + request.getRemoteAddr());
-        logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
-        logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
+//        logger.info("URL : " + request.getRequestURL().toString());
+         logger.info("processing "+request.getMethod()+" request for"+" " + request.getRequestURL().toString() +"  from "+ request.getRemoteAddr());
+//        logger.info("HTTP_METHOD : " + request.getMethod());
+//        logger.info("IP : " + request.getRemoteAddr());
+//        logger.info("CLASS_METHOD : " + joinPoint.getSignature().getDeclaringTypeName() + "." + joinPoint.getSignature().getName());
+//        logger.info("ARGS : " + Arrays.toString(joinPoint.getArgs()));
 
 //
 //        logger.info("map : " + new Gson().toJson(map));
@@ -69,7 +69,7 @@ public class SysLogAspect {
     @AfterReturning(returning = "ret", pointcut = "webLog()")
     public void doAfterReturning(Object ret) throws Throwable {
         // 处理完请求，返回内容
-        logger.info("RESPONSE : " + ret);
+//        logger.info("RESPONSE : " + ret);
     }
 
 

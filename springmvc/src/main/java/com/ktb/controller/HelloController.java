@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 public class HelloController {
@@ -86,6 +87,13 @@ public class HelloController {
     public String saveUser(@RequestBody MybatisUser user) {
         userService.saveUser(user);
         return "success";
+    }
+
+    @RequestMapping(value = "/getAllUser", method = RequestMethod.GET)
+    @ResponseBody
+    public List getAllUser() {
+       List userList =  userService.getAllUser();
+        return userList;
     }
 
 }

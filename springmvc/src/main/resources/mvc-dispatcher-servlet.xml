@@ -10,7 +10,7 @@
 
 
     <!--指明 controller 所在包，并扫描其中的注解-->
-    <context:component-scan base-package="com.ktb.controller,com.ktb.converter"/>
+    <context:component-scan base-package="com.ktb.controller"/>
 
     <!-- 装配自定义的类型转换器 -->
     <mvc:annotation-driven/>

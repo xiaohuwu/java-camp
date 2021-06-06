@@ -2,6 +2,7 @@ package com.ktb.sevice;
 
 import com.ktb.dao.UserDao;
 import com.ktb.model.MybatisUser;
+import com.ktb.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,5 +38,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteUser(Integer id) {
         userDao.deleteUser(id);
+    }
+
+    @Override
+    public List getAllUser() {
+        List<User> allUser = userDao.getAllUser();
+        return allUser;
     }
 }

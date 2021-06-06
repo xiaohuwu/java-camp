@@ -6,6 +6,7 @@ import com.ktb.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.beans.Transient;
 import java.util.List;
 
 @Service
@@ -44,5 +45,14 @@ public class UserServiceImpl implements UserService{
     public List getAllUser() {
         List<User> allUser = userDao.getAllUser();
         return allUser;
+    }
+
+    @Transient
+    @Override
+    public void addUser(User user) {
+        userDao.addUser(user);
+        int result = 1/0;
+        User user1 = new User("ruowen",12);
+        userDao.addUser(user1);
     }
 }

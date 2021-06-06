@@ -38,6 +38,10 @@
         #{userEmail,jdbcType=VARCHAR});
     </insert>
 
+    <insert id="addUser" parameterType="com.ktb.model.User">
+          INSERT INTO `users` (`name`, `age`, `created_at`, `updated_at`) VALUES (#{name}, #{age}, now(), now())
+    </insert>
+
     <update id="updateUser"
             parameterType="com.ktb.model.MybatisUser">
         UPDATE user SET

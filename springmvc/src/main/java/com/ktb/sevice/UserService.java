@@ -1,6 +1,7 @@
 package com.ktb.sevice;
 
 import com.ktb.model.MybatisUser;
+import com.ktb.model.User;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface UserService {
     void deleteUser(Integer id);
 
     List getAllUser();
+
+    void addUser(User user);
 }

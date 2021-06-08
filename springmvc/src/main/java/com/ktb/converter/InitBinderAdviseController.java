@@ -10,10 +10,10 @@ import java.util.Date;
 @ControllerAdvice
 public class InitBinderAdviseController {
 
-    @InitBinder
-    public void dateTypeBinder(WebDataBinder webDataBinder){
-        //往数据绑定器中添加一个DateFormatter日期转化器。
-        webDataBinder.registerCustomEditor(Date.class, new DateEditor());
-    }
+//    @InitBinder
+//    public void dateTypeBinder(WebDataBinder webDataBinder){
+//        //往数据绑定器中添加一个DateFormatter日期转化器。
+//        webDataBinder.registerCustomEditor(Date.class, new DateEditor());
+//    }
 
 }

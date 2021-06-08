@@ -20,6 +20,7 @@ public class Usercontroller {
         return "registerForm";
     }
 
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@ModelAttribute LoginUser loginUser) {
         System.out.println("loginUser:" + new Gson().toJson(loginUser));

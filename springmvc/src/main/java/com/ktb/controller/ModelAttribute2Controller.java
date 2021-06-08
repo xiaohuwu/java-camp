@@ -20,7 +20,7 @@ public class ModelAttribute2Controller {
         System.out.println("res:" + new Gson().toJson(model));
     }
 
-    @RequestMapping(value = "/login2")
+    @RequestMapping(value = "/login5")
     public String model(Model model) {
         System.out.println("res12e:" + new Gson().toJson(model));
         return "result2";

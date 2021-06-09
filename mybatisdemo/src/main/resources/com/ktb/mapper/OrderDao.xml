@@ -7,8 +7,6 @@
     <!--一对一映射-->
     <resultMap id="OrderResultMap" type="com.ktb.model.Order">
         <id property="id" column="oid"/>
-        <result property="orderno" column="orderno"/>
-        <result property="amount" column="amount"/>
         <!--关联查询订单所属的用户-->
         <association property="user" column="id" javaType="com.ktb.model.User">
             <id property="id" column="id"/>
@@ -19,14 +17,7 @@
 
     <!--1对1-->
     <select id="findAllOrders" resultMap="OrderResultMap">
-        SELECT
-          o.id oid,
-          o.orderno orderno,
-          o.amount amount,
-          u.*
-        FROM t_order o
-          LEFT JOIN t_user u
-            ON o.user_id = u.id
+    SELECT  *  FROM `orders` INNER JOIN `users` ON `users`.`id` = `orders`.`user_id`
     </select>
 
 

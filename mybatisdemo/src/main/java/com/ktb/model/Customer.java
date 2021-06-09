@@ -23,6 +23,10 @@ public class Customer {
         this.telephone = telephone;
     }
 
+    public Customer(int i) {
+        this.id = i;
+    }
+
     public Integer getId() {
         return id;
     }

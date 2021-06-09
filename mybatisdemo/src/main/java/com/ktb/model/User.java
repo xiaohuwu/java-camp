@@ -4,15 +4,13 @@ import java.util.List;
 
 public class User {
     private Integer id;
+
     private String username;
-    List<Order> orders;
-    private String password;
 
+    private Integer age;
 
+    private String address;
 
-    public void setOrders(List<Order> orders) {
-        this.orders = orders;
-    }
 
     public Integer getId() {
         return id;
@@ -30,12 +28,19 @@ public class User {
         this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
 }

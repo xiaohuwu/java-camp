@@ -16,6 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class test {
@@ -53,7 +54,7 @@ public class test {
     public void update() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
-        Customer customer = mapper.get(6);
+        Customer customer = mapper.get(6,null);
         customer.setName("小虎哥123");
         Long update = mapper.update(customer);
         System.out.println("update:" + update);
@@ -64,7 +65,23 @@ public class test {
     public void get() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
-        Customer customer = mapper.get(6);
+//        Customer customer = mapper.get(new Customer(6));
+        Customer customer = mapper.get(6,null);
+        System.out.println(customer.toString());
+        sqlSession.close();
+    }
+
+    @Test
+    public void findByIds() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
+        ArrayList list = new ArrayList<Integer>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        Integer[] array = new Integer[list.size()];
+        list.toArray(array);
+        List<Customer> customer = mapper.findByIds(array);
         System.out.println(customer.toString());
         sqlSession.close();
     }

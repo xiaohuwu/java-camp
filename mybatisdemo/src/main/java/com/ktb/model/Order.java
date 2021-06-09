@@ -1,10 +1,15 @@
 package com.ktb.model;
 
+import java.util.Date;
+
 public class Order {
+
     private Integer id;
-    private String orderno;
-    private Double amount;
-    private User user;
+    private Date createtime;
+    private Integer price;
+    private String remark;
+    private Integer userId;
+
 
     public Integer getId() {
         return id;
@@ -14,28 +19,35 @@ public class Order {
         this.id = id;
     }
 
-    public String getOrderno() {
-        return orderno;
+    public Date getCreatetime() {
+        return createtime;
     }
 
-    public void setOrderno(String orderno) {
-        this.orderno = orderno;
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
-    public Double getAmount() {
-        return amount;
+    public Integer getPrice() {
+        return price;
     }
 
-    public void setAmount(Double amount) {
-        this.amount = amount;
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 
-    public User getUser() {
-        return user;
+    public String getRemark() {
+        return remark;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
 }

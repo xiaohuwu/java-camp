@@ -2,6 +2,7 @@ package com.atguigu.crud.test;
 
 import java.util.List;
 
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,6 +36,13 @@ public class MvcTest {
 	WebApplicationContext context;
 	// 虚拟mvc请求，获取到处理结果。
 	MockMvc mockMvc;
+
+	@Test
+	public void test() {
+		ComboPooledDataSource pooledDataSource = (ComboPooledDataSource) context.getBean("pooledDataSource");
+		String driverClass = pooledDataSource.getDriverClass();
+		System.out.println("driverClass:" +driverClass);
+	}
 
 	@Before
 	public void initMokcMvc() {

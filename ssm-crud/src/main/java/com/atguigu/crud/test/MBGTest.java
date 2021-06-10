@@ -21,5 +21,6 @@ public class MBGTest {
 		MyBatisGenerator myBatisGenerator = new MyBatisGenerator(config,
 				callback, warnings);
 		myBatisGenerator.generate(null);
+		System.out.println(warnings);
 	}
 }

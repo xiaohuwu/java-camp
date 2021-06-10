@@ -51,7 +51,7 @@ public class EmployeeController {
 	public Msg deleteEmp(@PathVariable("ids")String ids){
 		//批量删除
 		if(ids.contains("-")){
-			List<Integer> del_ids = new ArrayList<>();
+			List<Integer> del_ids = new ArrayList<Integer>();
 			String[] str_ids = ids.split("-");
 			//组装id的集合
 			for (String string : str_ids) {
@@ -165,7 +165,7 @@ public class EmployeeController {
 	public Msg saveEmp(@Valid Employee employee,BindingResult result){
 		if(result.hasErrors()){
 			//校验失败，应该返回失败，在模态框中显示校验失败的错误信息
-			Map<String, Object> map = new HashMap<>();
+			Map<String, Object> map = new HashMap<String, Object>();
 			List<FieldError> errors = result.getFieldErrors();
 			for (FieldError fieldError : errors) {
 				System.out.println("错误的字段名："+fieldError.getField());

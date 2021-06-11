@@ -11,9 +11,14 @@ public class HelloController {
     private Logger logger = Logger.getLogger(getClass().getSimpleName());
 
     @RequestMapping("/hello")
-    @ResponseBody
     public  String  hello(){
         logger.info("hello===========");
-        return "hello world";
+        return "hello";
+    }
+
+   @RequestMapping("/hello_word")
+    public  String  hello_word(){
+        logger.info("hello===========");
+        return "hello";
     }
 }

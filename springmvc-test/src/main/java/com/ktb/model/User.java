@@ -10,7 +10,6 @@ public class User {
     private Integer age;
     private String name;
 
-    @JsonFormat(pattern="yyyy-MM-dd",timezone = "GMT+8")
     private Date birthDate;
 
     public User() {

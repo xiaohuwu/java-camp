@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.logging.Logger;
 
-//@Controller
+@Controller
 public class HelloController {
     private Logger logger = Logger.getLogger(getClass().getSimpleName());
 

@@ -1,12 +1,11 @@
 package com.ktb;
 
+import com.ktb.model.Book;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -23,4 +22,14 @@ public class TodoController {
         model.addAttribute("todos", service.retrieveTodos("in28Minutes"));
         return "list_todos";
     }
+
+
+    @RequestMapping(value = "/book",method = RequestMethod.POST)
+    @ResponseBody
+    public Book addBook(@RequestBody Book book) {
+        System.out.println("book = " + book);
+        return book;
+    }
+
+
 }

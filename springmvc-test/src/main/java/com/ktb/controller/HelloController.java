@@ -6,15 +6,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.logging.Logger;
 
-@Controller
+//@Controller
 public class HelloController {
     private Logger logger = Logger.getLogger(getClass().getSimpleName());
 
-    @RequestMapping("/hello")
-    public  String  hello(){
-        logger.info("hello===========");
-        return "hello";
-    }
+//    @RequestMapping("/hello")
+//    public  String  hello(){
+//        logger.info("hello===========");
+//        return "hello";
+//    }
 
    @RequestMapping("/hello_word")
     public  String  hello_word(){

@@ -8,6 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * Hello world!
  *
  */
+
 public class AanotationApp
 {
     public static void main( String[] args )

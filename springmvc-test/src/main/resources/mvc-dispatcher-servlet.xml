@@ -12,16 +12,12 @@
 
     <mvc:annotation-driven>
         <mvc:message-converters register-defaults="true">
-<!--            <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
-<!--                <constructor-arg value="UTF-8"/>-->
-<!--            </bean>-->
-
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-<!--                <property name="supportedMediaTypes">-->
-<!--                    <list>-->
-<!--                        <value>application/json;charset=UTF-8</value>-->
-<!--                    </list>-->
-<!--                </property>-->
+                <property name="supportedMediaTypes">
+                    <list>
+                        <value>application/json;charset=UTF-8</value>
+                    </list>
+                </property>
                 <property name="objectMapper">
                     <bean class="com.fasterxml.jackson.databind.ObjectMapper">
                         <property name="dateFormat">
@@ -44,7 +40,6 @@
 
     <!--    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
     <!--    <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter"/>-->
-
     <!--    <bean id="/hello" class="com.ktb.controller.FirstController"/>-->
 
     <!--解决响应乱码-->

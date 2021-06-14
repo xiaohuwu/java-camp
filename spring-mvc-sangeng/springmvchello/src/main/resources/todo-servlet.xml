@@ -19,13 +19,26 @@
 <!--    <bean id="/hello" class="com.ktb.controller.FirstController"/>-->
 
     <!--解决响应乱码-->
-    <mvc:annotation-driven>
-        <mvc:message-converters>
-            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
-                <constructor-arg value="utf-8"/>
-            </bean>
-        </mvc:message-converters>
-    </mvc:annotation-driven>
+        <mvc:annotation-driven>
+            <mvc:message-converters>
+    <!--            简单字符串转中文乱码问题-->
+<!--                <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
+<!--                    <constructor-arg index="0" value="UTF-8"/>-->
+<!--                </bean>-->
+                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+                    <property name="objectMapper">
+                        <bean class="com.fasterxml.jackson.databind.ObjectMapper">
+                            <property name="dateFormat">
+                                <bean class="java.text.SimpleDateFormat">
+                                    <constructor-arg name="pattern" value="yyyy-MM-dd HH:mm:ss"/>
+                                </bean>
+                            </property>
+                            <property name="timeZone" value="Asia/Shanghai"/>
+                        </bean>
+                    </property>
+                </bean>
+            </mvc:message-converters>
+        </mvc:annotation-driven>
 
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -22,7 +22,8 @@ import java.util.UUID;
  * @Author: xxx
  * @Description:
  * @Date: created in 13:46 2018/7/7
- */@Component
+ */
+@Component
 @Slf4j
 public class WebLogFilter implements Filter {
 
@@ -42,9 +43,9 @@ public class WebLogFilter implements Filter {
         MDC.put("trade_id", UUID.randomUUID().toString().replaceAll("-",""));
         String body = IOUtils.toString(wrappedRequest.getReader());
         log.info("\n===>{},{},{}",wrappedRequest.getRequestURI(),wrappedRequest.getMethod(), body);
-        chain.doFilter(wrappedRequest, wrapperResponse);
-        String responseBody = getResponseBody(wrapperResponse);
-        log.info("responseBody==={}", responseBody);
+        chain.doFilter(wrappedRequest, response);
+//        String responseBody = getResponseBody(wrapperResponse);
+//        log.info("responseBody==={}", responseBody);
     }
 
     public void init(FilterConfig arg0) throws ServletException {

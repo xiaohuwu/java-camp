@@ -11,6 +11,7 @@ public class Customer {
 
     private String telephone;
 
+
     private Date createdAt;
 
     private Date updatedAt;

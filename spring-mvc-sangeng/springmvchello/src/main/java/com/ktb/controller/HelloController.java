@@ -1,10 +1,11 @@
 package com.ktb.controller;
 
+import com.ktb.model.Customer;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Arrays;
 
 
 @Controller
@@ -25,6 +26,37 @@ public class HelloController {
     public String test(@PathVariable(value = "path",required = false) String path) {
         return "test";
     }
+
+
+    @RequestMapping(value = "/customer",method = RequestMethod.POST)
+    @ResponseBody
+    public Customer custom(@RequestBody Customer customer) { // 非json格式不能用@RequestBody
+        return customer;
+    }
+
+//    @RequestMapping(value = "/convertString",produces = "text/plain")
+    @RequestMapping(value = "/convertString")
+    @ResponseBody
+    public String convertString(String  customer) {
+        return customer;
+    }
+
+    //http://localhost:8080/testRquestParam?id=1&name=xiaohu&likes=ge&likes=xiaoyue
+    @RequestMapping("/testRquestParam")
+    public String testRquestParam(Integer id, @RequestParam("name") String name, String[] likes){
+        System.out.println("testRquestParam");
+        System.out.println(id);
+        System.out.println(name);
+        System.out.println(Arrays.toString(likes));
+        return "/success.jsp";
+    }
+
+    @RequestMapping("/testRquestParam1")
+    public String testRquestParam1(){
+
+        return "/success.jsp";
+    }
+
 
 
 }

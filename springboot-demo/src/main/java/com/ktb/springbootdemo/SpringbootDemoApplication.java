@@ -6,7 +6,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 
-@MapperScan(basePackages = "com.ktb.springbootdemo.mapper")
 @SpringBootApplication
 public class SpringbootDemoApplication {
 

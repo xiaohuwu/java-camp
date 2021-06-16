@@ -57,6 +57,20 @@ public class HelloController {
         return "/success.jsp";
     }
 
+    @RequestMapping(value="/baseType")
+    @ResponseBody
+    public String baseType(Integer id){
+        return "id:"+id;
+    }
+
+    @RequestMapping(value="/packageType")
+    @ResponseBody
+    public String packageType(@RequestParam(value = "id",required = true, defaultValue = "11") Integer id){
+        return "id:"+id;
+    }
+
+
+
 
 
 }

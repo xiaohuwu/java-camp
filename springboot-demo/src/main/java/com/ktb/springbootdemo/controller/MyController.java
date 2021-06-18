@@ -15,7 +15,7 @@ import java.util.List;
 
 @Controller
 public class MyController {
-    @GetMapping("/")
+   // @GetMapping("/")
     public String mainView() {
         return "main";
     }

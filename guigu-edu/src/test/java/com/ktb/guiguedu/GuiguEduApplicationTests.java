@@ -3,8 +3,11 @@ package com.ktb.guiguedu;
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ktb.guiguedu.dao.UserMapper;
 import com.ktb.guiguedu.model.User;
+import org.apache.ibatis.session.RowBounds;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,12 +65,34 @@ class GuiguEduApplicationTests {
 
 
     @Test
+    public void page() {
+        Page<User> page = new Page<>(1,5);
+        Page<User> userPage = userMapper.selectPage(page, null);
+        userPage.getRecords().forEach(System.out::println);
+        System.out.println(page.getCurrent());
+        System.out.println(page.getPages());
+        System.out.println(page.getSize());
+        System.out.println(page.getTotal());
+        System.out.println(page.hasNext());
+        System.out.println(page.hasPrevious());
+    }
+
+
+    @Test
     public void testupdateUser() {
         System.out.println(("----- selectAll method test ------>>>>>>>>>>>>"));
         User user = userMapper.selectById(11);
         user.setName("Helen Yao");
         user.setEmail("helen@qq.com");
         userMapper.updateById(user);
+    }
+
+    /**
+     * 测试 逻辑删除 */
+    @Test
+    public void testLogicDelete() {
+        int result = userMapper.deleteById(11L);
+        System.out.println(result);
     }
 
     @Test

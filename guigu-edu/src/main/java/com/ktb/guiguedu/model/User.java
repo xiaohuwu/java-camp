@@ -35,7 +35,12 @@ public class User extends Model<User> {
     private LocalDateTime updatedAt;
 
     @Version
+    @TableField(fill = FieldFill.INSERT)
     private Integer version;
+
+    @TableLogic
+    @TableField(fill = FieldFill.INSERT)
+    private Integer deleted;
 
 
 

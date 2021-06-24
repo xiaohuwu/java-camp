@@ -134,6 +134,7 @@
         <!--可以输出项目中的debug日志，包括mybatis的sql日志-->
         <logger name="com.guli" level="DEBUG" />
         <logger name="org.springframework.web" level="DEBUG" />
+        <logger name="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping" level="INFO" />
         <logger name="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping" level="TRACE" />
 
         <!--

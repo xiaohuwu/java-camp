@@ -3,10 +3,7 @@ package com.ktb;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.google.gson.Gson;
-import com.ktb.mapper.CustomerMapper;
-import com.ktb.mapper.OrderDao;
-import com.ktb.mapper.StudentMapper;
-import com.ktb.mapper.UserDao;
+import com.ktb.mapper.*;
 import com.ktb.model.*;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -35,6 +32,38 @@ public class test {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         //从 SqlSessionFactory 中获取 SqlSession
         return sqlSessionFactory.openSession(true); //此处设置事务手动提交 坑一
+    }
+
+    @Test
+    public void test() throws IOException {
+
+        // 2、获取sqlSession实例，能直接执行已经映射的sql语句
+        // sql的唯一标识：statement Unique identifier matching the statement to use.
+        // SqlSession：parameter A parameter object to pass to the statement.
+        SqlSession sqlSessionFactory = getSqlSession();
+        try {
+            Employee employee = sqlSessionFactory.selectOne(
+                    "abc.getEmpById", 1);
+            System.out.println(employee);
+        } finally {
+            sqlSessionFactory.close();
+        }
+    }
+
+    @Test
+    public void test01() throws IOException {
+
+        // 2、获取sqlSession实例，能直接执行已经映射的sql语句
+        // sql的唯一标识：statement Unique identifier matching the statement to use.
+        // SqlSession：parameter A parameter object to pass to the statement.
+        SqlSession sqlSessionFactory = getSqlSession();
+        try {
+            EmployeeMapper mapper = sqlSessionFactory.getMapper(EmployeeMapper.class);
+            Employee employee = mapper.getEmpById(1);
+            System.out.println(new Gson().toJson(employee));
+        } finally {
+            sqlSessionFactory.close();
+        }
     }
 
     @Test

@@ -33,11 +33,12 @@
 
 
     <mappers>
-        <package name="com.ktb.mapper"/>
+<!--        <package name="com.ktb.mapper"/>-->
 <!--        <mapper resource="com/ktb/mapper/ComstomerMapper.xml"/>-->
 <!--        <mapper resource="mapper/StudentMapper.xml"/>-->
 <!--        <mapper resource="mapper/OrderDao.xml"/>-->
 <!--        <mapper resource="mapper/UserDao.xml"/>-->
+        <mapper resource="com/ktb/mapper/EmployeeMapper.xml"/>
     </mappers>
 
 </configuration>

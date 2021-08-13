@@ -2,14 +2,17 @@ package com.ktb.controller;
 
 import com.ktb.service.AlphaService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.List;
 
 @Controller
 public class HelloController {
@@ -85,6 +88,37 @@ public class HelloController {
     @RequestMapping(value = "/student_new",method = RequestMethod.GET)
     public String student_new() {
         return "student";
+    }
+
+    // 响应HTML数据
+    @RequestMapping(value = "/get_school",method = RequestMethod.GET)
+    public String get_school(Model model) {
+        model.addAttribute("name","at home");
+        model.addAttribute("age","18");
+        return "view";
+    }
+
+
+    // 响应JSON数据(异步请求)
+    // Java对象 -> JSON字符串 -> JS对象
+    @RequestMapping(value = "/get_emps",method = RequestMethod.GET)
+    @ResponseBody
+    public HashMap get_emps() {
+        HashMap hashMap = new HashMap();
+        hashMap.put("name","xiaphu");
+        hashMap.put("age","18");
+        return hashMap;
+    }
+
+    @RequestMapping(value = "/get_emps_list",method = RequestMethod.GET)
+    @ResponseBody
+    public List get_emps_list() {
+        List list = new ArrayList();
+        HashMap hashMap = new HashMap();
+        hashMap.put("name","xiaphu");
+        hashMap.put("age","18");
+        list.add(hashMap);
+        return list;
     }
 
 }

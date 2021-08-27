@@ -1,6 +1,8 @@
 package com.ktb.controller;
 
 import com.ktb.service.AlphaService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,9 +22,14 @@ public class HelloController {
     @Resource
     AlphaService alphaService;
 
+    @Autowired
+    RedisTemplate redisTemplate;
+
     @RequestMapping(path = "/hello")
     @ResponseBody
     public String hello() {
+        String redisKey = "test:count";
+        redisTemplate.opsForValue().set(redisKey, 12);
         return "hello";
     }
 

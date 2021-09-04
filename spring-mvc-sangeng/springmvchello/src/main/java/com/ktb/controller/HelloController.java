@@ -19,8 +19,6 @@ public class HelloController {
         return mv;
     }
 
-
-
     @RequestMapping(value = "/test")
     @ResponseBody
     public String test(@PathVariable(value = "path",required = false) String path) {
@@ -42,6 +40,7 @@ public class HelloController {
     }
 
     //http://localhost:8080/testRquestParam?id=1&name=xiaohu&likes=ge&likes=xiaoyue
+    //http://localhost:8080/testRquestParam?id=1&name=xiaohu&likes=ge,xiaoyue 这两种传参形式都可以
     @RequestMapping("/testRquestParam")
     public String testRquestParam(Integer id, @RequestParam("name") String name, String[] likes){
         System.out.println("testRquestParam");

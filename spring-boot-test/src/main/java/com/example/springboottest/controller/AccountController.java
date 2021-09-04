@@ -28,7 +28,7 @@ public class AccountController {
     @Autowired
     JwtUtils jwtUtils;
 
-    @PostMapping("/login")
+    @PostMapping("/login1")
     public Result login(@Validated @RequestBody LoginDto loginDto, HttpServletResponse response) {
 
         User user = userService.getOne(new QueryWrapper<User>().eq("username", loginDto.getUsername()));
@@ -51,7 +51,7 @@ public class AccountController {
         );
     }
 
-    @RequiresAuthentication
+    //@RequiresAuthentication
     @GetMapping("/logout")
     public Result logout() {
         SecurityUtils.getSubject().logout();

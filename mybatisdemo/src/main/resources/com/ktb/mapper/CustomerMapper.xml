@@ -5,52 +5,19 @@
 <mapper namespace="com.ktb.mapper.CustomerMapper">
     <!--返回主键-->
     <insert id="save" parameterType="com.ktb.model.Customer" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-
-
-
-
-
-
-                                                       INSERT INTO t_customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
-
-
-
-
-
-
+     INSERT INTO t_customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
     </insert>
 
 
     <!--不是用object直接传值 而是object的包装类型-->
     <insert id="testParameterType" parameterType="com.ktb.model.CustomerVo">
-
-
-
-
-
-
                                                          INSERT INTO t_customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
-
-
-
-
-
 
     </insert>
 
     <update id="update" parameterType="com.ktb.model.Customer">
 
-
-
-
-
-
                                                         update t_customer set name =#{name} where id=#{id}
-
-
-
-
-
 
     </update>
 

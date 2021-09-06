@@ -2,8 +2,62 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>首页</title> </head>
-<body> <h1>首页</h1>
-<a th:href="@{/hello}">HelloWorld</a><br/>
+    <title>首页</title></head>
+   <script type="text/javascript"  th:src="@{/resources/jquery.min.js}"></script>
+<body>
+<h1>首页</h1>
+
+<a th:href="@{/testRequestMapping(username='admin12',password=123456)}">测试@RequestMapping的value属性--
+    >/testRequestMapping</a><br>
+<a th:href="@{/test}">测试@RequestMapping的value属性-->/test</a><br>
+<a th:href="@{/putRequestTest}" methods="put">putRequestTest</a><br>
+
+<form action="/putRequestTest" method="post">
+    <input type="hidden" name="_method" value="PUT"></input>
+    <input type="submit" value="test Rest PUT"></input>
+</form>
+<a th:href="@{/testRest/1/admin}">测试路径中的占位符-->/testRest</a><br>
+<a th:href="@{/httpServletRequest(username='admin12',password=123456)}">httpServletRequest</a><br>
+<a th:href="@{/testParam(username='admin12',password=123456)}">testParam</a><br>
+
+<h2> 通过POJO获取请求参数 </h2>
+<form th:action="@{/testRequestBody}" method="post">
+    用户名:<input type="text" name="username"><br>
+    密码:<input type="password" name="password"><br>
+    <input type="submit">
+</form>
+
+<a th:href="@{/testServletAPI(username='admin12')}">testScope</a><br>
+
+<h2> testRequestBody </h2>
+<form th:action="@{/mytestRequestBody}" method="post">
+    用户名:<input type="text" name="username"><br>
+    密码:<input type="password" name="password"><br>
+    <input type="submit">
+</form>
+
+<a href="javascript:void(0);" onclick="test6()">test6</a>
 </body>
+
 </html>
+
+<script type="text/javascript">
+    function test6(){
+
+        $.ajax({
+            type:'post',
+            url:'/testResponseUser',
+            contentType:'application/x-result;charset=utf-8',
+            data:{name:"200",password:"我是丁振锋"},
+            success:function(text){
+                alert(text);
+            },
+            error:function(data){
+                alert("后台异常！")
+            },
+            async:false,
+            cache:false
+        });
+    }
+
+</script>

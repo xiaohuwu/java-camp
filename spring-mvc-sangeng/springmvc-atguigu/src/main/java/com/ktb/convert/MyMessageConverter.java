@@ -1,10 +1,6 @@
-package com.ktb.springbootdemo.converter;
+package com.ktb.convert;
 
-import com.ktb.springbootdemo.model.UserEntity;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
+import com.ktb.model.User;
 import org.springframework.http.HttpInputMessage;
 import org.springframework.http.HttpOutputMessage;
 import org.springframework.http.MediaType;
@@ -15,8 +11,9 @@ import org.springframework.util.StreamUtils;
 
 import java.io.IOException;
 import java.nio.charset.Charset;
+
 //https://www.cnblogs.com/hhhshct/p/9676604.html
-public class MyMessageConverter extends AbstractHttpMessageConverter<UserEntity> {
+public class MyMessageConverter extends AbstractHttpMessageConverter<User> {
 
     public MyMessageConverter() {
         // 新建一个我们自定义的媒体类型application/xxx-junlin
@@ -27,7 +24,7 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<UserEntity>
     @Override
     protected boolean supports(Class<?> aClass) {
 
-        return UserEntity.class.isAssignableFrom(aClass);
+        return User.class.isAssignableFrom(aClass);
     }
 
     /**
@@ -35,10 +32,10 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<UserEntity>
      * 要让程序进入这个方法 Content-Type= application/xxx-junlin
      */
     @Override
-    protected UserEntity readInternal(Class<? extends UserEntity> aClass, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
+    protected User readInternal(Class<? extends User> aClass, HttpInputMessage httpInputMessage) throws IOException, HttpMessageNotReadableException {
         String temp = StreamUtils.copyToString(httpInputMessage.getBody(), Charset.forName("UTF-8"));
         String[] tempArr = temp.split("-");
-        return new UserEntity(tempArr[0],tempArr[1]);
+        return new User(tempArr[0],tempArr[1]);
     }
 
     /**
@@ -46,7 +43,7 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<UserEntity>
      * 要让程序进入这个方法 Accept = application/xxx-junlin
      */
     @Override
-    protected void writeInternal(UserEntity userEntity, HttpOutputMessage httpOutputMessage) throws IOException, HttpMessageNotWritableException {
+    protected void writeInternal(User userEntity, HttpOutputMessage httpOutputMessage) throws IOException, HttpMessageNotWritableException {
 ////        final Workbook workbook = new HSSFWorkbook();
 ////        final Sheet sheet = workbook.createSheet();
 ////
@@ -56,7 +53,7 @@ public class MyMessageConverter extends AbstractHttpMessageConverter<UserEntity>
 //
 //        workbook.write(httpOutputMessage.getBody());
 
-        String out = "hello: " + userEntity.getName() + "-" + userEntity.getAddress();
+        String out = "hello: " + userEntity.getUsername() + "-" + userEntity.getPassword();
         httpOutputMessage.getBody().write(out.getBytes());
     }
 }

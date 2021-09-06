@@ -3,11 +3,30 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Taco Cloud</title>
+    <script th:src="@{/jquery.min.js}"></script>
 </head>
 
 <body>
 <h1>Welcome to...</h1>
-<img th:src="@{/haha/TacoCloud.png}"/>
+<img th:src="@{/TacoCloud.png}"/>
 <a href="/exchangeRates">Get Today Exchange Rates</a>
+<div id="resp">
+    <button onclick="req()">点我</button>
+</div>
+
 </body>
 </html>
+
+<script type="text/javascript">
+    function req() {
+        $.ajax({
+            url:"convert",
+            data:"1-hello",//后台会根据—分割数据
+            type:"POST",
+            contentType:"application/xxx-junlin",//这里设置的就是自定义媒体类型
+            success:function(data){
+                $("#resp").html(data);
+            }
+        });
+    }
+</script>

@@ -23,7 +23,7 @@ import java.util.UUID;
  * @Description:
  * @Date: created in 13:46 2018/7/7
  */
-@Component
+//@Component
 @Slf4j
 public class WebLogFilter implements Filter {
 
@@ -34,6 +34,7 @@ public class WebLogFilter implements Filter {
 
     public void doFilter(ServletRequest request, ServletResponse response,
                          FilterChain chain) throws IOException, ServletException {
+
         CopyableHttpServletRequestWrapper wrappedRequest = new CopyableHttpServletRequestWrapper(
                 (HttpServletRequest) request);
 

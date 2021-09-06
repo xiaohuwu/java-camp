@@ -1,5 +1,7 @@
 package com.ktb.springbootdemo.controller;
 
+import com.ktb.springbootdemo.config.RequestUser;
+import com.ktb.springbootdemo.model.User;
 import com.ktb.springbootdemo.model.UserEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -11,18 +13,21 @@ import java.util.List;
 @Slf4j
 public class UserController {
 
-    @RequestMapping(value="/get",method= RequestMethod.POST)
-    public Object getList(@RequestBody UserEntity userEntity){
+    @RequestMapping(value = "/get", method = RequestMethod.GET, produces = "application/xxx-junlin")
+    public Object getList() {
         log.info("getList===");
-        List<UserEntity> list= new ArrayList<UserEntity>();
         UserEntity u1 = new UserEntity(null, "shanghai");
-        list.add(u1);
-        return list;
+        return u1;
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/convert")
     public @ResponseBody
     UserEntity converter(@RequestBody UserEntity user) {
+        return user;
+    }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/testUser")
+    public User testUser(@RequestUser User user) {
         return user;
     }
 

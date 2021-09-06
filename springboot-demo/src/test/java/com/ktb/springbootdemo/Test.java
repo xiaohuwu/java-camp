@@ -1,9 +1,5 @@
 package com.ktb.springbootdemo;
 
-import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
-import jdk.internal.util.xml.impl.ReaderUTF8;
-import net.minidev.json.JSONUtil;
-
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,9 +9,6 @@ import java.util.concurrent.*;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Supplier;
-
-import org.apache.logging.log4j.util.PropertiesUtil;
-import org.junit.jupiter.api.*;
 
 public class Test {
     private String name;

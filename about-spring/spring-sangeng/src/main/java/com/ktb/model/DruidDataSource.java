@@ -1,4 +1,4 @@
-package com.ktb;
+package com.ktb.model;
 
 public class DruidDataSource {
     private String  driverClassName;

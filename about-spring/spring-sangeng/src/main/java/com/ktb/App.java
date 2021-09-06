@@ -1,7 +1,9 @@
 package com.ktb;
 
 import com.ktb.dao.UserServiceImpl;
+import com.ktb.service.PhoneService;
 import com.ktb.service.UserService;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -19,7 +21,7 @@ public class App
             System.out.println(item);
         }
         //获取对象
-        UserService userDao = (UserService) app.getBean("userService");
+        PhoneService userDao = (PhoneService) app.getBean("phoneService");
         userDao.deleteAll();
     }
 }

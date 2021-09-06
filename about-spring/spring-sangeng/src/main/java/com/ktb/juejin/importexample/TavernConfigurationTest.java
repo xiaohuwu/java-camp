@@ -1,9 +1,8 @@
 package com.ktb.juejin.importexample;
 
 
-import com.ktb.model.Bartender;
+import com.ktb.juejin.importexample.model.Bartender;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.core.env.ConfigurableEnvironment;
 
 import java.util.Map;
 import java.util.stream.Stream;

@@ -1,8 +1,9 @@
-package com.ktb.model;
+package com.ktb.juejin.importexample;
 
-import com.ktb.config.BarImportSelector;
-import com.ktb.config.BartenderConfiguration;
-import com.ktb.config.WaiterRegistrar;
+import com.ktb.juejin.importexample.config.BarImportSelector;
+import com.ktb.juejin.importexample.config.BartenderConfiguration;
+import com.ktb.juejin.importexample.config.WaiterRegistrar;
+import com.ktb.model.Boss;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;

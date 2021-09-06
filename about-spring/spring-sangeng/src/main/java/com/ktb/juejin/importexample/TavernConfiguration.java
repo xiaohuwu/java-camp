@@ -1,6 +1,5 @@
-package com.ktb;
+package com.ktb.juejin.importexample;
 
-import com.ktb.model.EnableTavern;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration

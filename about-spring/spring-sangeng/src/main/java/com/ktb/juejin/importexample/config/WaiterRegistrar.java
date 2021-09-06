@@ -1,4 +1,4 @@
-package com.ktb.config;
+package com.ktb.juejin.importexample.config;
 
 import com.ktb.model.Waiter;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;

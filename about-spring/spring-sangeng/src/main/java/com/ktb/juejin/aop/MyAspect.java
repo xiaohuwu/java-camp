@@ -1,4 +1,4 @@
-package com.ktb.aop;
+package com.ktb.juejin.aop;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.*;
@@ -11,7 +11,7 @@ public class MyAspect {
     //@Pointcut("execution(* com.ktb.service.*.*(..))")
 
 
-    @Pointcut("@annotation(com.ktb.aop.InvokeLog)")
+    @Pointcut("@annotation(com.ktb.juejin.aop.InvokeLog)")
     public void pt() {
     }
 

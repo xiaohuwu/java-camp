@@ -1,7 +1,7 @@
 package com.ktb;
 
 import com.ktb.config.ApplicationConfig;
-import com.ktb.dao.UserServiceImpl;
+import com.ktb.model.DruidDataSource;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**

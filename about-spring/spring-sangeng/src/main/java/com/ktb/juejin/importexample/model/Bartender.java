@@ -1,6 +1,7 @@
-package com.ktb.model;
+package com.ktb.juejin.importexample.model;
 
 //调酒师
+
 public class Bartender {
 
     private String name;

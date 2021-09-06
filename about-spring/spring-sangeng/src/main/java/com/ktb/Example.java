@@ -1,5 +1,6 @@
 package com.ktb;
 
+import com.ktb.model.Foo;
 import com.ktb.model.FooImpl;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,7 +17,7 @@ public class Example {
         for (String item: beanDefinitionNames) {
             System.out.println(item);
         }
-        FooImpl f = (FooImpl) ctx.getBean(FooImpl.class); // throw exception here 默认走JDK代理，代理对象 不是 FooImpl 子类，这里将会报错
-        f.bar();
+        Foo f = ctx.getBean(Foo.class); // throw exception here 默认走JDK代理，代理对象 不是 FooImpl 子类，这里将会报错
+        f.foo();
     }
 }

@@ -1,6 +1,6 @@
 package com.ktb.juejin.importexample.config;
 
-import com.ktb.model.Bartender;
+import com.ktb.juejin.importexample.model.Bartender;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;

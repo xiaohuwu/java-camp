@@ -1,6 +1,6 @@
 package com.ktb.config;
 
-import com.ktb.DruidDataSource;
+import com.ktb.model.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;

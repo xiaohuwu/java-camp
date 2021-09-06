@@ -1,4 +1,5 @@
 package com.ktb.model;
 
-public class Waiter {
+public class Color {
+
 }

@@ -15,7 +15,7 @@
         <!--定义切点-->
         <aop:pointcut id="pt1" expression="execution(* com.ktb.service..*.*(..))"></aop:pointcut>
         <!--配置切面-->
-        <aop:aspect ref="myAspect">
+        <aop:aspect ref="xmlAspect">
             <aop:before method="methodbefore" pointcut-ref="pt1"></aop:before>
             <aop:after method="After" pointcut-ref="pt1"></aop:after>
             <aop:after-returning method="AfterReturning" pointcut-ref="pt1" returning="ret1"></aop:after-returning>

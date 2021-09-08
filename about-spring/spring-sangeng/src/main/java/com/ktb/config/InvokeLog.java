@@ -1,4 +1,4 @@
-package com.ktb.juejin.aop;
+package com.ktb.config;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,6 +1,5 @@
 package com.ktb.service;
-
-import com.ktb.juejin.aop.InvokeLog;
+import com.ktb.config.InvokeLog;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -11,7 +11,7 @@ public class MyAspect {
     //@Pointcut("execution(* com.ktb.service.*.*(..))")
 
 
-    @Pointcut("@annotation(com.ktb.juejin.aop.InvokeLog)")
+    @Pointcut("@annotation(com.ktb.config.InvokeLog)")
     public void pt() {
     }
 

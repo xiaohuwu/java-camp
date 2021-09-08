@@ -8,7 +8,7 @@
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="tel" column="tel"/>
-        <collection property="users" ofType="com.ktb.entity.User" resultSet="users" column="user_id" foreignColumn="department_id">
+        <collection property="users" ofType="com.ktb.entity.User" column="user_id" foreignColumn="department_id">
             <id property="id" column="user_id"/>
             <result property="name" column="user_name"/>
         </collection>

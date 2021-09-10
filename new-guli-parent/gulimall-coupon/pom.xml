@@ -44,6 +44,13 @@
             <version>2.1.8.RELEASE</version>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.atguigu.gulimall</groupId>
+            <artifactId>gulimall-common</artifactId>
+            <version>1.0.0.RELEASE</version>
+        </dependency>
+
     </dependencies>
 
 

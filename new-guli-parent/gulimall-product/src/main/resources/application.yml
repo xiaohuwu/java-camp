@@ -38,9 +38,11 @@ mybatis-plus:
       logic-delete-value: 1
       logic-not-delete-value: 0
 
+
 logging:
   level:
-    com.xunqi.gulimall: error
+    org.springframework.web: debug
+    com.atguigu.gulimall.coupon.dao: debug
 
 
 #暴露所有端点

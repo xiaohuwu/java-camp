@@ -9,28 +9,13 @@ spring:
     name: gulimall-product
   datasource:
     username: root
-    password: root
-    url: jdbc:mysql://192.168.77.130:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+    password: 123456
+    url: jdbc:mysql://127.0.0.1:3306/gulimall_pms?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848
-
-    sentinel:
-      transport:
-        #配置sentinel dashboard地址
-        dashboard: localhost:8080
-
   redis:
-    host: 192.168.77.130
+    host: 127.0.0.1
     port: 6379
-
-#开启feign对sentinel的支持
-feign:
-  sentinel:
-    enabled: true
 
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss

@@ -6,6 +6,15 @@ public class User {
     private String id;
 
     private String name;
+    private String sex;
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
 
     private Integer age;
 
@@ -58,6 +67,7 @@ public class User {
         return "User{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
                 ", age=" + age +
                 ", birthday=" + birthday +
                 ", department=" + department +

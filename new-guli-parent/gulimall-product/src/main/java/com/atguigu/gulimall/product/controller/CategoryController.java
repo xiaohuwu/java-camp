@@ -1,12 +1,13 @@
 package com.atguigu.gulimall.product.controller;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
+
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationContext;
+import org.springframework.web.bind.annotation.*;
 import com.atguigu.gulimall.product.entity.CategoryEntity;
 import com.atguigu.gulimall.product.service.CategoryService;
 import com.atguigu.common.utils.PageUtils;
@@ -23,7 +24,18 @@ import com.atguigu.common.utils.R;
  */
 @RestController
 @RequestMapping("product/category")
+@Slf4j
 public class CategoryController {
+
+//    @Value("${coupon.user.name}")//从application.properties中获取//不要写user.name，他是环境里的变量
+//    private String name;
+//
+//    @Value("${coupon.user.age}")
+//    private Integer age;
+
+    @Autowired
+    private ApplicationContext applicationContext;
+
     @Autowired
     private CategoryService categoryService;
 
@@ -32,9 +44,17 @@ public class CategoryController {
      */
     @RequestMapping("/list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = categoryService.queryPage(params);
 
-        return R.ok().put("page", page);
+        String[] names = applicationContext.getBeanDefinitionNames();
+        int index = 1 ;
+        for (String name : names) {
+            log.info("{}: {}", index++ , name );
+        }
+        log.info("项目启动 容器注入javaBean:{}个.",names.length);
+        return R.ok().put("page", names.length);
+//        PageUtils page = categoryService.queryPage(params);
+//
+//        return R.ok().put("page", page);
     }
 
 
@@ -74,6 +94,16 @@ public class CategoryController {
     public R delete(@RequestBody Long[] catIds){
 		categoryService.removeByIds(Arrays.asList(catIds));
         return R.ok();
+    }
+
+
+    /**
+     * 删除
+     */
+    @RequestMapping("/list/tree")
+    public R list_tree(){
+        List<CategoryEntity> category =  categoryService.list_tree();
+        return R.ok().put("data",category);
     }
 
 }

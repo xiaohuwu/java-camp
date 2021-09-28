@@ -1,6 +1,5 @@
 package com.ktb.springbootdemo;
 
-import com.alibaba.druid.pool.DruidDataSource;
 import com.ktb.springbootdemo.mapper.UserMapper;
 import com.ktb.springbootdemo.model.User;
 import com.zaxxer.hikari.HikariDataSource;
@@ -8,6 +7,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.sql.DataSource;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 
 @SpringBootTest
@@ -18,22 +20,24 @@ class SpringbootDemoApplicationTests {
 
     }
 
-    @Autowired
-    private UserMapper userMapper;
+//    @Autowired
+//    private UserMapper userMapper;
 
     @Autowired
-    private HikariDataSource dataSource;
+    private DataSource dataSource;
+
+//    @Test
+//    public void testSelect() {
+//        List<User> users = userMapper.selectList(null);
+//        users.forEach(System.out::println);
+//    }
 
     @Test
-    public void testSelect(){
-        List<User> users = userMapper.selectList(null);
-        users.forEach(System.out::println);
+    public void testDatabase() throws SQLException {
+        Connection connection = dataSource.getConnection();
+        System.out.println("connection:" + connection);
+        //dataSource.getUsername();
     }
 
-    @Test
-    public void testDatabase(){
-        dataSource.getUsername();
-    }
-    
 
 }

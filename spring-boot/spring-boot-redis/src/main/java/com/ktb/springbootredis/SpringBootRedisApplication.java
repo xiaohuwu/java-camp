@@ -12,6 +12,7 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,9 @@ import java.lang.reflect.Method;
 @MapperScan(value = {"com.ktb.springbootredis.mapper", "com.ktb.springbootredis.dao"})
 public class SpringBootRedisApplication {
 
+    @Autowired
+    private RedisTemplate<String, Object> redisTemplate;
+
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootRedisApplication.class, args);
@@ -36,6 +40,7 @@ public class SpringBootRedisApplication {
     @PostMapping("/addUser")
     public User addUser(@RequestBody User user) {
         System.out.println("addUser==============>");
+        redisTemplate.opsForValue().set("key","value");
         return user;
     }
 

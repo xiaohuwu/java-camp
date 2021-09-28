@@ -10,3 +10,13 @@ markerhub:
     # token有效时长，7天，单位秒
     expire: 604800
     header: token
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver

@@ -49,6 +49,11 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
         return level1Menus;
     }
 
+    @Override
+    public void removeByMenueIds(List<Long> asList) {
+        categoryDao.deleteBatchIds(asList);
+    }
+
     //这里用到了递归 仔细体会一下
     private List<CategoryEntity> getChildren(CategoryEntity item, List<CategoryEntity> categoryEntities) {
         ArrayList<CategoryEntity> list = new ArrayList<>();

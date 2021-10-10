@@ -1,11 +1,11 @@
 package castle;
 
 public class Room {
-    public String description;
-    public Room northExit;
-    public Room southExit;
-    public Room eastExit;
-    public Room westExit;
+    private String description;
+    private Room northExit;
+    private Room southExit;
+    private Room eastExit;
+    private Room westExit;
 
     public Room(String description) 
     {
@@ -24,6 +24,23 @@ public class Room {
             westExit = west;
     }
 
+
+    public Room getNextRoom(String direction){
+        Room nextRoom = null;
+        if(direction.equals("north")) {
+            nextRoom = this.northExit;
+        }
+        if(direction.equals("east")) {
+            nextRoom = this.eastExit;
+        }
+        if(direction.equals("south")) {
+            nextRoom = this.southExit;
+        }
+        if(direction.equals("west")) {
+            nextRoom = this.westExit;
+        }
+        return  nextRoom;
+    }
 
     public void showPromt() {
         System.out.println("你在:" + this.toString());

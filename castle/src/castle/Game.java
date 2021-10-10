@@ -20,13 +20,19 @@ public class Game {
         pub = new Room("小酒吧");
         study = new Room("书房");
         bedroom = new Room("卧室");
-        
+
+        outside.setRoom("west",lobby);
+        outside.setRoom("north",pub);
+
+        lobby.setRoom("north",study);
+        pub.setRoom("north",study);
+        bedroom.setRoom("north",study);
         //	初始化房间的出口
-        outside.setExits(null, lobby, study, pub);
-        lobby.setExits(null, null, null, outside);
-        pub.setExits(null, outside, null, null);
-        study.setExits(outside, bedroom, null, null);
-        bedroom.setExits(null, null, null, study);
+//        outside.setExits(null, lobby, study, pub);
+//        lobby.setExits(null, null, null, outside);
+//        pub.setExits(null, outside, null, null);
+//        study.setExits(outside, bedroom, null, null);
+//        bedroom.setExits(null, null, null, study);
 
         currentRoom = outside;  //	从城堡门外开始
     }

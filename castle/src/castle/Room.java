@@ -1,7 +1,6 @@
 package castle;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 现在这个代码可扩展性不强
@@ -11,6 +10,8 @@ import java.util.Map;
 public class Room {
     private String description;
     HashMap<String,Room> hashMap = new HashMap<>();
+    private Integer currentIndex = 0;
+    ArrayList<Room> rooms;
 //    private Room northExit;
 //    private Room southExit;
 //    private Room eastExit;
@@ -24,6 +25,11 @@ public class Room {
 
     public void setRoom(String description,Room room) {
         hashMap.put(description, room);
+        rooms = new ArrayList<>();
+        Set<Map.Entry<String, Room>> entries = hashMap.entrySet();
+        for (Map.Entry<String, Room> entry : entries) {
+            rooms.add(entry.getValue());
+        }
     }
 
     //    public void setExits(Room north, Room east, Room south, Room west)
@@ -39,7 +45,23 @@ public class Room {
 //    }
 
     public Room getNextRoom(String direction){
+        if("any".equals(direction)){  //任意门
+            return  getRandomRoom();
+        }else if ("rotation".equals(direction)){  //轮换门
+            return  getRotationRoom();
+        }
         return hashMap.get(direction);
+    }
+
+    public Room getRotationRoom(){
+        int nextInt = currentIndex % rooms.size();
+        currentIndex++;
+        return rooms.get(nextInt);
+    }
+
+    public Room getRandomRoom(){
+        int nextInt = new Random().nextInt(rooms.size());
+        return rooms.get(nextInt);
     }
 
 //    public Room getNextRoom(String direction){

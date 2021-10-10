@@ -1,9 +1,12 @@
 package castle;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
     private Room currentRoom;
+    private Integer currentIndex = 0;
+    ArrayList<Room> rooms;
         
     public Game() 
     {
@@ -21,12 +24,21 @@ public class Game {
         study = new Room("书房");
         bedroom = new Room("卧室");
 
+        rooms.add(outside);
+        rooms.add(lobby);
+        rooms.add(pub);
+        rooms.add(study);
+        rooms.add(bedroom);
+
         outside.setRoom("west",lobby);
         outside.setRoom("north",pub);
 
         lobby.setRoom("north",study);
         pub.setRoom("north",study);
         bedroom.setRoom("north",study);
+
+
+
         //	初始化房间的出口
 //        outside.setExits(null, lobby, study, pub);
 //        lobby.setExits(null, null, null, outside);
@@ -55,8 +67,12 @@ public class Game {
     }
 
     private void goRoom(String direction) 
-    {
-        Room nextRoom = currentRoom.getNextRoom(direction);
+    {   Room nextRoom = null;
+        if("all_rotation".equals(direction)){
+            nextRoom = getRotationRoom();
+        }else {
+            nextRoom = currentRoom.getNextRoom(direction);
+        }
         if (nextRoom == null) {
             System.out.println("那里没有门！");
         }else {
@@ -65,13 +81,19 @@ public class Game {
         }
     }
 
+    public Room getRotationRoom(){
+        int nextInt = currentIndex % rooms.size();
+        currentIndex++;
+        return rooms.get(nextInt);
+    }
+
 
 
     public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Game game = new Game();
 		game.printWelcome();
-
+		// 这一部分 还是硬编码
         while ( true ) {
         		String line = in.nextLine();
         		String[] words = line.split(" ");

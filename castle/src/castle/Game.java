@@ -37,7 +37,7 @@ public class Game {
         System.out.println("这是一个超级无聊的游戏。");
         System.out.println("如果需要帮助，请输入 'help' 。");
         System.out.println();
-        showPromt();
+        currentRoom.showPromt();
     }
 
     // 以下为用户命令
@@ -69,23 +69,11 @@ public class Game {
         }
         else {
             currentRoom = nextRoom;
-            showPromt();
+            currentRoom.showPromt();
         }
     }
 
-    private void showPromt() {
-        System.out.println("你在:" + currentRoom);
-        System.out.print("出口有: ");
-        if (currentRoom.northExit != null)
-            System.out.print("north ");
-        if (currentRoom.eastExit != null)
-            System.out.print("east ");
-        if (currentRoom.southExit != null)
-            System.out.print("south ");
-        if (currentRoom.westExit != null)
-            System.out.print("west ");
-        System.out.println();
-    }
+
 
     public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);

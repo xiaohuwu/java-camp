@@ -23,6 +23,25 @@ public class BasicSort {
         System.out.println("插入排序");
         System.out.println(Arrays.toString(insert_array));
     }
+    // this is my answer
+    public static int[] insertSort(int[] array) {
+        for (int index = 1; index < array.length; index++) {
+            int currentItem = array[index];
+            int j = index - 1;
+            for (; j >= 0; j--) {
+                int itemJ =  array[j];
+                if (currentItem < itemJ) {
+                    array[j + 1] = array[j];
+                } else {
+                    break;
+                }
+            }
+            j++;
+            array[j] = currentItem;
+            System.out.println("临时结果: " + Arrays.toString(array));
+        }
+        return array;
+    }
 
     //冒泡排序
     public static int[] bubbleSort(int[] array) {
@@ -38,22 +57,6 @@ public class BasicSort {
         return array;
     }
 
-    public static int[] insertSort(int[] array) {
-        for (int index = 1; index < array.length; index++) {
-            int currentItem = array[index];
-            int j = index;
-            for (; j > 0; j--) {
-                if (currentItem < array[j]) {
-                    array[j + 1] = array[j];
-                } else {
-                    break;
-                }
-            }
-            array[j] = currentItem;
-            System.out.println("临时结果: " + Arrays.toString(array));
-        }
-        return array;
-    }
 
     //选择排序
     public static int[] selectSort(int[] array) {

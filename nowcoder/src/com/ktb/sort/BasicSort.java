@@ -6,16 +6,16 @@ public class BasicSort {
 
     public static void main(String[] args) {
         int[] array = {6, 7, 8, 9, 4, 5, 3, 2, 1};
-//        //冒泡排序
-//        array = bubbleSort(array);
-//        System.out.println("冒泡排序");
-//        System.out.println(Arrays.toString(array));
+        //冒泡排序
+        array = bubbleSort(array);
+        System.out.println("冒泡排序");
+        System.out.println(Arrays.toString(array));
 
-//        int[] select_array = {6, 7, 8, 9, 4, 5, 3, 2, 1};
-//        //选择排序
-//        select_array = selectSort(select_array);
-//        System.out.println("选择排序");
-//        System.out.println(Arrays.toString(select_array));
+        int[] select_array = {6, 7, 8, 9, 4, 5, 3, 2, 1};
+        //选择排序
+        select_array = selectSort(select_array);
+        System.out.println("选择排序");
+        System.out.println(Arrays.toString(select_array));
 
         //插入排序
         int[] insert_array = {6, 7, 8, 9, 4, 5, 3, 2, 1};
@@ -39,7 +39,7 @@ public class BasicSort {
             }
             j++; //这一步容易忽略
             array[j] = currentItem;
-            System.out.println("临时结果: " + Arrays.toString(array));
+           // System.out.println("临时结果: " + Arrays.toString(array));
         }
         return array;
     }

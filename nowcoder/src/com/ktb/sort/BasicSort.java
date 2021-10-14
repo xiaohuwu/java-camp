@@ -37,7 +37,7 @@ public class BasicSort {
                     break;
                 }
             }
-            j++; //这一步容易忽略
+            j++; //这一步容易忽略  最后一次  array[j + 1] = array[j]; 后J的索引就是需要插值的地方 后来又 j-- 了 所以需要加回来
             array[j] = currentItem;
            // System.out.println("临时结果: " + Arrays.toString(array));
         }

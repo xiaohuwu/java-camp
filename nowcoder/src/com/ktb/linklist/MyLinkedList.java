@@ -1,4 +1,4 @@
-package com.ktb;
+package com.ktb.linklist;
 
 public class MyLinkedList {
 
@@ -14,9 +14,7 @@ public class MyLinkedList {
         myLinkedList.insertNode(5, 3);
         myLinkedList.insertNode(6, 4);
         myLinkedList.getAllNodes();
-        myLinkedList.deleteNode(1);
         System.out.println();
-        myLinkedList.getAllNodes();
     }
 
     public void insertNode(int value, int index) {
@@ -88,21 +86,3 @@ public class MyLinkedList {
     }
 }
 
-class Node {
-    int value;
-    Node next;
-
-    public Node(int value) {
-        this.value = value;
-    }
-
-    public Node(int value, Node next) {
-        this.value = value;
-        this.next = next;
-    }
-
-    @Override
-    public String toString() {
-        return this.value + "--->";
-    }
-}

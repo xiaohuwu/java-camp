@@ -5,6 +5,7 @@ import java.util.Random;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.stream.IntStream;
 
+// 滑动窗口限流
 public class TimeWindow {
     private ConcurrentLinkedQueue<Long> queue = new ConcurrentLinkedQueue<Long>();
 

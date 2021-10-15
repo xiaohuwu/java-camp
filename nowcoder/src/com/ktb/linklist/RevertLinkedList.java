@@ -15,20 +15,24 @@ public class RevertLinkedList {
         myLinkedList.insertNode(6, 4);
         myLinkedList.getAllNodes(head);
         System.out.println();
-        Node node =   revert(head);
+        Node node = revert(head);
         myLinkedList.getAllNodes(node);
     }
 
-    public  static Node revert(Node head){
+    // 双指针反转单链表
+    public static Node revert(Node head) {
         Node current = head;
-        Node pre;
-        Node temp;
-        while (current.next !=null){
-               temp =  current.next;
-               pre =  current.next;
+        Node pre = null;
+        Node temp = null;
+        while (current != null) {
+            temp = current.next; // current.next 临时保存
+            current.next = pre;  // current.next 指向前指针
+            pre = current; // 前指针 向后移动一位
+            current = temp; // 后指针 向后移动一位
         }
-        return head;
+        return pre;
     }
+
     public void insertNode(int value, int index) {
 
         Node node = new Node(value);

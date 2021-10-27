@@ -1,0 +1,59 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+    <bean id="helloBean" class="com.ktb.demo.bean.HelloWorld">
+        <property name="name" value="shiyanlou"/>
+    </bean>
+    <bean id="OutputHelper" class="com.ktb.demo.loosely_coupled.OutputHelper">
+        <property name="outputGenerator" ref="JsonOutputGenerator"/>
+    </bean>
+
+    <bean id="CsvOutputGenerator" class="com.ktb.demo.loosely_coupled.CSVOutputGenerator"/>
+    <bean id="JsonOutputGenerator" class="com.ktb.demo.loosely_coupled.JsonOutputGenerator"/>
+
+    <bean id="fileNameGenerator" class="com.ktb.demo.bean.FileNameGenerator">
+        <property name="name" value="凶案虎"/>
+        <property name="type" value="type is"/>
+    </bean>
+
+    <bean id="personBean" class="com.ktb.demo.bean.Person">
+        <property name="name" value="凶案虎"/>
+        <property name="age" value="18"/>
+    </bean>
+
+    <bean id="dogBean" class="com.ktb.demo.bean.Dog" autowire="byType">
+        <property name="name" value="小dog"/>
+<!--        <property name="person" ref="personBean"/>-->
+    </bean>
+
+    <bean id = "hello1" class = "com.ktb.demo.qualifier.HelloImpl1"/>
+    <bean id = "hello2" class = "com.ktb.demo.qualifier.HelloImpl2"/>
+
+
+    <bean id = "dataSource" class = "org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name = "driverClassName" value = "com.mysql.jdbc.Driver"/>
+        <property name = "url" value = "jdbc:mysql://localhost/test"/>
+        <property name = "username" value = "root"/>
+        <property name = "password" value = "123456"/>
+    </bean>
+
+    <bean id = "jdbcTemplate" class = "org.springframework.jdbc.core.JdbcTemplate">
+        <property name = "dataSource" ref = "dataSource"/>
+    </bean>
+
+    <bean id = "accountDao" class = "com.ktb.demo.tx.AccountDaoImpl">
+        <property name = "dataSource" ref = "dataSource"></property>
+    </bean>
+
+    <bean id = "accountService" class = "com.ktb.demo.tx.AccountServiceImpl">
+        <property name = "accountDao" ref = "accountDao"></property>
+    </bean>
+
+    <bean id = "txManager" class = "org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name = "dataSource" ref = "dataSource"></property>
+    </bean>
+
+    <tx:annotation-driven transaction-manager = "txManager" proxy-target-class = "true"/>
+
+</beans>

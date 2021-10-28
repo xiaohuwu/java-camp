@@ -33,6 +33,11 @@
         <property name="basePackage" value="com.ktb.dao"></property>
     </bean>
 
+    <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+        <constructor-arg name="sqlSessionFactory" ref="sessionFactory"></constructor-arg>
+        <constructor-arg name="executorType" value="BATCH"></constructor-arg>
+    </bean>
+
     <!--开启aop注解支持-->
     <aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 

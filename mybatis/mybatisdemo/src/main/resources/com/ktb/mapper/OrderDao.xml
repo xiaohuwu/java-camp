@@ -16,8 +16,10 @@
     </resultMap>
 
     <!--1对1-->
-    <select id="findAllOrders" resultMap="OrderResultMap">
-    SELECT  *  FROM `orders` INNER JOIN `users` ON `users`.`id` = `orders`.`user_id`
+    <select id="findAllOrders" resultMap="java.lang.Integer">
+        SELECT *
+        FROM `orders`
+                 INNER JOIN `users` ON `users`.`id` = `orders`.`user_id`
     </select>
 
 

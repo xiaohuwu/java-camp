@@ -13,6 +13,7 @@ public class ReverseList {
         System.out.println();
         ListNode listNode = reverseList(one);
         print(listNode);
+
     }
 
     public static void print( ListNode head) {

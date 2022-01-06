@@ -3,12 +3,15 @@ package com.ktb;
 import com.ktb.linklist.ListNode;
 
 import javax.xml.transform.Source;
+import java.util.ArrayList;
 import java.util.HashSet;
 
 //https://leetcode-cn.com/problems/linked-list-cycle/ 判断链表是否有环
 public class HasCycle {
 
     public static void main(String[] args) {
+        ArrayList arrayList = new ArrayList();
+
         ListNode one = new ListNode(1);
         ListNode two = new ListNode(2, one);
         ListNode three = new ListNode(3, two);

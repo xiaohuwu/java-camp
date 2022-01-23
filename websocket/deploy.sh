@@ -1,0 +1,1 @@
+scp -P 3118 ./target/websocket-0.0.1-SNAPSHOT.jar bg_mis:/data/www/pabank/app

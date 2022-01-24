@@ -1,9 +1,10 @@
-package com.ktb.macrozhengmall.service;
+package com.ktb.macrozhengmall.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.ktb.macrozhengmall.dao.PmsBrandMapper;
 import com.ktb.macrozhengmall.model.PmsBrand;
 import com.ktb.macrozhengmall.model.PmsBrandExample;
+import com.ktb.macrozhengmall.service.PmsBrandService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,7 +12,7 @@ import java.util.List;
 @Service
 public class PmsBrandServiceImpl implements PmsBrandService {
 
-    PmsBrandMapper PmsBrandMapper;
+    com.ktb.macrozhengmall.dao.PmsBrandMapper PmsBrandMapper;
 
     public PmsBrandServiceImpl(PmsBrandMapper PmsBrandMapper) {
         this.PmsBrandMapper = PmsBrandMapper;

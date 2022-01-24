@@ -10,5 +10,13 @@ spring:
 mybatis:
   mapper-locations:
     - classpath:com/ktb/macrozhengmall/**/*.xml
+redis:
+  key:
+    prefix:
+      authCode: "portal:authCode:"
+    expire:
+      authCode: 120 # 验证码超期时间
+
 
 logging.level.org.springframework.web: DEBUG
+logging.level.com.ktb.macrozhengmall.dao: DEBUG

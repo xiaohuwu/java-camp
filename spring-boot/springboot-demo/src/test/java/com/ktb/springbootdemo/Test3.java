@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 public class Test3 {
 
-    @FunctionalInterface
+    //@FunctionalInterface
     public interface ImTheOne {
         String handleString(String a, String b);
     }

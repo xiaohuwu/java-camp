@@ -120,11 +120,9 @@ public class Test {
         List<String> strList = Arrays.asList(new String[] { "a", "c", "4" });
         strList.stream().sorted(String::compareToIgnoreCase).forEach(System.out::println);
         System.out.println("=============>");
-        //静态方法引用：
-        Arrays.asList(new String[] {"a", "c", "b"}).stream().forEach(new Test()::println);
     }
 
-    public  void println(String s)
+    public static void println(String s)
     {
         System.out.println(s);
     }

@@ -1,4 +1,4 @@
-package com.ktb.java1;
+package com.ktb.java;
 
 import org.junit.*;
 

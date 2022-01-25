@@ -17,4 +17,18 @@ public class MacrozhengMallApplication {
         }
     }
 
+//    @Bean
+//    public CommonsRequestLoggingFilter requestLoggingFilter() {
+//        CommonsRequestLoggingFilter loggingFilter = new CommonsRequestLoggingFilter();
+//        loggingFilter.setIncludeClientInfo(true);
+//        loggingFilter.setIncludeQueryString(true);
+//        loggingFilter.setIncludePayload(true);
+//        loggingFilter.setIncludeHeaders(false);
+//        loggingFilter.setMaxPayloadLength(1000);
+//        loggingFilter.setAfterMessagePrefix("REQUEST DATA : ");
+//        return loggingFilter;
+//    }
+
+
+
 }

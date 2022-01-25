@@ -19,4 +19,7 @@ redis:
 
 
 logging.level.org.springframework.web: DEBUG
+spring.http.log-request-details: true
+#logging.level.org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
 logging.level.com.ktb.macrozhengmall.dao: DEBUG
+#logging.level.org.zalando.logbook: trace

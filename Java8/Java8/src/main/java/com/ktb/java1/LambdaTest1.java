@@ -1,6 +1,7 @@
 package com.ktb.java1;
 
 import com.ktb.java2.Employee;
+import com.ktb.model.User;
 import org.junit.Test;
 
 import java.util.Comparator;
@@ -68,6 +69,13 @@ public class LambdaTest1 {
 
         Function<Double, Long> func2 = Math::round;
         System.out.println(func2.apply(12.6));
+        System.out.println("*******************");
+
+        Function<User, Integer> func4 = User::getAge;
+        User user = new User();
+        user.setAge(29);
+        Integer apply = func4.apply(user);
+        System.out.println("apply = " + apply);
     }
 
     @Test
@@ -130,6 +138,29 @@ public class LambdaTest1 {
 
     }
 
+    @Test
+    public void test10() {
+        BiPredicate<String, String> biPredicate = new BiPredicate<String, String>() {
+            @Override
+            public boolean test(String s, String s2) {
+                return s.equals(s2);
+            }
+        } ;
+        boolean test = biPredicate.test("abc", "abc");
+        System.out.println("test = " + test);
+
+
+        BiPredicate<String, String> biPredicate1 = (String o, String o2) -> o.equals(o2) ;
+        boolean test1 = biPredicate1.test("abc", "abc");
+        System.out.println("test1 = " + test1);
+
+
+
+        BiPredicate<String, String> biPredicate2 = String::equals ;
+        boolean test2 = biPredicate2.test("abc", "abc");
+        System.out.println("test1 = " + test2);
+
+    }
 
 
     public static void printNumber(IntPredicate intPredicate) {

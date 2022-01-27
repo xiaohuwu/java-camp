@@ -353,6 +353,7 @@
       product_comment_count = #{productCommentCount,jdbcType=INTEGER},
       logo = #{logo,jdbcType=VARCHAR},
       big_pic = #{bigPic,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT};
+
   </update>
 </mapper>

@@ -1,6 +1,9 @@
-package com.example.springbootkuangsheng;
+package com.example.springbootkuangsheng.controller;
 
+import com.example.springbootkuangsheng.model.PersonDto;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -18,11 +21,16 @@ public class HelloController {
 
     @RequestMapping(value = "postData", method = RequestMethod.POST)
     @ResponseBody
-    public HashMap postData() {
-        HashMap hashMap = new HashMap();
+    public HashMap postData(@RequestBody @Validated PersonDto postData) {
 
+        HashMap hashMap = new HashMap();
         hashMap.put("hello","world");
         return hashMap;
     }
+
+
+
+
+
 
 }

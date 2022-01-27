@@ -19,9 +19,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Parameter;
 import java.util.*;
 
-@Aspect
-@Component
-@Order(1)
+//@Aspect
+//@Component
+//@Order(1)
 public class WebLogAspect {
     private static final Logger LOGGER = LoggerFactory.getLogger(WebLogAspect.class);
 

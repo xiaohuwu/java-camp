@@ -1,4 +1,4 @@
-package com.wisdom.properties;
+package com.example.hello.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

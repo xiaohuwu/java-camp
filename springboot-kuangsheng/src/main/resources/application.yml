@@ -10,9 +10,9 @@ server:
   port: 8082
   servlet:
     context-path: /kuang
-com.wisdom:
+my.hello:
     name: xiaohu
-    hobby: ball
+    age: 18
 
 spring:
   profiles: dev

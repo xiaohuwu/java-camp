@@ -16,13 +16,7 @@ public class SpringbootKuangshengApplication {
 
     public static void main(String[] args) {
 
-//        try {
-//            InputStream systemResourceAsStream = ClassLoader.getSystemResourceAsStream("com/wisdom/HelloService  AutoConfiguration.class");
-//            int length = systemResourceAsStream.available();
-//            System.out.println("length = " + length);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
+
         SpringApplication.run(SpringbootKuangshengApplication.class, args);
     }
 

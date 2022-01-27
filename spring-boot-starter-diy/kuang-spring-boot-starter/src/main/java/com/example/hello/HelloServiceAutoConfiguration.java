@@ -1,7 +1,7 @@
-package com.wisdom;
+package com.example.hello;
 
-import com.wisdom.properties.HelloServiceProperties;
-import com.wisdom.stat.HelloServiceConfiguration;
+import com.example.hello.properties.HelloServiceProperties;
+import com.example.hello.stat.HelloServiceConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;

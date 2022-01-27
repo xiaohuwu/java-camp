@@ -1,4 +1,4 @@
-package com.wisdom.stat;
+package com.example.hello.stat;
 
 public class HelloServiceConfiguration {
     private String name;

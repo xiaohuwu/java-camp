@@ -18,6 +18,8 @@ class SpringbootKuangshengApplicationTests {
     @Autowired
     Person person;
 
+
+
     @Test
     void contextLoads() {
         System.out.println("dog = " + dog);
@@ -28,5 +30,11 @@ class SpringbootKuangshengApplicationTests {
         }catch (Exception e) {
             e.getCause().printStackTrace();
         }
+    }
+
+
+    @Test
+    void test_02() {
+
     }
 }

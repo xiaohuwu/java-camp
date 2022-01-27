@@ -59,6 +59,14 @@
         </dependency>
 
 
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>kuang-spring-boot-starter</artifactId>
+            <version>0.0.2-SNAPSHOT</version>
+        </dependency>
+
+
+
     </dependencies>
 
     <build>

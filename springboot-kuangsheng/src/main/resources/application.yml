@@ -1,13 +1,24 @@
-person:
-  name: xiaohu
-  age: 20
-  happy: false
-  birth: 2021/21/12
-  maps: { k1: v1,k2: v2 }
-  lists:
-    - code
-    - girl
-    - music
-  dog:
-    name: "旺财"
-    age: 12
+server:
+  port: 8081
+spring:
+  profiles:
+    active: dev
+
+
+---
+server:
+  port: 8082
+  servlet:
+    context-path: /kuang
+com.wisdom:
+    name: xiaohu
+    hobby: ball
+
+spring:
+  profiles: dev
+
+---
+server:
+  port: 8084
+spring:
+  profiles: production

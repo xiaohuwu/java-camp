@@ -1,7 +1,8 @@
 package com.example.springbootkuangsheng.controller;
 
+import com.example.hello.HelloService;
 import com.example.springbootkuangsheng.model.PersonDto;
-import com.wisdom.stat.HelloServiceConfiguration;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.annotation.Validated;
@@ -17,8 +18,8 @@ import java.util.HashMap;
 public class HelloController {
 
 
-    @Autowired
-    HelloServiceConfiguration helloServiceConfiguration;
+  @Autowired
+    HelloService helloService;
 
     @RequestMapping("hello")
     @ResponseBody
@@ -31,10 +32,10 @@ public class HelloController {
     public HashMap postData(@RequestBody @Valid PersonDto postData) {
         HashMap hashMap = new HashMap();
         hashMap.put("hello","world");
-        String name = helloServiceConfiguration.getName();
-        String hobby = helloServiceConfiguration.getHobby();
+        String name = helloService.getName();
+        Integer hobby = helloService.getAge();
         hashMap.put("name",name);
-        hashMap.put("hobby",hobby);
+        hashMap.put("age",hobby);
         return hashMap;
     }
 

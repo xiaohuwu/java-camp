@@ -8,7 +8,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 
 
-@Validated
 public class PersonDto {
 
     @NotBlank
@@ -17,8 +16,8 @@ public class PersonDto {
     @Email(message = "邮箱格式有误")
     private String email;
 
-    @Max(value=90,message="年龄最大不超过90")
-    private Integer gae;
+    @Max(value = 90, message = "年龄最大不超过90")
+    private Integer age;
 
 
     public String getName() {
@@ -37,11 +36,11 @@ public class PersonDto {
         this.email = email;
     }
 
-    public Integer getGae() {
-        return gae;
+    public Integer getAge() {
+        return age;
     }
 
-    public void setGae(Integer gae) {
-        this.gae = gae;
+    public void setAge(Integer age) {
+        this.age = age;
     }
 }

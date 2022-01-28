@@ -1,14 +1,19 @@
 package com.example.springbootkuangsheng;
 
+import com.example.springbootkuangsheng.dao.DepartmentsMapper;
 import com.alibaba.druid.pool.DruidDataSource;
+import com.example.springbootkuangsheng.dao.EmployeesMapper;
+import com.example.springbootkuangsheng.model.Departments;
 import com.example.springbootkuangsheng.model.Dog;
 import com.example.springbootkuangsheng.model.Person;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.common.primitives.Ints;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -18,7 +23,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@SpringBootTest
+@RunWith(SpringRunner.class)
+@SpringBootTest(
+        classes = SpringbootKuangshengApplication.class)
 class SpringbootKuangshengApplicationTests {
 
     @Autowired
@@ -27,6 +34,12 @@ class SpringbootKuangshengApplicationTests {
     @Autowired
     Person person;
 
+
+    @Autowired
+    DepartmentsMapper departmentMapper;
+
+    @Autowired
+    EmployeesMapper employeeMapper;
 
     @Test
     void contextLoads() {
@@ -52,14 +65,28 @@ class SpringbootKuangshengApplicationTests {
         System.out.println("difference = " + difference);
     }
 
-    @Autowired
-    DruidDataSource dataSource;
 
     @Test
-    void test_03() throws SQLException {
-        System.out.println("dataSource.getClass() = " + dataSource.getClass());
-        Connection connection = dataSource.getConnection();
-        System.out.println("dataSource.getMinIdle() = " + dataSource.getMinIdle());
-        System.out.println("connection = " + connection);
+    void test_03() {
+        System.out.println("throws SQLException----");
+        departmentMapper.findall().stream().forEach((item) -> {
+            System.out.println("getDepartmentname:" + item.getDepartmentName());
+        });
     }
+
+    @Test
+    void test_04() {
+        employeeMapper.getEmployees().stream().forEach((item) -> {
+            System.out.println("item = " + item);
+        });
+    }
+
+
+    @Test
+    void get_one() {
+        Departments departments = departmentMapper.selectByPrimaryKey(1L);
+        System.out.println("departments = " + departments);
+    }
+
+
 }

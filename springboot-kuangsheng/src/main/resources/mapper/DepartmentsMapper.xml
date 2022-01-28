@@ -13,6 +13,8 @@
         <!--@mbg.generated-->
         id, departmentName, created_at, updated_at
     </sql>
+
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
         <!--@mbg.generated-->
         select
@@ -20,18 +22,23 @@
         from departments
         where id = #{id,jdbcType=BIGINT}
     </select>
+
+
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
         <!--@mbg.generated-->
         delete
         from departments
         where id = #{id,jdbcType=BIGINT}
     </delete>
+
+
     <insert id="insert" keyColumn="id" keyProperty="id"
             parameterType="com.example.springbootkuangsheng.model.Departments" useGeneratedKeys="true">
         <!--@mbg.generated-->
         insert into departments (departmentName, created_at, updated_at)
         values (#{departmentName,jdbcType=VARCHAR}, #{createdAt,jdbcType=TIMESTAMP}, #{updatedAt,jdbcType=TIMESTAMP})
     </insert>
+
     <insert id="insertSelective" keyColumn="id" keyProperty="id"
             parameterType="com.example.springbootkuangsheng.model.Departments" useGeneratedKeys="true">
         <!--@mbg.generated-->

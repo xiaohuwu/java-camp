@@ -1,12 +1,10 @@
 package com.example.springbootkuangsheng;
 
 import com.example.springbootkuangsheng.dao.DepartmentsMapper;
-import com.alibaba.druid.pool.DruidDataSource;
 import com.example.springbootkuangsheng.dao.EmployeesMapper;
 import com.example.springbootkuangsheng.model.Departments;
 import com.example.springbootkuangsheng.model.Dog;
 import com.example.springbootkuangsheng.model.Person;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import com.google.common.primitives.Ints;
 import org.junit.jupiter.api.Test;
@@ -14,11 +12,6 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
-
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -69,14 +62,14 @@ class SpringbootKuangshengApplicationTests {
     @Test
     void test_03() {
         System.out.println("throws SQLException----");
-        departmentMapper.findall().stream().forEach((item) -> {
+        departmentMapper.findall().forEach((item) -> {
             System.out.println("getDepartmentname:" + item.getDepartmentName());
         });
     }
 
     @Test
     void test_04() {
-        employeeMapper.getEmployees().stream().forEach((item) -> {
+        employeeMapper.getEmployees().forEach((item) -> {
             System.out.println("item = " + item);
         });
     }

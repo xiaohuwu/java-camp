@@ -1,25 +1,34 @@
 package com.example.springbootkuangsheng;
 
+import com.example.springbootkuangsheng.dao.CityMapper;
+import org.mybatis.spring.annotation.MapperScan;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.web.servlet.DispatcherServletAutoConfiguration;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
-import org.springframework.web.servlet.DispatcherServlet;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 @SpringBootApplication
-public class SpringbootKuangshengApplication {
+@MapperScan("com.example.springbootkuangsheng.dao")
+public class SpringbootKuangshengApplication implements CommandLineRunner {
+
+    CityMapper cityMapper;
+
+
+    public SpringbootKuangshengApplication(CityMapper cityMapper) {
+        this.cityMapper = cityMapper;
+    }
 
     public static void main(String[] args) {
 
 
-        SpringApplication.run(SpringbootKuangshengApplication.class, args);
-    }
+        ConfigurableApplicationContext run = SpringApplication.run(SpringbootKuangshengApplication.class, args);
+        for (String beanDefinitionName : run.getBeanDefinitionNames()) {
+            System.out.println("beanDefinitionName = " + beanDefinitionName);
+        }
 
+    }
 
 
 //    @Bean
@@ -43,5 +52,11 @@ public class SpringbootKuangshengApplication {
         filter.setAfterMessagePrefix("REQUEST DATA : ");
         return filter;
     }
+
+    @Override
+    public void run(String... args) throws Exception {
+        System.out.println(this.cityMapper.findByState("xiaohu").toString());
+    }
+
 
 }

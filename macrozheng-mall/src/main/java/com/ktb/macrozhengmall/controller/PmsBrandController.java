@@ -9,6 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
@@ -21,11 +22,13 @@ import java.util.List;
  * Created by macro on 2019/4/19.
  */
 @Controller
+
 @Api(tags = "PmsBrandController", description = "商品品牌管理")
 @RequestMapping("/brand")
 public class PmsBrandController {
 
     @Autowired
+    @Lazy
     private PmsBrandService demoService;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PmsBrandController.class);

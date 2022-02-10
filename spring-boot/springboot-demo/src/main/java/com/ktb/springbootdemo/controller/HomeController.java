@@ -24,6 +24,5 @@ public class HomeController {
         HashMap hashMap = new HashMap();
         undoLogService.queryPage(hashMap);
         return "home";
-
     }
 }

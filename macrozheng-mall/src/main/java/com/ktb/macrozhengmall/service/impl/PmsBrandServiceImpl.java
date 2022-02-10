@@ -5,10 +5,12 @@ import com.ktb.macrozhengmall.dao.PmsBrandMapper;
 import com.ktb.macrozhengmall.model.PmsBrand;
 import com.ktb.macrozhengmall.model.PmsBrandExample;
 import com.ktb.macrozhengmall.service.PmsBrandService;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Lazy
 @Service
 public class PmsBrandServiceImpl implements PmsBrandService {
 

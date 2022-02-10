@@ -20,6 +20,9 @@ public class MacrozhengMallApplicationTests {
     @Autowired
     RedisService redisService;
 
+    @Autowired
+    MyLazy myLazy;
+
     @Test
     public void contextLoads() {
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
@@ -32,6 +35,13 @@ public class MacrozhengMallApplicationTests {
     public void test_01() {
         String s = redisService.get("code_" + "18589717969");
         System.out.println("s = " + s);
+    }
+
+
+
+    @Test
+    public void MyLazyTest() {
+        myLazy.sayHello();
     }
 
 }

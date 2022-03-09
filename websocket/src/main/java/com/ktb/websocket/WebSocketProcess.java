@@ -96,6 +96,7 @@ public class WebSocketProcess {
             WebSocketProcess webSocketProcess = entry.getValue();
             boolean sessionOpen = webSocketProcess.session.isOpen();
             if (sessionOpen) {
+                log.info("cid={} sendText={}", cid,msg);
                 webSocketProcess.session.getBasicRemote().sendText(msg);
             } else {
                 log.info("cid={} is closed,ignore send text", cid);

@@ -1,12 +1,14 @@
 package com.ktb.websocket.controller;
 
 import com.ktb.websocket.WebSocketProcess;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@Slf4j
 @RestController
 @RequestMapping("/ws")
 public class WebSocketController {
@@ -38,6 +40,7 @@ public class WebSocketController {
     @PostMapping(value = "sendMsgToAllClient")
     public void sendMsgToAllClient( @RequestParam String text){
         try {
+            log.info("sendMsgToAllClient text={}", text);
             webSocketProcess.sendAllMessage(text);
         } catch (Exception e) {
             e.printStackTrace();

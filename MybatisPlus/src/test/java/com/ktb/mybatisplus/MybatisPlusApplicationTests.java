@@ -43,7 +43,7 @@ class MybatisPlusApplicationTests {
         user.setUserName("gege");
         user.setPassword("goood");
         user.setAddressStr("成都");
-
+        userMapper.insert(user);
     }
 
     @Test

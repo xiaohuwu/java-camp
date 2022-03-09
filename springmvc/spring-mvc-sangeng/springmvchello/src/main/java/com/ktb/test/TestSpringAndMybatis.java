@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.Arrays;
@@ -16,6 +17,7 @@ import java.util.Date;
  */
 @RunWith(SpringJUnit4ClassRunner.class)//让测试运行与Spring测试环境
 @ContextConfiguration(locations = "classpath:applicationContext.xml")
+@TestPropertySource(locations = "classpath:jdbc.properties")
 public class TestSpringAndMybatis {
 
     @Autowired

@@ -1,11 +1,12 @@
 package com.ktb;
 
 import com.ktb.dao.DepartmentDao;
+import com.ktb.dao.EmployeeDao;
 import com.ktb.dao.UserDao;
 import com.ktb.entity.Department;
+import com.ktb.entity.Employee;
 import com.ktb.entity.User;
 import com.ktb.service.DepartmentDaoImpl;
-import com.sun.xml.internal.ws.api.model.wsdl.WSDLOutput;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,7 +16,6 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.util.function.DoubleToIntFunction;
 
 /**
  * Hello world!
@@ -135,6 +135,22 @@ public class App {
 //            }
         }
     }
+
+    /**
+     * todo 这种方式要求 SQL 映射文件名必须和接口名相同并且在同一目录下
+     * @throws IOException
+     */
+
+    @Test
+    public void test07() throws IOException {
+        InputStream xml = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(xml);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true); //此处需要设置 自动提交
+        EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
+        Employee department = employeeDao.findOne(1);
+        System.out.println("department = " + department);
+    }
+
 
 
 }

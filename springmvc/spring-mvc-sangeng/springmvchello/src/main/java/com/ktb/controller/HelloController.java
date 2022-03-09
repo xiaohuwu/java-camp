@@ -47,13 +47,13 @@ public class HelloController {
         System.out.println(id);
         System.out.println(name);
         System.out.println(Arrays.toString(likes));
-        return "/success.jsp";
+        return "success";
     }
 
     @RequestMapping("/testRquestParam1")
     public String testRquestParam1(){
 
-        return "/success.jsp";
+        return "success";
     }
 
     @RequestMapping(value="/baseType")

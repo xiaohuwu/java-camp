@@ -14,8 +14,20 @@
         <param-value>star</param-value>
     </context-param>
 
+
+
     <listener>
         <listener-class>org.apache.logging.log4j.web.Log4jServletContextListener</listener-class>
+    </listener>
+
+
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:applicationContext.xml</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
 

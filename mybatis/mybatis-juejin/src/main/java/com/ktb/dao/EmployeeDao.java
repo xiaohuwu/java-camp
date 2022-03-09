@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface EmployeeDao {
     Employee findOne(@Param("id") int id);
+
+    public Integer insertEmployee(Employee employee);
 }

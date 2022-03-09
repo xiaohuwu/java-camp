@@ -7,6 +7,13 @@ public class Employee {
     private String email ;
     private String gender ;
 
+
+    public Employee(String lastName, String email, String gender) {
+        this.lastName = lastName;
+        this.email = email;
+        this.gender = gender;
+    }
+
     public Integer getId() {
         return id;
     }

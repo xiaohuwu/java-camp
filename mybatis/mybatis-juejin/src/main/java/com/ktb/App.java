@@ -138,6 +138,7 @@ public class App {
 
     /**
      * todo 这种方式要求 SQL 映射文件名必须和接口名相同并且在同一目录下
+     *
      * @throws IOException
      */
 
@@ -151,6 +152,17 @@ public class App {
         System.out.println("department = " + department);
     }
 
+
+    @Test
+    public void test08() throws IOException {
+        InputStream xml = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(xml);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true); //此处需要设置 自动提交
+        EmployeeDao employeeDao = sqlSession.getMapper(EmployeeDao.class);
+        Employee entity = new Employee(null, "123", "男");
+        Integer integer = employeeDao.insertEmployee(entity);
+        System.out.println("entity = " + entity.getId());
+    }
 
 
 }

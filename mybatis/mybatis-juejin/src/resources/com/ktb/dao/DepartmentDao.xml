@@ -44,7 +44,9 @@
     </insert>
 
     <update id="update" parameterType="com.ktb.entity.Department">
-        update tbl_department set name = #{name}, tel = #{tel} where id = #{id}
+       <foreach collection="list" item="item" separator=";">
+           update ${item.tableName} set name = '6666'
+       </foreach>
     </update>
 
     <delete id="deleteById" parameterType="string">

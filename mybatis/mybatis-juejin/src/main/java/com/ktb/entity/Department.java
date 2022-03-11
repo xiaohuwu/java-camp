@@ -3,11 +3,20 @@ package com.ktb.entity;
 import java.util.Set;
 
 public class Department {
+
+    private String tableName;
     private String id;
     private String name;
     private String tel;
     private Set<User> users;
 
+    public String getTableName() {
+        return tableName;
+    }
+
+    public void setTableName(String tableName) {
+        this.tableName = tableName;
+    }
 
     public Set<User> getUsers() {
         return users;

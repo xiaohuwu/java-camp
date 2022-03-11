@@ -22,4 +22,6 @@ public class MybatisPlusApplication {
         mybatisPlusInterceptor.addInnerInterceptor(new PaginationInnerInterceptor());
         return mybatisPlusInterceptor;
     }
+
+
 }

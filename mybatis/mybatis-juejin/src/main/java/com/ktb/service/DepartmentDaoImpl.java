@@ -36,9 +36,10 @@ public class DepartmentDaoImpl implements DepartmentDao {
     }
 
     @Override
-    public int update(Department department) {
+    public int update(List<Department> list) {
         return 0;
     }
+
 
     @Override
     public int deleteById(String id) {

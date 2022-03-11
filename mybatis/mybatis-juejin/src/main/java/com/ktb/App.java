@@ -15,6 +15,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -57,13 +58,17 @@ public class App {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(xml);
         SqlSession sqlSession = sqlSessionFactory.openSession(true); //此处需要设置 自动提交
         DepartmentDao departmentMapper = sqlSession.getMapper(DepartmentDao.class);
-        Department department = departmentMapper.findById("18ec781fbefd727923b0d35740b177ab");
-        System.out.println(department);
 
-        department.setName("小虎哥good");
-        departmentMapper.update(department);
-        department = departmentMapper.findById("18ec781fbefd727923b0d35740b177ab");
-        System.out.println(department);
+
+        List<Department> list = new ArrayList();
+        Department department1 = new Department();
+        department1.setTableName("tbl_department");
+        list.add(department1);
+        Department department2 = new Department();
+        department2.setTableName("tbl_department1");
+        list.add(department2);
+        departmentMapper.update(list);
+
     }
 
 

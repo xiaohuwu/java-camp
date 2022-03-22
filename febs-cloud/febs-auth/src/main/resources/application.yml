@@ -26,3 +26,7 @@ eureka:
     registry-fetch-interval-seconds: 3
     serviceUrl:
       defaultZone: http://febs:123456@localhost:8001/register/eureka/
+
+logging:
+  level:
+    org.springframework: trace

@@ -10,9 +10,19 @@ import javax.sql.DataSource;
 
 @Configuration
 public class C3p0Config {
+
     @Bean("dataSource")
     @ConfigurationProperties("c3p0")
     public DataSource dataSource() {
         return DataSourceBuilder.create().type(ComboPooledDataSource.class).build();
     }
+
+//    @Bean(name="user")
+//    public User init_user(){
+//        return new User(1,"gege");
+//    }
+
+
+
+
 }

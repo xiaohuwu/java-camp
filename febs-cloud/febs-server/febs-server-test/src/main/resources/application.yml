@@ -24,3 +24,9 @@ security:
 logging:
   level:
     org.springframework: trace
+    com.ktb.febsservertest.service: trace
+feign:
+  hystrix:
+    enabled: true
+hystrix:
+  shareSecurityContext: true

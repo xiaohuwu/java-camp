@@ -1,13 +1,24 @@
 package com.ktb.febsservertest.controller;
 
+import com.ktb.febsservertest.service.IHelloService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
+import java.util.Enumeration;
 
 @RestController
 public class TestController {
+
+    @Autowired
+    private IHelloService helloService;
+
     @GetMapping("test1")
     @PreAuthorize("hasAnyAuthority('user:add')")
     public String test1() {
@@ -24,4 +35,24 @@ public class TestController {
     public Principal currentUser(Principal principal) {
         return principal;
     }
+
+
+    @Autowired
+    RestTemplate restTemplate;
+
+    @GetMapping("hello")
+    public String hello(String name, HttpServletRequest request) {
+//        HttpHeaders headers = new HttpHeaders();
+////        Enumeration<String> headerNames = request.getHeaderNames();
+////        while (headerNames.hasMoreElements()) {
+////            String key = (String) headerNames.nextElement();
+////            String value = request.getHeader(key);
+////            headers.add(key, value);
+////        }
+//        return restTemplate.postForObject("http://FEBS-Server-System/hello?name=" + name, new HttpEntity<String>(headers), String.class);
+
+        return helloService.hello(name);
+    }
+
+
 }

@@ -3,17 +3,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <artifactId>febs-cloud</artifactId>
         <groupId>com.ktb</groupId>
+        <artifactId>febs-server</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
     <groupId>com.ktb</groupId>
-    <artifactId>febs-server</artifactId>
+    <artifactId>febs-server-test</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>febs-server</name>
-    <packaging>pom</packaging>
-
+    <name>febs-server-test</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
@@ -22,16 +19,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.ktb</groupId>
-            <artifactId>febs-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
     </dependencies>
-
-    <modules>
-        <module>febs-server-system</module>
-        <module>febs-server-test</module>
-    </modules>
 
     <build>
         <plugins>

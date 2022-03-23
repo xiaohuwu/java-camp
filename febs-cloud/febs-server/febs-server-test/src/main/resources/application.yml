@@ -1,20 +1,9 @@
 server:
-  port: 8101
+  port: 8202
 
 spring:
   application:
-    name: FEBS-Auth
-  redis:
-    database: 1
-    host: 127.0.0.1
-    port: 6379
-    jedis:
-      pool:
-        min-idle: 8
-        max-idle: 500
-        max-active: 2000
-        max-wait: 10000
-    timeout: 5000
+    name: FEBS-Server-Test
 
 eureka:
   instance:
@@ -26,6 +15,11 @@ eureka:
     registry-fetch-interval-seconds: 3
     serviceUrl:
       defaultZone: http://febs:123456@localhost:8001/register/eureka/
+security:
+  oauth2:
+    resource:
+      id: ${spring.application.name}
+      user-info-uri: http://localhost:8301/auth/user
 
 logging:
   level:

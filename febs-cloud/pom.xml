@@ -39,6 +39,7 @@
         <module>febs-register</module>
         <module>febs-auth</module>
         <module>febs-gateway</module>
+        <module>febs-server</module>
     </modules>
 
 

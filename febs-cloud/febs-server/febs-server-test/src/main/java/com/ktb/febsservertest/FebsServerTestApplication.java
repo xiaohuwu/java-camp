@@ -1,6 +1,7 @@
 package com.ktb.febsservertest;
 
 import com.ktb.common.annotation.EnableFebsOauth2FeignClient;
+import com.ktb.common.annotation.EnableFebsServerProtect;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,6 +18,8 @@ import java.util.Arrays;
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableFeignClients
+@EnableFebsOauth2FeignClient
+@EnableFebsServerProtect
 public class FebsServerTestApplication {
 
     public static void main(String[] args) {

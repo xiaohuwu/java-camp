@@ -1,4 +1,5 @@
 package com.ktb.auth.configure;
+import com.ktb.auth.properties.FebsAuthProperties;
 import com.ktb.auth.service.FebsUserDetailService;
 import com.ktb.auth.translator.FebsWebResponseExceptionTranslator;
 import org.apache.commons.lang.ArrayUtils;

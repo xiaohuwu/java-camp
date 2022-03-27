@@ -1,7 +1,9 @@
 package com.ktb.auth.controller;
 
+import com.ktb.auth.service.ValidateCodeService;
 import com.ktb.common.entity.FebsResponse;
 import com.ktb.common.exception.FebsAuthException;
+import com.ktb.common.exception.ValidateCodeException;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.token.ConsumerTokenServices;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.security.Principal;
 
 @RestController
@@ -27,6 +31,17 @@ public class SecurityController {
     public Principal currentUser(Principal principal) {
         return principal;
     }
+
+
+    @Autowired
+    private ValidateCodeService validateCodeService;
+
+    @GetMapping("captcha")
+    public void captcha(HttpServletRequest request, HttpServletResponse response) throws IOException, ValidateCodeException {
+        validateCodeService.create(request, response);
+    }
+
+
 
     @DeleteMapping("signout")
     public FebsResponse signout(HttpServletRequest request) throws FebsAuthException {

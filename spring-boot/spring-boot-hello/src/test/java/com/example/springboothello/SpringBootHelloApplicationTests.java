@@ -6,6 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.env.Environment;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -19,12 +20,19 @@ class SpringBootHelloApplicationTests {
     @Autowired
     AsyncTasks asyncTasks;
 
+    @Autowired
+    private Environment env;
+
+
     @Test
     void contextLoads() {
 //        int value = userMapper.insert("xiaohugege", 1);
 //        System.out.println("value = " + value);
-        User xiaohugege = userMapper.findByName("xiaohugege");
-        System.out.println("xiaohugege = " + xiaohugege);
+//        User xiaohugege = userMapper.findByName("xiaohugege");
+//        System.out.println("xiaohugege = " + xiaohugege);
+
+        String property = env.getProperty("swagger.title");
+        System.out.println("property = " + property);
     }
 
 

@@ -82,4 +82,6 @@ public class FebsAuthorizationServerConfigure extends AuthorizationServerConfigu
         tokenServices.setRefreshTokenValiditySeconds(authProperties.getRefreshTokenValiditySeconds());
         return tokenServices;
     }
+
+
 }

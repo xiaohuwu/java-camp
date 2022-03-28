@@ -16,6 +16,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.PostConstruct;
 import java.lang.reflect.Method;
 
 /**
@@ -33,6 +34,11 @@ public class SpringBootRedisApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringBootRedisApplication.class, args);
+    }
+
+    @PostConstruct
+    public void init() throws InterruptedException {
+        System.out.println(123456);
     }
 
     // 缓存结果key：addUser::KeyGenerator:addUser

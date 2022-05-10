@@ -27,7 +27,6 @@ public class TxConfig {
 
     @Bean
     public JdbcTemplate jdbcTemplate() throws Exception{
-        //Spring��@Configuration������⴦���������м�����ķ�������ε��ö�ֻ�Ǵ������������
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource());
         return jdbcTemplate;
     }

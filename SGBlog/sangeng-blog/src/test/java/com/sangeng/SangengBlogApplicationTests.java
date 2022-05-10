@@ -1,4 +1,4 @@
-package com.sangeng.sangengblog;
+package com.sangeng;
 
 //import org.junit.jupiter.api.Test;
 //import org.springframework.boot.test.context.SpringBootTest;

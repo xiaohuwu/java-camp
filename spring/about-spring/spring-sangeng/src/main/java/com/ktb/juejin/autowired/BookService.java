@@ -6,14 +6,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class BookService {
 
-    @Autowired
+
     BookDao bookDao;
+
+    public BookService(BookDao bookDao) {
+        this.bookDao = bookDao;
+    }
 
     public BookDao getBookDao() {
         return bookDao;
     }
 
-    public void setBookDao(BookDao bookDao) {
-        this.bookDao = bookDao;
-    }
 }

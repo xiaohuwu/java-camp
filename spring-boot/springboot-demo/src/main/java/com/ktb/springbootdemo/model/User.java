@@ -1,10 +1,19 @@
 package com.ktb.springbootdemo.model;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
 public class User {
     private Long id;
-    private String name;
+    private String username;
     private Integer age;
-    private String email;
+    private String address;
+
+    public User(Long id, String username, Integer age, String address) {
+        this.id = id;
+        this.username = username;
+        this.age = age;
+        this.address = address;
+    }
 
     public Long getId() {
         return id;
@@ -14,12 +23,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public Integer getAge() {
@@ -30,11 +39,23 @@ public class User {
         this.age = age;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAddress() {
+        return address;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+    @Override
+    public String toString() {
+        final StringBuffer sb = new StringBuffer("User{");
+        sb.append("id=").append(id);
+        sb.append(", username='").append(username).append('\'');
+        sb.append(", age=").append(age);
+        sb.append(", address='").append(address).append('\'');
+        sb.append('}');
+        return sb.toString();
     }
 }

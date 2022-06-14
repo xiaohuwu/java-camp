@@ -2,12 +2,13 @@ package com.sangeng.controller;
 
 import com.sangeng.entity.Article;
 import com.sangeng.entity.ResponseResult;
+import com.sangeng.model.User;
 import com.sangeng.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.util.List;
 
 @RestController
@@ -19,17 +20,23 @@ public class ArticleController {
     private ArticleService articleService;
 
     @GetMapping("/list")
-    public List<Article> test(){
+    public List<Article> test() {
         return articleService.list();
     }
 
 
     @GetMapping("/hotArticleList")
-    public ResponseResult hotArticleList(){
+    public ResponseResult hotArticleList() {
 
-        ResponseResult result =  articleService.hotArticleList();
+        ResponseResult result = articleService.hotArticleList();
         return result;
     }
 
+
+    @PostMapping("/getUser")
+    public ResponseResult getUsers(User user) {
+        System.out.println("user = " + user);
+        return ResponseResult.okResult(user);
+    }
 
 }

@@ -20,23 +20,27 @@ class SpringbootDemoApplicationTests {
 
     }
 
-//    @Autowired
-//    private UserMapper userMapper;
+    @Autowired
+    private UserMapper userMapper;
 
     @Autowired
     private DataSource dataSource;
 
-//    @Test
-//    public void testSelect() {
-//        List<User> users = userMapper.selectList(null);
-//        users.forEach(System.out::println);
-//    }
+    @Test
+    public void testSelect() {
+        List<User> users = userMapper.selectList(null);
+        users.forEach(System.out::println);
+    }
 
     @Test
     public void testDatabase() throws SQLException {
         Connection connection = dataSource.getConnection();
         System.out.println("connection:" + connection);
         //dataSource.getUsername();
+        //快速排序
+        //dataSource.getConnection().createStatement().execute("create table user(id int primary key auto_increment, name varchar(20))");
+        //dataSource.getConnection().createStatement().execute("insert into user(name) values('ktb')");
+
     }
 
 

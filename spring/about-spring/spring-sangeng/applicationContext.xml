@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <context:component-scan base-package="com.ktb"/>
+<!--    <aop:aspectj-autoproxy/>-->
+
+
+
+    <aop:config>
+        <!--定义切点-->
+        <aop:pointcut id="pt1" expression="execution(* com.ktb.service..*.*(..))"></aop:pointcut>
+        <!--配置切面-->
+        <aop:aspect ref="xmlAspect">
+            <aop:before method="methodbefore" pointcut-ref="pt1"></aop:before>
+            <aop:after method="After" pointcut-ref="pt1"></aop:after>
+            <aop:after-returning method="AfterReturning" pointcut-ref="pt1" returning="ret1"></aop:after-returning>
+    </aop:aspect>
+
+    </aop:config>
+
+
+</beans>

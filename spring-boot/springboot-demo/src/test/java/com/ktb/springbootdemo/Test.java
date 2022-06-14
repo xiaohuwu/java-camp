@@ -1,6 +1,7 @@
 package com.ktb.springbootdemo;
 
 import java.io.PrintStream;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -125,7 +126,16 @@ public class Test {
     public static void println(String s)
     {
         System.out.println(s);
+
+
+
     }
+
+    public static void main(String[] args) {
+        System.out.println("LocalDateTime.now() = " + LocalDateTime.now());
+    }
+
+
 
 
 }

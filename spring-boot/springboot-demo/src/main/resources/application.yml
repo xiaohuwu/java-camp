@@ -16,11 +16,10 @@ mybatis-plus:
   global-config:
     db-config:
       id-type: auto
-      table-prefix: t_
 
 logging:
   level:
-    root: trace
+    root: info
     org:
       springframework:
         web: debug

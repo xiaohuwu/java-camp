@@ -1,6 +1,7 @@
-package com.sangeng;
+package com;
 
 
+import com.sangeng.SangengBlogApplication;
 import com.sangeng.utils.RedisCache;
 import javafx.beans.binding.Bindings;
 import org.junit.jupiter.api.Test;
@@ -9,7 +10,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Map;
 
-@SpringBootTest
+@SpringBootTest(classes= SangengBlogApplication.class)
+//@SpringBootTest
 class SangengBlogApplicationTests {
 
 

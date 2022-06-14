@@ -1,0 +1,31 @@
+server:
+  port: 8081
+spring:
+  profiles:
+    active: dev
+
+
+---
+server:
+  port: 8082
+  servlet:
+    context-path: /kuang
+my.hello:
+    name: xiaohu
+    age: 18
+
+spring:
+  profiles: dev
+#  datasource:
+#    username: root
+#    password: 123456
+#    #?serverTimezone=UTC解决时区的报错
+#    url: jdbc:mysql://localhost:3306/springboot?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+---
+server:
+  port: 8084
+spring:
+  profiles: production

@@ -1,11 +1,14 @@
 package com.ktb.java8;
 
+import com.ktb.java8.model.Person;
 import com.ktb.java8.model.Student;
 
 import java.util.Arrays;
 import java.util.DoubleSummaryStatistics;
 import java.util.HashMap;
 import java.util.List;
+import java.util.function.Consumer;
+import java.util.function.Supplier;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 
@@ -55,6 +58,17 @@ public class StreamSum {
         map.forEach((k, v) -> {
             System.out.println(k + ":" + v);
         });
+
+
+        Consumer<Person> greeter = (p) -> System.out.println("Hello, " + p.getName());
+        greeter.accept(new Person(10, "小虎"));
+
+        Supplier<Person> personSupplier = () -> {
+            return new Person();
+        };
+
+        Person person = personSupplier.get();
+        System.out.println("person = " + person);
 
     }
 

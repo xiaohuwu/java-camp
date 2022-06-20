@@ -2,6 +2,7 @@ package com.ktb.java8;
 
 import com.ktb.java8.model.Person;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -19,6 +20,8 @@ public class MapDemo {
             String name = person.getName();
             System.out.println("name = " + name);
         }
+        boolean fl = false;
+        ArrayList arrayList = new ArrayList();
 
         String s = Optional.ofNullable(person).map(Person::getName).orElse(null);
         System.out.println("s = " + s);

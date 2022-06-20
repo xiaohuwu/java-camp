@@ -3,10 +3,7 @@ package com.ktb.java8;
 import com.ktb.java8.model.Person;
 import com.ktb.java8.model.Student;
 
-import java.util.Arrays;
-import java.util.DoubleSummaryStatistics;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 import java.util.stream.Collectors;
@@ -16,8 +13,11 @@ public class StreamSum {
 
 
     public static void main(String[] args) {
-        List<Integer> integers = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-        int sum = integers.stream().mapToInt(Integer::intValue).sum();
+        List<Person> integers = new ArrayList<>();
+        integers.add(new Person(1, "gege"));
+        int sum = integers.stream().mapToInt((item) -> {
+            return item.getPid();
+        }).sum();
         System.out.println("sum = " + sum);
 
 

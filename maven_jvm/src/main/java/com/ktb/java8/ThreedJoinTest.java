@@ -16,10 +16,11 @@ public class ThreedJoinTest {
                 e.printStackTrace();
             }
         };
-        Thread thread = new Thread(runnable,"sub Threed");
+        Thread thread = new Thread(runnable, "sub Threed");
         thread.start();
         System.out.println("Thread.currentThread().getName() = " + Thread.currentThread().getName());
         System.out.println("main stop ");
+        boolean flag = false;
     }
 
 }

@@ -1,17 +1,20 @@
 package com.ktb.controller;
 
 import com.ktb.model.User;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
+@Controller
 
 public class UserController {
 
     @RequestMapping(value = "/get", method = RequestMethod.GET, produces = "application/xxx-junlin")
+    @ResponseBody
     public Object getList() {
         User u1 = new User(null, "shanghai");
         return u1;
     }
+
 
     @RequestMapping(method = RequestMethod.POST, value = "/convert")
     public @ResponseBody

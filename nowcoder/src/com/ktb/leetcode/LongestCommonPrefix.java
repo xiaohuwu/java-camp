@@ -3,7 +3,7 @@ package com.ktb.leetcode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//https://leetcode.cn/leetbook/read/array-and-string/ceda1/
 public class LongestCommonPrefix {
 
     public static void main(String[] args) {
@@ -25,9 +25,7 @@ public class LongestCommonPrefix {
             }
             if (is_eq) {
                 list.add(String.valueOf(strs[0].charAt(k)));
-            } else {
-                break;
-            }
+            } else break;
         }
         StringBuilder result = new StringBuilder();
         for (String s : list) {

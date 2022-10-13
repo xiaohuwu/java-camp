@@ -6,8 +6,8 @@ import com.ktb.leetcode.otherlinklist.Solution;
 
 public class LongestPalindrome {
     public static void main(String[] args) {
-        String testStr = "ac";
-        String babad = longestPalindrome1(testStr);
+        String testStr = "ccc";
+        String babad = longestPalindrome(testStr);
         System.out.println("ac = " + babad);
     }
 

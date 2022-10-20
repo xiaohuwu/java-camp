@@ -7,4 +7,5 @@ import org.springframework.context.annotation.Configuration;
 
 @ComponentScan("com.ktb.annotation.a_quickstart")
 public class QuickstartConfiguration {
+
 }

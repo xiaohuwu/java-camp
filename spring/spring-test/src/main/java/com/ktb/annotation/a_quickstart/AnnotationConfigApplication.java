@@ -4,7 +4,7 @@ import com.ktb.annotation.a_quickstart.bean.Person;
 import com.ktb.annotation.a_quickstart.config.QuickstartConfiguration;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class AnnotationConfigApplication implements Runnable {
+public class AnnotationConfigApplication {
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext(QuickstartConfiguration.class);
@@ -13,8 +13,4 @@ public class AnnotationConfigApplication implements Runnable {
     }
 
 
-    @Override
-    public void run() {
-
-    }
 }

@@ -12,7 +12,12 @@ public class XmlConfigApplication {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("beans.xml");
         UserService bean = classPathXmlApplicationContext.getBean(UserService.class);
-        bean.show();
+        String[] beanDefinitionNames = classPathXmlApplicationContext.getBeanDefinitionNames();
+//        for (String beanDefinitionName : beanDefinitionNames) {
+//            System.out.println(beanDefinitionName);
+//        }
+        String show = bean.show();
+        System.out.println("show = " + show);
     }
 
 

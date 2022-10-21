@@ -10,7 +10,8 @@ public class UserDaoImpl2 implements UserDao {
     private String jdbc_password;
 
     @Override
-    public void show() {
+    public String show() {
         System.out.println("jdbc_password = " + jdbc_password);
+        return jdbc_password;
     }
 }

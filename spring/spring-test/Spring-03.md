@@ -147,7 +147,7 @@ public class MyAspect {
 
 -  Joinpoint（连接点）：所谓连接点是指那些可以被增强到的点。在spring中,这些点指的是方法，因为spring只支持方法类型的连接点
 
-- **Pointcut（切入点）：所谓切入点是指被增强的连接点（方法）**
+- Pointcut（切入点）：所谓切入点是指被增强的连接点（方法）
 
 - **Advice（通知/ 增强）：所谓通知是指具体增强的代码**
 
@@ -867,7 +867,7 @@ public class CglibDemo {
                 //判断当前调用的方法是不是getAnswer方法 如果是进行增强
                 if ("getAnswer".equals(method.getName())){
                     System.out.println("被增强了");
-                }
+                3
                 //调用父类中对应的方法
                 Object ret = methodProxy.invokeSuper(o, objects);
                 return ret;

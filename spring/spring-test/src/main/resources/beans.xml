@@ -2,7 +2,24 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
     <context:component-scan base-package="com.ktb.annotation.a_quickstart"/>
     <context:property-placeholder location="classpath*:datasource.properties"/>
+
+    <aop:aspectj-autoproxy ></aop:aspectj-autoproxy>
+
+
+
+    <aop:config>
+        <!--定义切点-->
+<!--        <aop:pointcut id="pt2" expression="@annotation(com.ktb.annotation.a_quickstart.config.InvokeLog)"></aop:pointcut>-->
+        <aop:pointcut id="pt1" expression="execution(* com.ktb.annotation.a_quickstart.service.impl.*.*(..))"></aop:pointcut>
+        <!--配置切面-->
+        <aop:aspect ref="myAspect">
+            <aop:before pointcut-ref="pt1" method="before"></aop:before>
+<!--            <aop:after-throwing method="afterThrowing" pointcut-ref="pt2" throwing="e"></aop:after-throwing>-->
+        </aop:aspect>
+    </aop:config>
+
 </beans>

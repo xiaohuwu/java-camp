@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@Controller
+@RestController
 public class HelloController {
 
     private User user;
@@ -68,8 +68,8 @@ public class HelloController {
 
     @RequestMapping(value = "/Convert", method = RequestMethod.POST)
     public String Convert(User user, Model model) {
-        System.out.println( new Gson().toJson(user));
-        model.addAttribute("user",user);
+        System.out.println(new Gson().toJson(user));
+        model.addAttribute("user", user);
         return "convert";
     }
 
@@ -77,7 +77,7 @@ public class HelloController {
     @RequestMapping(value = "/ConvertJson", method = RequestMethod.POST)
     @ResponseBody
     public User ConvertJson(@RequestBody User user) {
-        System.out.println( "res:  "+new Gson().toJson(user));
+        System.out.println("res:  " + new Gson().toJson(user));
         return user;
     }
 
@@ -92,13 +92,13 @@ public class HelloController {
     @RequestMapping(value = "/getAllUser", method = RequestMethod.GET)
     @ResponseBody
     public List getAllUser() {
-       List userList =  userService.getAllUser();
+        List userList = userService.getAllUser();
         return userList;
     }
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     @ResponseBody
-    public String addUser(@RequestBody  User user) {
+    public String addUser(@RequestBody User user) {
         userService.addUser(user);
         return "ok";
     }

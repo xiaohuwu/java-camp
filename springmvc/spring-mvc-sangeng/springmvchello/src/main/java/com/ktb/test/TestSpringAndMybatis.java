@@ -24,7 +24,7 @@ public class TestSpringAndMybatis {
     private CustomerMapper userDao;
 
     @org.junit.Test
-    public void test1(){
+    public void test1() {
 //        ClassPathXmlApplicationContext app = new ClassPathXmlApplicationContext("todo-servlet.xml");
 //        String[] beanDefinitionNames = app.getBeanDefinitionNames();
 //        for (String item: beanDefinitionNames) {
@@ -40,7 +40,7 @@ public class TestSpringAndMybatis {
         userDao.insert(customer);
 
         Customer customer1 = userDao.selectByPrimaryKey((long) 1);
-        System.out.println(customer1);
+        System.out.println(customer1.toString());
 
     }
 

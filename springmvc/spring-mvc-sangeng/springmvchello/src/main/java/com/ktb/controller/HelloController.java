@@ -15,7 +15,7 @@ public class HelloController {
     public ModelAndView helloWorld(@PathVariable(value = "path", required = false) String path) {
         ModelAndView mv = new ModelAndView();
         mv.addObject("msg", "HelloSpringMVC!");
-        mv.setViewName("hello"); //: /WEB-INF/jsp/hello.jsp
+        mv.setViewName("WEB-INF/views/hello"); //: /WEB-INF/jsp/hello.jsp
         return mv;
     }
 
@@ -47,12 +47,12 @@ public class HelloController {
         System.out.println(id);
         System.out.println(name);
         System.out.println(Arrays.toString(likes));
-        return "success";
+        return "/success.jsp";
     }
 
     @RequestMapping("/testRquestParam1")
     public String testRquestParam1() {
-        return "success";
+        return "/success.jsp";
     }
 
     @RequestMapping(value = "/baseType")

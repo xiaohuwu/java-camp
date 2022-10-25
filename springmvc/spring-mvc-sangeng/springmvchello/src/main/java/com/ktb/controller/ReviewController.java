@@ -45,7 +45,7 @@ public class ReviewController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/userQuery", consumes = "application/json")
+    @RequestMapping(value = "/userQuery123", consumes = "application/json")
     public String test4(User user) {
         System.out.println("id = " + user);
         return user.toString();

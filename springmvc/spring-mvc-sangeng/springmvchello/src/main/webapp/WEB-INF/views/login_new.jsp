@@ -13,7 +13,7 @@
 <body>
 
 <form method="post" action="/login">
-  用户名：<input type="text" name="username">
+  用户名：<input type="text" name="userName">
   密码：<input type="password" name="password">
   <input type="submit">
 </form>

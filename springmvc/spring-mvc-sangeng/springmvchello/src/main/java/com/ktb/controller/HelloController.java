@@ -52,7 +52,6 @@ public class HelloController {
 
     @RequestMapping("/testRquestParam1")
     public String testRquestParam1() {
-
         return "success";
     }
 

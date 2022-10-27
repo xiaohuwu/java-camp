@@ -20,9 +20,9 @@ public class test {
 
     public static void main(String[] args) throws IOException {
         SqlSession sqlSession = getSqlSession();
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-        Student tom = mapper.getStudentByNumber(0);
-        System.out.println(tom);
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
+        List<User> users = mapper.findAll();
+        users.forEach(System.out::println);
         sqlSession.close();
     }
 
@@ -42,8 +42,7 @@ public class test {
         // SqlSession：parameter A parameter object to pass to the statement.
         SqlSession sqlSessionFactory = getSqlSession();
         try {
-            Employee employee = sqlSessionFactory.selectOne(
-                    "abc.getEmpById", 1);
+            Employee employee = sqlSessionFactory.selectOne("abc.getEmpById", 1);
             System.out.println(employee);
         } finally {
             sqlSessionFactory.close();
@@ -83,7 +82,7 @@ public class test {
     public void update() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
-        Customer customer = mapper.get(6,null);
+        Customer customer = mapper.get(6, null);
         customer.setName("小虎哥123");
         Long update = mapper.update(customer);
         System.out.println("update:" + update);
@@ -93,10 +92,22 @@ public class test {
     @Test
     public void get() throws IOException {
         SqlSession sqlSession = getSqlSession();
-        CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
 //        Customer customer = mapper.get(new Customer(6));
-        Customer customer = mapper.get(6,null);
-        System.out.println(customer.toString());
+        User user = mapper.findById(1);
+        System.out.println(user.toString());
+        sqlSession.close();
+    }
+
+    @Test
+    public void findUser() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
+        User user = new User();
+        user.setUsername("UZI");
+        user.setAge(19);
+        User user1 = mapper.findUser(user);
+        System.out.println(user1.toString());
         sqlSession.close();
     }
 
@@ -168,6 +179,7 @@ public class test {
 
     /**
      * 1对1关联测试
+     *
      * @throws IOException
      */
     @Test
@@ -180,9 +192,9 @@ public class test {
     }
 
 
-
     /**
      * 1对1关联测试
+     *
      * @throws IOException
      */
     @Test
@@ -192,7 +204,7 @@ public class test {
 
         int pageNun = 1; // 页码
         int pageSize = 2;// 每页显示条数
-        PageHelper.startPage(pageNun,pageSize);
+        PageHelper.startPage(pageNun, pageSize);
         List<User> users = userDao.findAllUsers();
         System.out.println("users:" + new Gson().toJson(users));
 
@@ -202,24 +214,23 @@ public class test {
         //6.取出PageInfo的属性
         //测试PageInfo全部属性
         //PageInfo包含了非常全面的分页属性
-        System.out.println("当前页码="+page.getPageNum());
-        System.out.println("每页显示条数="+page.getPageSize());
-        System.out.println("当前页起始行号="+page.getStartRow());
-        System.out.println("当前页结束行号="+page.getEndRow());
-        System.out.println("总记录数="+page.getTotal());
-        System.out.println("总页数="+page.getPages());
-        System.out.println("是否为第1页="+page.isIsFirstPage());
-        System.out.println("是否为最后1页="+page.isIsLastPage());
-        System.out.println("是否有上一页="+page.isHasPreviousPage());
-        System.out.println("是否有下一页="+page.isHasNextPage());
+        System.out.println("当前页码=" + page.getPageNum());
+        System.out.println("每页显示条数=" + page.getPageSize());
+        System.out.println("当前页起始行号=" + page.getStartRow());
+        System.out.println("当前页结束行号=" + page.getEndRow());
+        System.out.println("总记录数=" + page.getTotal());
+        System.out.println("总页数=" + page.getPages());
+        System.out.println("是否为第1页=" + page.isIsFirstPage());
+        System.out.println("是否为最后1页=" + page.isIsLastPage());
+        System.out.println("是否有上一页=" + page.isHasPreviousPage());
+        System.out.println("是否有下一页=" + page.isHasNextPage());
         System.out.println("当前页数据=");
-        for(User c:page.getList()){
+        for (User c : page.getList()) {
             System.out.println(c);
         }
 
         sqlSession.close();
     }
-
 
 
 }

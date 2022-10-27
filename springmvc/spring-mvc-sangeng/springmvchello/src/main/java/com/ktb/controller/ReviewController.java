@@ -1,10 +1,16 @@
 package com.ktb.controller;
 
 import com.ktb.model.User;
+import com.ktb.utils.DownLoadUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Controller
@@ -81,9 +87,16 @@ public class ReviewController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(String userName, HttpSession session) {
+    public String login(String userName, HttpSession session, MultipartFile portrait) throws IOException {
+        portrait.transferTo(new File("./elderly.png"));
         session.setAttribute("userName", userName);
         return "redirect:/success.jsp";
+    }
+
+
+    @RequestMapping(value = "/donwload", method = RequestMethod.GET)
+    public void donwload(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        DownLoadUtils.downloadFile("/Users/jonny/Documents/elderly.png", request.getServletContext(), response);
     }
 
 }

@@ -8,6 +8,7 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:component-scan base-package="com.ktb.controller"/>
+
 <!--    <mvc:annotation-driven/>-->
 <!--    &lt;!&ndash; 解决静态资源访问问题，如果不加mvc:annotation-driven会导致无法访问handler&ndash;&gt;-->
     <mvc:default-servlet-handler/>
@@ -61,5 +62,18 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+
+    <!--
+          文件上传解析器
+          注意：id 必须为 multipartResolver
+      -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置默认字符编码 -->
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 一次请求上传的文件的总大小的最大值，单位是字节-->
+        <property name="maxUploadSize" value="#{1024*1024*100}"/>
+        <!-- 每个上传文件大小的最大值，单位是字节-->
+        <property name="maxUploadSizePerFile" value="#{1024*1024*50}"/>
+    </bean>
 
 </beans>

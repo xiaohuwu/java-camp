@@ -21,9 +21,22 @@
           o.id oid,
           o.orderno orderno,
           o.amount amount
-        FROM t_user u
+        FROM user u
           LEFT JOIN t_order o
             ON o.user_id = u.id
+    </select>
+
+    <select id="findAll" resultType="com.ktb.model.User">
+        SELECT * FROM user
+    </select>
+
+    <select id="findById" resultType="com.ktb.model.User">
+        SELECT * FROM user WHERE id = #{id}
+    </select>
+
+
+    <select id="findUser" resultType="com.ktb.model.User">
+          SELECT * FROM user WHERE username = #{username} AND age = #{age}
     </select>
 
 </mapper>

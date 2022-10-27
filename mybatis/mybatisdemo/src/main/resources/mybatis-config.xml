@@ -36,7 +36,7 @@
 <!--        <package name="com.ktb.mapper"/>-->
 <!--        <mapper resource="com/ktb/mapper/ComstomerMapper.xml"/>-->
 <!--        <mapper resource="mapper/StudentMapper.xml"/>-->
-        <mapper resource="com/ktb/mapper/OrderDao.xml"/>
+        <mapper resource="com/ktb/mapper/UserDao.xml"/>
 <!--        <mapper resource="mapper/UserDao.xml"/>-->
 <!--        <mapper resource="com/ktb/mapper/EmployeeMapper.xml"/>-->
     </mappers>

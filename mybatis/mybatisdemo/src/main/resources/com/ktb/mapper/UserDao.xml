@@ -12,6 +12,14 @@
         <result property="address" column="address"/>
     </resultMap>
 
+    <resultMap id="userRoleMap" type="com.ktb.model.User" extends="userMap">
+        <collection property="roles" ofType="com.ktb.model.Role">
+            <id property="id" column="rid"></id>
+            <result property="name" column="name"></result>
+            <result property="desc" column="desc"></result>
+        </collection>
+    </resultMap>
+
 
     <insert id="insertUser">
         insert into users (username, age, address)
@@ -38,10 +46,12 @@
         FROM users
     </select>
 
-    <select id="findById" resultType="com.ktb.model.User">
-        SELECT *
-        FROM users inner join roles on users.id = roles.user_id
-        where users.id = #{id};
+    <select id="findById" resultMap="userRoleMap">
+        SELECT  roles.id as rid, roles.name, roles.desc
+        FROM `users`
+                 INNER JOIN `user_roles` ON `user_roles`.`user_id` = `users`.`id`
+                 INNER JOIN `roles` ON `roles`.`id` = `user_roles`.`role_id`
+        WHERE `users`.`id` = #{id};
     </select>
 
 
@@ -50,7 +60,7 @@
         FROM users
         <trim prefix="where" prefixOverrides="and|or">
             <if test="age!=null">
-                and  age = #{age}
+                and age = #{age}
             </if>
             <if test="username!=null">
                 and username = #{username}
@@ -65,7 +75,7 @@
         FROM users
         <trim prefix="where" prefixOverrides="and|or">
             <if test="age!=null">
-               and  age = #{age}
+                and age = #{age}
             </if>
             <if test="username!=null">
                 and username = #{username}

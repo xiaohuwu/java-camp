@@ -4,6 +4,8 @@ package com.ktb.model;
 import lombok.Builder;
 import lombok.Data;
 
+import java.util.List;
+
 
 @Data
 public class User {
@@ -14,6 +16,10 @@ public class User {
     private Integer age;
 
     private String address;
+
+    private List<Role> roles;
+
+
 
 
     public User() {

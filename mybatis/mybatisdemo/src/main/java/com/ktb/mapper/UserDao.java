@@ -10,7 +10,7 @@ public interface UserDao {
 
  public List<User> findAll();
 
- User findById(Integer id);
+ List<User> findById(Integer id);
 
  User findUser(User user);
 

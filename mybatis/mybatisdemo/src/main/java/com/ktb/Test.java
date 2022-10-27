@@ -93,8 +93,8 @@ public class Test {
         SqlSession sqlSession = getSqlSession();
         UserDao mapper = sqlSession.getMapper(UserDao.class);
 //        Customer customer = mapper.get(new Customer(6));
-        User user = mapper.findById(1);
-        System.out.println(user.toString());
+        List<User> user = mapper.findById(1);
+        System.out.println(new Gson().toJson(user));
         sqlSession.close();
     }
 

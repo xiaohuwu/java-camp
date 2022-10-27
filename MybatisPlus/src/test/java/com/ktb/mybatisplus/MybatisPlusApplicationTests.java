@@ -1,18 +1,14 @@
 package com.ktb.mybatisplus;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ktb.mybatisplus.dao.OrderMapper;
-import com.ktb.mybatisplus.dao.UserMapper;
-import com.ktb.mybatisplus.model.Orders;
-import com.ktb.mybatisplus.model.User;
-import com.ktb.mybatisplus.model.enums.SexEnum;
+import com.ktb.mybatisplus.mapper.OrderMapper;
+import com.ktb.mybatisplus.mapper.UserMapper;
+import com.ktb.mybatisplus.entity.Orders;
+import com.ktb.mybatisplus.entity.User;
 import com.ktb.mybatisplus.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -71,7 +67,7 @@ class MybatisPlusApplicationTests {
     @Test
     public void testUpdateById() {
         User user = new User();
-        user.setName("张三").setAge(18).setEmail("123@qq.com").setUid(6L);
+        user.setName("张三").setEmail("123@qq.com").setUid(6L);
         int i = userMapper.updateById(user);
         userMapper.selectById(user.getUid());
     }
@@ -175,7 +171,7 @@ class MybatisPlusApplicationTests {
 
     @Test
     public void test09() {
-        User myUserByWrapper = userMapper.findMyUserByWrapper(Wrappers.<User>lambdaQuery().eq(User::getUid, 1));
+        User myUserByWrapper = userMapper.selectOne(Wrappers.<User>lambdaQuery().eq(User::getUid, 1));
         System.out.println("myUserByWrapper = " + myUserByWrapper);
     }
 

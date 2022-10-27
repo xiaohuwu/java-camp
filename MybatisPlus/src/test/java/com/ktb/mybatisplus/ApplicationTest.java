@@ -2,10 +2,10 @@ package com.ktb.mybatisplus;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.ktb.mybatisplus.dao.ProductMapper;
-import com.ktb.mybatisplus.dao.UserMapper;
-import com.ktb.mybatisplus.model.Product;
-import com.ktb.mybatisplus.model.User;
+import com.ktb.mybatisplus.mapper.ProductMapper;
+import com.ktb.mybatisplus.mapper.UserMapper;
+import com.ktb.mybatisplus.entity.Product;
+import com.ktb.mybatisplus.entity.User;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

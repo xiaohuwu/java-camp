@@ -1,5 +1,6 @@
 package com.ktb.mybatisplus.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
@@ -26,6 +27,7 @@ public class User implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty("主键ID")
+    @TableId
     private Long uid;
 
     @ApiModelProperty("姓名")

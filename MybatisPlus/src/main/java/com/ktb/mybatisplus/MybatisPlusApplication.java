@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.jackson.Jackson2ObjectMapperBuilde
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
-@MapperScan("com.ktb.mybatisplus.dao")
+@MapperScan("com.ktb.mybatisplus.mapper")
 public class MybatisPlusApplication {
 
     public static void main(String[] args) {

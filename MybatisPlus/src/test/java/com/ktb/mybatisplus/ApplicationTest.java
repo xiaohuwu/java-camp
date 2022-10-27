@@ -6,6 +6,8 @@ import com.ktb.mybatisplus.mapper.ProductMapper;
 import com.ktb.mybatisplus.mapper.UserMapper;
 import com.ktb.mybatisplus.entity.Product;
 import com.ktb.mybatisplus.entity.User;
+import com.ktb.mybatisplus.service.IProductService;
+import com.ktb.mybatisplus.service.IUserService;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,11 @@ public class ApplicationTest {
 
     @Autowired
     ProductMapper productMapper;
+
+    @Autowired
+    IUserService userService;
+    @Autowired
+    IProductService productService;
 
     @Test
     public void test09() {
@@ -92,6 +99,15 @@ public class ApplicationTest {
         Product p3 = productMapper.selectById(1L); //价格覆盖，最后的结果:70
         System.out.println("最后的结果:" + p3.getPrice());
 
+    }
+
+
+    @Test
+    public void testDynamicDataSource(){
+        User byId = userService.getById(1L);
+        System.out.println("byId = " + byId);
+        Product byId1 = productService.getById(1L);
+        System.out.println("byId1 = " + byId1);
     }
 
 

@@ -12,6 +12,7 @@ import com.ktb.mybatisplus.dao.OrderMapper;
 import com.ktb.mybatisplus.dao.UserMapper;
 import com.ktb.mybatisplus.model.Orders;
 import com.ktb.mybatisplus.model.User;
+import com.ktb.mybatisplus.model.enums.SexEnum;
 import com.ktb.mybatisplus.service.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,14 @@ class MybatisPlusApplicationTests {
 
     @Test
     public void testInsertUser() {
-        User user = new User();
-        user.setName("张三").setAge(18).setEmail("123@qq.com");
-        userMapper.insert(user);
+//        User user = new User();
+//        user.setName("张三").setAge(18).setEmail("123@qq.com").setSex(SexEnum.FEMALE);
+//        userMapper.insert(user);
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<User> select = queryWrapper.select("max(uid) as uid");
+        User user1 = userMapper.selectOne(select);
+        User user2 = userMapper.selectById(user1.getUid());
+        System.out.println(user2);
     }
 
     @Test

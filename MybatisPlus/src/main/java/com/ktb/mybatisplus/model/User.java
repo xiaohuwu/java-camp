@@ -1,6 +1,9 @@
 package com.ktb.mybatisplus.model;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,33 +17,23 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(chain = true)
+@TableName("t_user")
 public class User {
 
-    private Long id;
-    private String userName;
-    private String password;
+    @TableId
+    private Long uid;
     private String name;
     private Integer age;
+    private String email;
 
-    @TableField(exist = false)
-    private List<Orders> orders;
-
-    @TableField("address")
-    private String addressStr;
+    @TableLogic
+    public boolean isDelete;
 
 
-    public List<Orders> getOrders() {
-        return orders;
-    }
-
-    public void setOrders(List<Orders> orders) {
-        this.orders = orders;
-    }
-
-    public void fill_orders(List<Orders> orders) {
-        List<Orders> collect = orders.stream().filter((item) -> item.getUserId().equals(this.getId())).collect(Collectors.toList());
-        this.setOrders(collect);
-    }
+//    public void fill_orders(List<Orders> orders) {
+//        List<Orders> collect = orders.stream().filter((item) -> item.getUserId().equals(this.getId())).collect(Collectors.toList());
+//        this.setOrders(collect);
+//    }
 
 
 }

@@ -4,6 +4,9 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <properties resource="db.properties"/>
+    <settings>
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
     <typeAliases>
         <!--        <typeAlias type="com.ktb.model.Student" alias="student"/>-->
         <package name="com.ktb.model"/>
@@ -33,12 +36,14 @@
 
 
     <mappers>
-<!--        <package name="com.ktb.mapper"/>-->
-<!--        <mapper resource="com/ktb/mapper/ComstomerMapper.xml"/>-->
-<!--        <mapper resource="mapper/StudentMapper.xml"/>-->
-        <mapper resource="com/ktb/mapper/UserDao.xml"/>
-<!--        <mapper resource="mapper/UserDao.xml"/>-->
-<!--        <mapper resource="com/ktb/mapper/EmployeeMapper.xml"/>-->
+        <!-- 定义dao接口所在的包。要求xml文件存放的路径和dao接口的包名要对应 -->
+        <package name="com.ktb.mapper"/>
+        <!--        <package name="com.ktb.mapper"/>-->
+        <!--        <mapper resource="com/ktb/mapper/ComstomerMapper.xml"/>-->
+        <!--        <mapper resource="mapper/StudentMapper.xml"/>-->
+<!--        <mapper resource="com/ktb/mapper/UserDao.xml"/>-->
+        <!--        <mapper resource="mapper/UserDao.xml"/>-->
+        <!--        <mapper resource="com/ktb/mapper/EmployeeMapper.xml"/>-->
     </mappers>
 
 </configuration>

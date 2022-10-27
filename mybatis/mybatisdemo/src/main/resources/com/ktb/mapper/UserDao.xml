@@ -3,40 +3,101 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ktb.mapper.UserDao">
+
     <!--一对多映射-->
-    <resultMap id="OrderResultMap" type="com.ktb.model.User">
+    <resultMap id="userMap" type="com.ktb.model.User">
         <id property="id" column="id"/>
         <result property="username" column="username"/>
-        <result property="password" column="password"/>
-        <collection property="orders" column="user_id" ofType="com.ktb.model.Order">
-            <id property="id" column="oid"/>
-            <result property="orderno" column="orderno"/>
-            <result property="amount" column="amount"/>
-        </collection>
+        <result property="age" column="age"/>
+        <result property="address" column="address"/>
     </resultMap>
 
-    <select id="findAllUsers" resultMap="OrderResultMap" resultType="com.ktb.model.User">
-        SELECT
-          u.*,
-          o.id oid,
-          o.orderno orderno,
-          o.amount amount
-        FROM user u
-          LEFT JOIN t_order o
-            ON o.user_id = u.id
-    </select>
+
+    <insert id="insertUser">
+        insert into users (username, age, address)
+        values (#{username}, #{age}, #{address});
+    </insert>
+
+    <update id="updateUser">
+        update users
+        set username=#{username},
+            age=#{age},
+            address=#{address}
+        where id = #{id};
+    </update>
+
+    <delete id="deleteById">
+        delete
+        from users
+        where id = #{id};
+    </delete>
+
 
     <select id="findAll" resultType="com.ktb.model.User">
-        SELECT * FROM user
+        SELECT *
+        FROM users
     </select>
 
     <select id="findById" resultType="com.ktb.model.User">
-        SELECT * FROM user WHERE id = #{id}
+        SELECT *
+        FROM users inner join roles on users.id = roles.user_id
+        where users.id = #{id};
     </select>
 
 
     <select id="findUser" resultType="com.ktb.model.User">
-          SELECT * FROM user WHERE username = #{username} AND age = #{age}
+        SELECT *
+        FROM users
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="age!=null">
+                and  age = #{age}
+            </if>
+            <if test="username!=null">
+                and username = #{username}
+            </if>
+        </trim>
+    </select>
+
+
+    <!--    这样可读性不强-->
+    <select id="findbyCondition" resultType="com.ktb.model.User">
+        SELECT *
+        FROM users
+        <trim prefix="where" prefixOverrides="and|or">
+            <if test="age!=null">
+               and  age = #{age}
+            </if>
+            <if test="username!=null">
+                and username = #{username}
+            </if>
+        </trim>
+    </select>
+
+
+    <select id="findbyConditionTwo" resultType="com.ktb.model.User">
+        # SELECT *
+        # FROM user
+        # WHERE username = #{username}
+        # AND age = #{age}
+        <!--        <trim prefixOverrides="and">-->
+        <!--            and-->
+        <!--        </trim>-->
+        <!--        <trim suffixOverrides="like|and" >-->
+        <!--            and  1=1 like-->
+        <!--        </trim>-->
+
+
+        select * from users
+        <trim prefix="where">
+            1 = 1;
+        </trim>
+
+    </select>
+    <select id="findbyConditionThree" resultType="com.ktb.model.User">
+        select * from users
+        <trim prefix="where">
+            1 = 1;
+        </trim>
     </select>
 
 </mapper>

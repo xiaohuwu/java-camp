@@ -9,14 +9,13 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class test {
+public class Test {
 
     public static void main(String[] args) throws IOException {
         SqlSession sqlSession = getSqlSession();
@@ -34,7 +33,7 @@ public class test {
         return sqlSessionFactory.openSession(true); //此处设置事务手动提交 坑一
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void test() throws IOException {
 
         // 2、获取sqlSession实例，能直接执行已经映射的sql语句
@@ -49,7 +48,7 @@ public class test {
         }
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void test01() throws IOException {
 
         // 2、获取sqlSession实例，能直接执行已经映射的sql语句
@@ -65,7 +64,7 @@ public class test {
         }
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void add() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -78,7 +77,7 @@ public class test {
         sqlSession.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void update() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -89,7 +88,7 @@ public class test {
         sqlSession.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void get() throws IOException {
         SqlSession sqlSession = getSqlSession();
         UserDao mapper = sqlSession.getMapper(UserDao.class);
@@ -99,19 +98,40 @@ public class test {
         sqlSession.close();
     }
 
-    @Test
+
+    @org.junit.jupiter.api.Test
+    public void getByCondition() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        UserDao dao = sqlSession.getMapper(UserDao.class);
+        User user = dao.findbyCondition("小", 19);
+        System.out.println("user = " + user);
+        sqlSession.close();
+    }
+
+    @org.junit.jupiter.api.Test
     public void findUser() throws IOException {
         SqlSession sqlSession = getSqlSession();
         UserDao mapper = sqlSession.getMapper(UserDao.class);
         User user = new User();
         user.setUsername("UZI");
-        user.setAge(19);
         User user1 = mapper.findUser(user);
         System.out.println(user1.toString());
         sqlSession.close();
     }
 
-    @Test
+
+    @org.junit.jupiter.api.Test
+    public void insertUser() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
+        User user = new User();
+        user.setUsername("小虎");
+        user.setAge(29);
+        mapper.insertUser(user);
+        sqlSession.close();
+    }
+
+    @org.junit.jupiter.api.Test
     public void findByIds() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -126,7 +146,7 @@ public class test {
         sqlSession.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void getCount() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -136,7 +156,7 @@ public class test {
         sqlSession.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void queryCustomerResultMap() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -146,7 +166,7 @@ public class test {
     }
 
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void dynamicSql() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -162,7 +182,7 @@ public class test {
     }
 
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void dynamicSql2() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -182,7 +202,7 @@ public class test {
      *
      * @throws IOException
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void getAllOrder() throws IOException {
         SqlSession sqlSession = getSqlSession();
         OrderDao orderDao = sqlSession.getMapper(OrderDao.class);
@@ -197,7 +217,7 @@ public class test {
      *
      * @throws IOException
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void getAllUsers() throws IOException {
         SqlSession sqlSession = getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);

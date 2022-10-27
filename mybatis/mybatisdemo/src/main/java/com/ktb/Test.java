@@ -88,6 +88,11 @@ public class Test {
         sqlSession.close();
     }
 
+    /**
+     * 1对多查询
+     *
+     * @throws IOException
+     */
     @org.junit.jupiter.api.Test
     public void get() throws IOException {
         SqlSession sqlSession = getSqlSession();

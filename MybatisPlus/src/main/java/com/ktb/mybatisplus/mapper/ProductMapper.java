@@ -1,7 +1,7 @@
-package com.ktb.mybatisplus.dao;
+package com.ktb.mybatisplus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ktb.mybatisplus.model.Product;
+import com.ktb.mybatisplus.entity.Product;
 
 public interface ProductMapper extends BaseMapper<Product> {
 

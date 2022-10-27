@@ -1,4 +1,4 @@
-package com.ktb.mybatisplus.model.enums;
+package com.ktb.mybatisplus.entity.enums;
 
 import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.Getter;

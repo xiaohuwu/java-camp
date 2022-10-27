@@ -1,4 +1,4 @@
-package com.ktb.mybatisplus.model;
+package com.ktb.mybatisplus.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

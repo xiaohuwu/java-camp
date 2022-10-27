@@ -5,11 +5,9 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ktb.mybatisplus.mapper.OrderMapper;
 import com.ktb.mybatisplus.mapper.UserMapper;
-import com.ktb.mybatisplus.entity.Orders;
 import com.ktb.mybatisplus.entity.User;
-import com.ktb.mybatisplus.service.UserService;
+import com.ktb.mybatisplus.service.IUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,9 +22,6 @@ class MybatisPlusApplicationTests {
 
     @Autowired
     UserMapper userMapper;
-
-    @Autowired
-    OrderMapper orderMapper;
 
 
     @Test
@@ -203,18 +198,10 @@ class MybatisPlusApplicationTests {
         IPage<User> userIPage = userMapper.selectPage(page, null);
         List<User> records = userIPage.getRecords();
         List<Long> collect = records.stream().map(User::getUid).collect(Collectors.toList());
-        LambdaQueryWrapper<Orders> wrapper2 = new LambdaQueryWrapper();
-        wrapper2.in(Orders::getUserId, collect);
-        List<Orders> orders = orderMapper.selectList(wrapper2);
-        for (User record : records) {
-
-            System.out.println("record = " + record);
-
-        }
     }
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @Test
     public void testService() {

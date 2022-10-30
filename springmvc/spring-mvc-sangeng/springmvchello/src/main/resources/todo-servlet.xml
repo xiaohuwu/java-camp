@@ -8,7 +8,12 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:component-scan base-package="com.ktb.controller"/>
+<<<<<<< HEAD
     <mvc:annotation-driven/>
+=======
+
+<!--    <mvc:annotation-driven/>-->
+>>>>>>> origin/master
 <!--    &lt;!&ndash; 解决静态资源访问问题，如果不加mvc:annotation-driven会导致无法访问handler&ndash;&gt;-->
     <mvc:default-servlet-handler/>
 
@@ -41,6 +46,7 @@
 <!--        </mvc:annotation-driven>-->
 
 
+<<<<<<< HEAD
 
 
     <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="myConversionService">
@@ -50,11 +56,40 @@
             </set>
         </property>
     </bean>
+=======
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!--要拦截的路径-->
+            <mvc:mapping path="/**"/>
+            <!--排除不拦截的路径-->
+            <mvc:exclude-mapping path="/static/**"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/WEB-INF/page/**"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/login_new"></mvc:exclude-mapping>
+            <mvc:exclude-mapping path="/login"></mvc:exclude-mapping>
+            <bean class="com.ktb.config.LoginInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+
+>>>>>>> origin/master
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
 
+
+    <!--
+          文件上传解析器
+          注意：id 必须为 multipartResolver
+      -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 设置默认字符编码 -->
+        <property name="defaultEncoding" value="utf-8"/>
+        <!-- 一次请求上传的文件的总大小的最大值，单位是字节-->
+        <property name="maxUploadSize" value="#{1024*1024*100}"/>
+        <!-- 每个上传文件大小的最大值，单位是字节-->
+        <property name="maxUploadSizePerFile" value="#{1024*1024*50}"/>
+    </bean>
 
 </beans>

@@ -1,8 +1,11 @@
 package com.ktb.model;
 
+import java.util.Date;
+
 public class User {
     private String name;
     private Integer age;
+    private Date birthday;
 
     public User() {
     }
@@ -23,11 +26,21 @@ public class User {
         this.age = age;
     }
 
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", age=" + age +
+                ", birthday=" + birthday +
                 '}';
     }
 }

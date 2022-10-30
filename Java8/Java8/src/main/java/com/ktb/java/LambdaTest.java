@@ -2,17 +2,18 @@ package com.ktb.java;
 
 import org.junit.*;
 
+import java.text.SimpleDateFormat;
 import java.util.Comparator;
+import java.util.Date;
 
 
 public class LambdaTest {
 
     @Test
     public void test1() {
-        Runnable test = () -> {
-            System.out.println("我爱北京天安门");
-        };
-        test.run();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String format = simpleDateFormat.format(new Date());
+        System.out.println("format = " + format);
     }
 
     @Test

@@ -8,7 +8,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 
 /**
  * Spring 测试 验证 Spring 和Spring MVC 之间的整合
@@ -36,9 +38,8 @@ public class TestSpringMvc {
 
     @org.junit.Test
     public void printBeans() {
-        String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
-        for (String item : beanDefinitionNames) {
-            System.out.println("item:---=========>" + item);
-        }
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        String format = simpleDateFormat.format(new Date());
+        System.out.println("format = " + format);
     }
 }

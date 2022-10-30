@@ -1,7 +1,4 @@
-package com.ktb.mybatisplus.model;
-
-import java.util.List;
-import java.util.stream.Collectors;
+package com.ktb.mybatisplus.entity;
 
 public class BaseModel {
     private Long id;

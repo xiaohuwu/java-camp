@@ -9,20 +9,19 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class test {
+public class Test {
 
     public static void main(String[] args) throws IOException {
         SqlSession sqlSession = getSqlSession();
-        StudentMapper mapper = sqlSession.getMapper(StudentMapper.class);
-        Student tom = mapper.getStudentByNumber(0);
-        System.out.println(tom);
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
+        List<User> users = mapper.findAll();
+        users.forEach(System.out::println);
         sqlSession.close();
     }
 
@@ -34,7 +33,7 @@ public class test {
         return sqlSessionFactory.openSession(true); //此处设置事务手动提交 坑一
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void test() throws IOException {
 
         // 2、获取sqlSession实例，能直接执行已经映射的sql语句
@@ -42,15 +41,14 @@ public class test {
         // SqlSession：parameter A parameter object to pass to the statement.
         SqlSession sqlSessionFactory = getSqlSession();
         try {
-            Employee employee = sqlSessionFactory.selectOne(
-                    "abc.getEmpById", 1);
+            Employee employee = sqlSessionFactory.selectOne("abc.getEmpById", 1);
             System.out.println(employee);
         } finally {
             sqlSessionFactory.close();
         }
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void test01() throws IOException {
 
         // 2、获取sqlSession实例，能直接执行已经映射的sql语句
@@ -66,7 +64,7 @@ public class test {
         }
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void add() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -79,28 +77,66 @@ public class test {
         sqlSession.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void update() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
-        Customer customer = mapper.get(6,null);
+        Customer customer = mapper.get(6, null);
         customer.setName("小虎哥123");
         Long update = mapper.update(customer);
         System.out.println("update:" + update);
         sqlSession.close();
     }
 
-    @Test
+    /**
+     * 1对多查询
+     *
+     * @throws IOException
+     */
+    @org.junit.jupiter.api.Test
     public void get() throws IOException {
         SqlSession sqlSession = getSqlSession();
-        CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
 //        Customer customer = mapper.get(new Customer(6));
-        Customer customer = mapper.get(6,null);
-        System.out.println(customer.toString());
+        List<User> user = mapper.findById(1);
+        System.out.println(new Gson().toJson(user));
         sqlSession.close();
     }
 
-    @Test
+
+    @org.junit.jupiter.api.Test
+    public void getByCondition() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        UserDao dao = sqlSession.getMapper(UserDao.class);
+        User user = dao.findbyCondition("小", 19);
+        System.out.println("user = " + user);
+        sqlSession.close();
+    }
+
+    @org.junit.jupiter.api.Test
+    public void findUser() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
+        User user = new User();
+        user.setUsername("UZI");
+        User user1 = mapper.findUser(user);
+        System.out.println(user1.toString());
+        sqlSession.close();
+    }
+
+
+    @org.junit.jupiter.api.Test
+    public void insertUser() throws IOException {
+        SqlSession sqlSession = getSqlSession();
+        UserDao mapper = sqlSession.getMapper(UserDao.class);
+        User user = new User();
+        user.setUsername("小虎");
+        user.setAge(29);
+        mapper.insertUser(user);
+        sqlSession.close();
+    }
+
+    @org.junit.jupiter.api.Test
     public void findByIds() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -115,7 +151,7 @@ public class test {
         sqlSession.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void getCount() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -125,7 +161,7 @@ public class test {
         sqlSession.close();
     }
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void queryCustomerResultMap() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -135,7 +171,7 @@ public class test {
     }
 
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void dynamicSql() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -151,7 +187,7 @@ public class test {
     }
 
 
-    @Test
+    @org.junit.jupiter.api.Test
     public void dynamicSql2() throws IOException {
         SqlSession sqlSession = getSqlSession();
         CustomerMapper mapper = sqlSession.getMapper(CustomerMapper.class);
@@ -168,9 +204,10 @@ public class test {
 
     /**
      * 1对1关联测试
+     *
      * @throws IOException
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void getAllOrder() throws IOException {
         SqlSession sqlSession = getSqlSession();
         OrderDao orderDao = sqlSession.getMapper(OrderDao.class);
@@ -180,19 +217,19 @@ public class test {
     }
 
 
-
     /**
      * 1对1关联测试
+     *
      * @throws IOException
      */
-    @Test
+    @org.junit.jupiter.api.Test
     public void getAllUsers() throws IOException {
         SqlSession sqlSession = getSqlSession();
         UserDao userDao = sqlSession.getMapper(UserDao.class);
 
         int pageNun = 1; // 页码
         int pageSize = 2;// 每页显示条数
-        PageHelper.startPage(pageNun,pageSize);
+        PageHelper.startPage(pageNun, pageSize);
         List<User> users = userDao.findAllUsers();
         System.out.println("users:" + new Gson().toJson(users));
 
@@ -202,24 +239,23 @@ public class test {
         //6.取出PageInfo的属性
         //测试PageInfo全部属性
         //PageInfo包含了非常全面的分页属性
-        System.out.println("当前页码="+page.getPageNum());
-        System.out.println("每页显示条数="+page.getPageSize());
-        System.out.println("当前页起始行号="+page.getStartRow());
-        System.out.println("当前页结束行号="+page.getEndRow());
-        System.out.println("总记录数="+page.getTotal());
-        System.out.println("总页数="+page.getPages());
-        System.out.println("是否为第1页="+page.isIsFirstPage());
-        System.out.println("是否为最后1页="+page.isIsLastPage());
-        System.out.println("是否有上一页="+page.isHasPreviousPage());
-        System.out.println("是否有下一页="+page.isHasNextPage());
+        System.out.println("当前页码=" + page.getPageNum());
+        System.out.println("每页显示条数=" + page.getPageSize());
+        System.out.println("当前页起始行号=" + page.getStartRow());
+        System.out.println("当前页结束行号=" + page.getEndRow());
+        System.out.println("总记录数=" + page.getTotal());
+        System.out.println("总页数=" + page.getPages());
+        System.out.println("是否为第1页=" + page.isIsFirstPage());
+        System.out.println("是否为最后1页=" + page.isIsLastPage());
+        System.out.println("是否有上一页=" + page.isHasPreviousPage());
+        System.out.println("是否有下一页=" + page.isHasNextPage());
         System.out.println("当前页数据=");
-        for(User c:page.getList()){
+        for (User c : page.getList()) {
             System.out.println(c);
         }
 
         sqlSession.close();
     }
-
 
 
 }

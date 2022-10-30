@@ -30,7 +30,11 @@
 ~~~~mysql
 CREATE DATABASE /*!32312 IF NOT EXISTS*/`mybatis_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `mybatis_db`;
+<<<<<<< HEAD
 DROP TABLE IF EXISTS `user`;
+=======
+DROP TABLE IF EXISTS users;
+>>>>>>> origin/master
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) DEFAULT NULL,
@@ -38,7 +42,11 @@ CREATE TABLE `user` (
   `address` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+<<<<<<< HEAD
 insert  into `user`(`id`,`username`,`age`,`address`) values (1,'UZI',19,'上海'),(2,'PDD',25,'上海');
+=======
+insert  into users(`id`,`username`,`age`,`address`) values (1,'UZI',19,'上海'),(2,'PDD',25,'上海');
+>>>>>>> origin/master
 ~~~~
 
 ②导入依赖

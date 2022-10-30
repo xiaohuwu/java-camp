@@ -1,17 +1,13 @@
 package com.ktb.mybatisplus;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ktb.mybatisplus.dao.OrderMapper;
-import com.ktb.mybatisplus.dao.UserMapper;
-import com.ktb.mybatisplus.model.Orders;
-import com.ktb.mybatisplus.model.User;
+import com.ktb.mybatisplus.mapper.UserMapper;
+import com.ktb.mybatisplus.entity.User;
+import com.ktb.mybatisplus.service.IUserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,12 +23,6 @@ class MybatisPlusApplicationTests {
     @Autowired
     UserMapper userMapper;
 
-    @Autowired
-    OrderMapper orderMapper;
-
-
-
-
 
     @Test
     void list() {
@@ -42,27 +32,46 @@ class MybatisPlusApplicationTests {
 
     @Test
     public void testInsertUser() {
-        User user = new User();
-        user.setUserName("gege");
-        user.setPassword("goood");
-        user.setAddressStr("成都");
-        userMapper.insert(user);
+//        User user = new User();
+//        user.setName("张三").setAge(18).setEmail("123@qq.com").setSex(SexEnum.FEMALE);
+//        userMapper.insert(user);
+        QueryWrapper<User> queryWrapper = new QueryWrapper<>();
+        QueryWrapper<User> select = queryWrapper.select("max(uid) as uid");
+        User user1 = userMapper.selectOne(select);
+        User user2 = userMapper.selectById(user1.getUid());
+        System.out.println(user2);
     }
 
     @Test
     public void testDeleteUser() {
-        int i = userMapper.deleteById(3);
+        int i = userMapper.deleteById(16);
         System.out.println("i = " + i);
+        userMapper.selectList(null).forEach(System.out::println);
     }
 
 
     @Test
     public void testWrapper01() {
         QueryWrapper wrapper = new QueryWrapper();
-        wrapper.gt("age", 18);
-        wrapper.eq("address", "成都");
+        wrapper.ge("age", 18);
+        wrapper.eq("email", "123@qq.com");
         List list = userMapper.selectList(wrapper);
         list.forEach(System.out::println);
+    }
+
+    @Test
+    public void testUpdateById() {
+        User user = new User();
+        user.setName("张三").setEmail("123@qq.com").setUid(6L);
+        int i = userMapper.updateById(user);
+        userMapper.selectById(user.getUid());
+    }
+
+
+    @Test
+    public void testSelectBatchIds() {
+        List<User> users = userMapper.selectBatchIds(Arrays.asList(1, 2, 3));
+        users.forEach(System.out::println);
     }
 
 
@@ -81,7 +90,6 @@ class MybatisPlusApplicationTests {
         QueryWrapper wrapper = new QueryWrapper();
         wrapper.in("id", Arrays.asList(1, 2, 3, 1485992030160064518L));
         wrapper.between("age", 12, 29);
-        wrapper.like("address", "成");
         List list = userMapper.selectList(wrapper);
         list.forEach(System.out::println);
     }
@@ -148,8 +156,8 @@ class MybatisPlusApplicationTests {
     @Test
     public void testLambdaWrapper() {
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper();
-        wrapper.select(User::getId, User::getName);
-        wrapper.in(User::getId, 1, 2, 1485992030160064518L);
+        wrapper.select(User::getUid, User::getName);
+        wrapper.in(User::getUid, 1, 2, 1485992030160064518L);
         wrapper.gt(User::getAge, 12);
         List<User> list = userMapper.selectList(wrapper);
         list.forEach(System.out::println);
@@ -158,7 +166,7 @@ class MybatisPlusApplicationTests {
 
     @Test
     public void test09() {
-        User myUserByWrapper = userMapper.findMyUserByWrapper(Wrappers.<User>lambdaQuery().eq(User::getId, 1));
+        User myUserByWrapper = userMapper.selectOne(Wrappers.<User>lambdaQuery().eq(User::getUid, 1));
         System.out.println("myUserByWrapper = " + myUserByWrapper);
     }
 
@@ -189,18 +197,30 @@ class MybatisPlusApplicationTests {
         page.setCurrent(1);
         IPage<User> userIPage = userMapper.selectPage(page, null);
         List<User> records = userIPage.getRecords();
-        List<Long> collect = records.stream().map(User::getId).collect(Collectors.toList());
-        LambdaQueryWrapper<Orders> wrapper2 = new LambdaQueryWrapper();
-        wrapper2.in(Orders::getUserId, collect);
-        List<Orders> orders = orderMapper.selectList(wrapper2);
-        for (User record : records) {
-            record.fill_orders(orders);
-            System.out.println("record = " + record);
-            record.getOrders().forEach(System.out::println);
-        }
+        List<Long> collect = records.stream().map(User::getUid).collect(Collectors.toList());
+    }
+
+    @Autowired
+    private IUserService userService;
+
+    @Test
+    public void testService() {
+        int count = userService.count();
+        System.out.println("count = " + count);
     }
 
 
-
+    @Test
+    public void testService1() {
+        ArrayList arrayList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            User user = new User();
+            user.setName("张三" + i);
+            user.setAge(18 + i);
+            arrayList.add(user);
+        }
+        boolean b = userService.saveBatch(arrayList);
+        System.out.println("b = " + b);
+    }
 
 }

@@ -3,7 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ktb.mapper.OrderDao">
+    <!--
+      resultMap 用来自定义结果集和实体类的映射
+          属性：
+              id 相当于这个resultMap的唯一标识
+              type 用来指定映射到哪个实体类
+      id标签  用来指定主键列的映射规则
+          属性：
+              property 要映射的属性名
+              column  对应的列名
+      result标签 用来指定普通列的映射规则
+          属性：
+              property 要映射的属性名
+              column 对应的列名
+  -->
+    <resultMap id="baseOrderMap" type="com.ktb.model.Order">
+        <id column="id" property="id"></id>
+        <result column="createtime" property="createtime"></result>
+        <result column="price" property="price"></result>
+        <result column="remark" property="remark"></result>
+    </resultMap>
 
+<<<<<<< HEAD
     <!--一对一映射-->
     <resultMap id="OrderResultMap" type="com.ktb.model.Order">
         <id property="id" column="oid"/>
@@ -12,13 +33,31 @@
             <id property="id" column="user_id"/>
             <result property="username" column="username"/>
             <result property="password" column="password"/>
+=======
+    <resultMap id="orderMap" type="com.ktb.model.Order" autoMapping="false" extends="baseOrderMap">
+        <result column="user_id" property="userId"></result>
+    </resultMap>
+
+    <!--Order和User关联的映射（使用association）-->
+    <resultMap id="orderUserMapUseAssociation" type="com.ktb.model.Order" autoMapping="false" extends="orderMap">
+        <association property="user" javaType="com.ktb.model.User">
+            <id property="id" column="user_id"></id>
+            <result property="username" column="username"></result>
+            <result property="age" column="age"></result>
+            <result property="address" column="address"></result>
+>>>>>>> origin/master
         </association>
     </resultMap>
 
 
     <!--1对1-->
+<<<<<<< HEAD
     <select id="findAllOrders" resultMap="OrderResultMap">
         SELECT orders.*, users.id as user_id, user.username, user.password
+=======
+    <select id="findAllOrders" resultMap="orderUserMapUseAssociation">
+        SELECT `orders`.*,users.username,users.age,users.address
+>>>>>>> origin/master
         FROM `orders`
                  INNER JOIN `users` ON `users`.`id` = `orders`.`user_id`
     </select>

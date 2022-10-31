@@ -31,9 +31,13 @@ class NewbeeApplicationTests {
         BeanUtils.copyProperties(user, user2);
         user2.setNickName("xiaohuge123");
 
-        Javers javers = JaversBuilder.javers().build();
-        Diff diff = javers.compare(user, user2);
-        System.out.println(javers.getJsonConverter().toJson(diff));
+        int i = userDao.updateById(user2);
+        System.out.println(i);
+
+
+//        Javers javers = JaversBuilder.javers().build();
+//        Diff diff = javers.compare(user, user2);
+//        System.out.println(javers.getJsonConverter().toJson(diff));
 
     }
 

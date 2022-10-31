@@ -35,7 +35,11 @@ insert  into `role`(`id`,`name`,`desc`) values (1,'总经理','一人之下'),(2
 
 /*Table structure for table `user` */
 
+<<<<<<< HEAD
+DROP TABLE IF EXISTS `user`;
+=======
 DROP TABLE IF EXISTS users;
+>>>>>>> origin/master
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -47,7 +51,11 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
+<<<<<<< HEAD
+insert  into `user`(`id`,`username`,`age`,`address`) values (2,'pdd',26,NULL),(3,'UZI',19,'上海11'),(4,'RF',19,NULL);
+=======
 insert  into users(`id`,`username`,`age`,`address`) values (2,'pdd',26,NULL),(3,'UZI',19,'上海11'),(4,'RF',19,NULL);
+>>>>>>> origin/master
 
 /*Table structure for table `user_role` */
 
@@ -398,7 +406,11 @@ SQL语句如下
 SELECT 
 	o.id,o.`createtime`,o.`price`,o.`remark`,o.`user_id`,u.`id` uid,u.`username`,u.`age`,u.`address`
 FROM 
+<<<<<<< HEAD
+	orders o,USER u
+=======
 	orders o,users u
+>>>>>>> origin/master
 WHERE
 	o.`user_id` = u.`id`
 	AND o.id = 2
@@ -532,7 +544,11 @@ SQL语句如下
 SELECT 
 	u.`id`,u.`username`,u.`age`,u.`address`,r.id rid,r.name,r.desc
 FROM 
+<<<<<<< HEAD
+	USER u,user_role ur,role r
+=======
 	users u,user_role ur,role r
+>>>>>>> origin/master
 WHERE 
 	u.id=ur.user_id AND ur.role_id = r.id
 	AND u.id = 2

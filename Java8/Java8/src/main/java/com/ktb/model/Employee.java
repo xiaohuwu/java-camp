@@ -1,4 +1,4 @@
-package com.ktb.java2;
+package com.ktb.model;
 
 public class Employee {
     private int id;

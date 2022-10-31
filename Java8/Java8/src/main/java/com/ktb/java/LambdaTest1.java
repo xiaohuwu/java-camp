@@ -1,10 +1,9 @@
-package com.ktb.java1;
+package com.ktb.java;
 
-import com.ktb.java2.Employee;
+import com.ktb.model.Employee;
 import com.ktb.model.User;
 import org.junit.Test;
 
-import java.util.Comparator;
 import java.util.function.*;
 //方法引用是lamda 表达式的简写形式
 

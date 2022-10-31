@@ -8,8 +8,12 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:component-scan base-package="com.ktb.controller"/>
+<<<<<<< HEAD
+    <mvc:annotation-driven/>
+=======
 
 <!--    <mvc:annotation-driven/>-->
+>>>>>>> origin/master
 <!--    &lt;!&ndash; 解决静态资源访问问题，如果不加mvc:annotation-driven会导致无法访问handler&ndash;&gt;-->
     <mvc:default-servlet-handler/>
 
@@ -20,28 +24,39 @@
 <!--    <bean id="/hello" class="com.ktb.controller.FirstController"/>-->
 
     <!--解决响应乱码-->
-        <mvc:annotation-driven>
-            <mvc:message-converters>
+<!--        <mvc:annotation-driven>-->
+<!--            <mvc:message-converters>-->
     <!--            简单字符串转中文乱码问题-->
 <!--                <bean class="org.springframework.http.converter.StringHttpMessageConverter">-->
 <!--                    <constructor-arg index="0" value="UTF-8"/>-->
 <!--                </bean>-->
-                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-                    <property name="objectMapper">
-                        <bean class="com.fasterxml.jackson.databind.ObjectMapper">
-                            <property name="dateFormat">
-                                <bean class="java.text.SimpleDateFormat">
-                                    <constructor-arg name="pattern" value="yyyy-MM-dd HH:mm:ss"/>
-                                </bean>
-                            </property>
-                            <property name="timeZone" value="Asia/Shanghai"/>
-                        </bean>
-                    </property>
-                </bean>
-            </mvc:message-converters>
-        </mvc:annotation-driven>
+<!--                <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">-->
+<!--                    <property name="objectMapper">-->
+<!--                        <bean class="com.fasterxml.jackson.databind.ObjectMapper">-->
+<!--                            <property name="dateFormat">-->
+<!--                                <bean class="java.text.SimpleDateFormat">-->
+<!--                                    <constructor-arg name="pattern" value="yyyy-MM-dd HH:mm:ss"/>-->
+<!--                                </bean>-->
+<!--                            </property>-->
+<!--                            <property name="timeZone" value="Asia/Shanghai"/>-->
+<!--                        </bean>-->
+<!--                    </property>-->
+<!--                </bean>-->
+<!--            </mvc:message-converters>-->
+<!--        </mvc:annotation-driven>-->
 
 
+<<<<<<< HEAD
+
+
+    <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="myConversionService">
+        <property name="converters">
+            <set>
+                <bean class="com.ktb.controller.config.StringToDateConverter"></bean>
+            </set>
+        </property>
+    </bean>
+=======
     <mvc:interceptors>
         <mvc:interceptor>
             <!--要拦截的路径-->
@@ -56,6 +71,7 @@
     </mvc:interceptors>
 
 
+>>>>>>> origin/master
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>

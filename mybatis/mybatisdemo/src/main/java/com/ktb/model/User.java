@@ -16,13 +16,27 @@ public class User {
     private Integer age;
 
     private String address;
+    private String password;
 
     private List<Role> roles;
 
+<<<<<<< HEAD
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public Integer getId() {
+        return id;
+=======
 
 
 
     public User() {
+>>>>>>> origin/master
     }
 
     @Override

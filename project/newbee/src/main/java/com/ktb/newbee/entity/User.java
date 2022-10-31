@@ -1,8 +1,10 @@
 package com.ktb.newbee.entity;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.experimental.Accessors;
+import org.javers.core.metamodel.annotation.Id;
 
 import java.util.Date;
 
@@ -16,7 +18,10 @@ import java.util.Date;
 @Accessors(chain = true)
 @TableName("tb_newbee_mall_user")
 public class User{
+
     //用户主键id
+    @Id
+    @TableId("user_id")
     private Long userId;
     //用户昵称
     private String nickName;

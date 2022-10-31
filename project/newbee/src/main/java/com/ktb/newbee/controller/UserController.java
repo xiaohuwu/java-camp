@@ -14,7 +14,7 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * (TbNewbeeMallUser)表控制层
+ * (beeMallUser)表控制层
  *
  * @author makejava
  * @since 2022-10-31 14:30:28

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <plugins>
+        <plugin interceptor="com.gitee.lopssh.plugin.mybatis.auditlog.interceptor.SQLAuditLogInterceptor">
+            <!-- 是否启用，默认值: true -->
+            <property name="enable" value="true"/>
+            <!-- 是否进行自动分表，默认值: true -->
+            <property name="split" value="true"/>
+            <!-- 不分表时的表名，表不存在将会自动新建，默认值: audit_log -->
+            <property name="defaultTableName" value="audit_log"/>
+            <!-- 分表时的表名前缀，每月自动新建一张，生成规则 前缀名+年月，默认值: audit_log_ -->
+            <property name="preTableName" value="audit_log_"/>
+        </plugin>
+    </plugins>
+</configuration>
+
+

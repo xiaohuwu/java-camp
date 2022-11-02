@@ -30,17 +30,18 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
 
     @Override
     public ResponseResult hotArticleList() {
-        LambdaQueryWrapper<Article> lambdaQueryWrapper = new LambdaQueryWrapper();
-        lambdaQueryWrapper
-                .eq(Article::getStatus, SystemConstants.ARTICLE_STATUS_NORMAL)
-                .orderByDesc(Article::getViewCount)
-                .last("limit 10");
-        List<Article> articles = articleMapper.selectList(lambdaQueryWrapper);
-        List<HotArticleVo> collect = articles.stream().map(article -> {
-            HotArticleVo hotArticleVo = BeanCopyUtils.copyBean(article, HotArticleVo.class);
+        LambdaQueryWrapper<Article> queryWrapper = new LambdaQueryWrapper<Article>();
+        queryWrapper.eq(Article::getStatus, 0);
+        queryWrapper.orderByDesc(Article::getViewCount);
+        queryWrapper.last("limit 0,10");
+        List<Article> articleList = articleMapper.selectList(queryWrapper);
+        List<HotArticleVo> collect = articleList.stream().map((item) -> {
+            HotArticleVo hotArticleVo = BeanCopyUtils.copyBean(item, HotArticleVo.class);
             return hotArticleVo;
         }).collect(Collectors.toList());
-        return new ResponseResult(AppHttpCodeEnum.SUCCESS.getCode(), collect);
+        return ResponseResult.okResult(collect);
     }
+
+
 }
 

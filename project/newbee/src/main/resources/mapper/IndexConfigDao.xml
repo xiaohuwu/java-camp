@@ -16,173 +16,47 @@
         <result property="updateUser" column="update_user" jdbcType="INTEGER"/>
     </resultMap>
 
+    <resultMap id="orderUserMapUseAssociation" type="com.ktb.newbee.entity.IndexConfig" autoMapping="false"
+               extends="IndexConfigMap">
+        <association property="goodsInfo" javaType="com.ktb.newbee.entity.GoodsInfo">
+            <id property="goodsId" column="goods_id"></id>
+            <result property="goodsName" column="goods_name"></result>
+            <result property="sellingPrice" column="selling_price"></result>
+        </association>
+    </resultMap>
+
+
     <!--查询单个-->
     <select id="queryById" resultMap="IndexConfigMap">
-        select
-          config_id, config_name, config_type, goods_id, redirect_url, config_rank, is_deleted, create_time, create_user, update_time, update_user
+        select config_id,
+               config_name,
+               config_type,
+               goods_id,
+               redirect_url,
+               config_rank,
+               is_deleted,
+               create_time,
+               create_user,
+               update_time,
+               update_user
         from tb_newbee_mall_index_config
         where config_id = #{configId}
     </select>
 
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="IndexConfigMap">
-        select
-          config_id, config_name, config_type, goods_id, redirect_url, config_rank, is_deleted, create_time, create_user, update_time, update_user
-        from tb_newbee_mall_index_config
-        <where>
-            <if test="configId != null">
-                and config_id = #{configId}
-            </if>
-            <if test="configName != null and configName != ''">
-                and config_name = #{configName}
-            </if>
-            <if test="configType != null">
-                and config_type = #{configType}
-            </if>
-            <if test="goodsId != null">
-                and goods_id = #{goodsId}
-            </if>
-            <if test="redirectUrl != null and redirectUrl != ''">
-                and redirect_url = #{redirectUrl}
-            </if>
-            <if test="configRank != null">
-                and config_rank = #{configRank}
-            </if>
-            <if test="isDeleted != null">
-                and is_deleted = #{isDeleted}
-            </if>
-            <if test="createTime != null">
-                and create_time = #{createTime}
-            </if>
-            <if test="createUser != null">
-                and create_user = #{createUser}
-            </if>
-            <if test="updateTime != null">
-                and update_time = #{updateTime}
-            </if>
-            <if test="updateUser != null">
-                and update_user = #{updateUser}
-            </if>
-        </where>
-        limit #{pageable.offset}, #{pageable.pageSize}
+    <!--查询所有-->
+    <select id="getIndexConfigs" resultMap="orderUserMapUseAssociation">
+        SELECT `tb_newbee_mall_index_config`.*,
+               `tb_newbee_mall_goods_info`.`goods_id`,
+               `tb_newbee_mall_goods_info`.`goods_name`,
+               `tb_newbee_mall_goods_info`.`selling_price`
+        FROM `tb_newbee_mall_index_config`
+                 INNER JOIN `tb_newbee_mall_goods_info` ON `tb_newbee_mall_goods_info`.`goods_id` =
+                                                           `tb_newbee_mall_index_config`.`goods_id`
+        where config_type = #{configType}
+          and is_deleted = 0 limit 5
+
     </select>
 
-    <!--统计总行数-->
-    <select id="count" resultType="java.lang.Long">
-        select count(1)
-        from tb_newbee_mall_index_config
-        <where>
-            <if test="configId != null">
-                and config_id = #{configId}
-            </if>
-            <if test="configName != null and configName != ''">
-                and config_name = #{configName}
-            </if>
-            <if test="configType != null">
-                and config_type = #{configType}
-            </if>
-            <if test="goodsId != null">
-                and goods_id = #{goodsId}
-            </if>
-            <if test="redirectUrl != null and redirectUrl != ''">
-                and redirect_url = #{redirectUrl}
-            </if>
-            <if test="configRank != null">
-                and config_rank = #{configRank}
-            </if>
-            <if test="isDeleted != null">
-                and is_deleted = #{isDeleted}
-            </if>
-            <if test="createTime != null">
-                and create_time = #{createTime}
-            </if>
-            <if test="createUser != null">
-                and create_user = #{createUser}
-            </if>
-            <if test="updateTime != null">
-                and update_time = #{updateTime}
-            </if>
-            <if test="updateUser != null">
-                and update_user = #{updateUser}
-            </if>
-        </where>
-    </select>
-
-    <!--新增所有列-->
-    <insert id="insert" keyProperty="configId" useGeneratedKeys="true">
-        insert into tb_newbee_mall_index_config(config_name, config_type, goods_id, redirect_url, config_rank, is_deleted, create_time, create_user, update_time, update_user)
-        values (#{configName}, #{configType}, #{goodsId}, #{redirectUrl}, #{configRank}, #{isDeleted}, #{createTime}, #{createUser}, #{updateTime}, #{updateUser})
-    </insert>
-
-    <insert id="insertBatch" keyProperty="configId" useGeneratedKeys="true">
-        insert into tb_newbee_mall_index_config(config_name, config_type, goods_id, redirect_url, config_rank, is_deleted, create_time, create_user, update_time, update_user)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-        (#{entity.configName}, #{entity.configType}, #{entity.goodsId}, #{entity.redirectUrl}, #{entity.configRank}, #{entity.isDeleted}, #{entity.createTime}, #{entity.createUser}, #{entity.updateTime}, #{entity.updateUser})
-        </foreach>
-    </insert>
-
-    <insert id="insertOrUpdateBatch" keyProperty="configId" useGeneratedKeys="true">
-        insert into tb_newbee_mall_index_config(config_name, config_type, goods_id, redirect_url, config_rank, is_deleted, create_time, create_user, update_time, update_user)
-        values
-        <foreach collection="entities" item="entity" separator=",">
-            (#{entity.configName}, #{entity.configType}, #{entity.goodsId}, #{entity.redirectUrl}, #{entity.configRank}, #{entity.isDeleted}, #{entity.createTime}, #{entity.createUser}, #{entity.updateTime}, #{entity.updateUser})
-        </foreach>
-        on duplicate key update
-        config_name = values(config_name),
-        config_type = values(config_type),
-        goods_id = values(goods_id),
-        redirect_url = values(redirect_url),
-        config_rank = values(config_rank),
-        is_deleted = values(is_deleted),
-        create_time = values(create_time),
-        create_user = values(create_user),
-        update_time = values(update_time),
-        update_user = values(update_user)
-    </insert>
-
-    <!--通过主键修改数据-->
-    <update id="update">
-        update tb_newbee_mall_index_config
-        <set>
-            <if test="configName != null and configName != ''">
-                config_name = #{configName},
-            </if>
-            <if test="configType != null">
-                config_type = #{configType},
-            </if>
-            <if test="goodsId != null">
-                goods_id = #{goodsId},
-            </if>
-            <if test="redirectUrl != null and redirectUrl != ''">
-                redirect_url = #{redirectUrl},
-            </if>
-            <if test="configRank != null">
-                config_rank = #{configRank},
-            </if>
-            <if test="isDeleted != null">
-                is_deleted = #{isDeleted},
-            </if>
-            <if test="createTime != null">
-                create_time = #{createTime},
-            </if>
-            <if test="createUser != null">
-                create_user = #{createUser},
-            </if>
-            <if test="updateTime != null">
-                update_time = #{updateTime},
-            </if>
-            <if test="updateUser != null">
-                update_user = #{updateUser},
-            </if>
-        </set>
-        where config_id = #{configId}
-    </update>
-
-    <!--通过主键删除-->
-    <delete id="deleteById">
-        delete from tb_newbee_mall_index_config where config_id = #{configId}
-    </delete>
 
 </mapper>
 

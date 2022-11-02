@@ -24,16 +24,7 @@
         <result column="remark" property="remark"></result>
     </resultMap>
 
-<<<<<<< HEAD
-    <!--一对一映射-->
-    <resultMap id="OrderResultMap" type="com.ktb.model.Order">
-        <id property="id" column="oid"/>
-        <!--关联查询订单所属的用户-->
-        <association property="user" column="id" javaType="com.ktb.model.User">
-            <id property="id" column="user_id"/>
-            <result property="username" column="username"/>
-            <result property="password" column="password"/>
-=======
+
     <resultMap id="orderMap" type="com.ktb.model.Order" autoMapping="false" extends="baseOrderMap">
         <result column="user_id" property="userId"></result>
     </resultMap>
@@ -45,19 +36,14 @@
             <result property="username" column="username"></result>
             <result property="age" column="age"></result>
             <result property="address" column="address"></result>
->>>>>>> origin/master
         </association>
     </resultMap>
 
 
     <!--1对1-->
-<<<<<<< HEAD
-    <select id="findAllOrders" resultMap="OrderResultMap">
-        SELECT orders.*, users.id as user_id, user.username, user.password
-=======
+
     <select id="findAllOrders" resultMap="orderUserMapUseAssociation">
         SELECT `orders`.*,users.username,users.age,users.address
->>>>>>> origin/master
         FROM `orders`
                  INNER JOIN `users` ON `users`.`id` = `orders`.`user_id`
     </select>

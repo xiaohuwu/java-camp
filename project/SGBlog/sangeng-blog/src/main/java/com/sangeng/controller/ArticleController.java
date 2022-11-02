@@ -18,8 +18,8 @@ public class ArticleController {
     private ArticleService articleService;
 
     @GetMapping("/list")
-    public List<Article> test() {
-        return articleService.list();
+    public List<Article> articleList(Integer pageNum,Integer pageSize,Integer categoryId) {
+        return articleService.articleList(pageNum,pageSize,categoryId);
     }
 
 

@@ -42,6 +42,11 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         return ResponseResult.okResult(collect);
     }
 
+    @Override
+    public List<Article> articleList(Integer pageNum, Integer pageSize, Integer categoryId) {
+        return null;
+    }
+
 
 }
 

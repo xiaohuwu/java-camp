@@ -89,5 +89,8 @@ public class UserController {
     public Result delete(@RequestParam("idList") List<Long> idList) {
         return Result.ok(this.userService.removeByIds(idList));
     }
+
+
+
 }
 

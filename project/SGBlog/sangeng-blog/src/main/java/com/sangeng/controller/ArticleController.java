@@ -2,11 +2,9 @@ package com.sangeng.controller;
 
 import com.sangeng.entity.Article;
 import com.sangeng.entity.ResponseResult;
-import com.sangeng.model.User;
 import com.sangeng.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
@@ -32,11 +30,5 @@ public class ArticleController {
         return result;
     }
 
-
-    @PostMapping("/getUser")
-    public ResponseResult getUsers(User user) {
-        System.out.println("user = " + user);
-        return ResponseResult.okResult(user);
-    }
 
 }

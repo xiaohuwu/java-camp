@@ -1,6 +1,6 @@
-package com.ktb.newbee.entity;
 
-import com.baomidou.mybatisplus.annotation.TableField;
+package com.ktb.newbee.entity.vo;
+
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -22,7 +22,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("tb_newbee_mall_index_config")
-public class IndexConfig {
+public class IndexConfigVo {
 
     @TableId("config_id")
     //首页配置项主键id
@@ -48,10 +48,9 @@ public class IndexConfig {
     //修改者id
     private Integer updateUser;
 
-    @TableField(exist = false)
-    private GoodsInfo goodsInfo;
+    private String    goodsName;
 
-
+    private Integer sellingPrice;
 
 }
 

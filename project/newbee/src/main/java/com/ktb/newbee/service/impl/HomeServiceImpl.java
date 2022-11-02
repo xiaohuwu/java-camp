@@ -5,11 +5,12 @@ import com.ktb.newbee.config.Result;
 import com.ktb.newbee.dao.GoodsInfoDao;
 import com.ktb.newbee.dao.IndexConfigDao;
 import com.ktb.newbee.entity.Carousel;
-import com.ktb.newbee.entity.GoodsInfo;
 import com.ktb.newbee.entity.IndexConfig;
 import com.ktb.newbee.entity.vo.HomeVo;
+import com.ktb.newbee.entity.vo.IndexConfigVo;
 import com.ktb.newbee.service.CarouselService;
 import com.ktb.newbee.service.HomeService;
+import com.ktb.newbee.util.BeanCopyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,35 +37,26 @@ public class HomeServiceImpl implements HomeService {
         List<Carousel> carousels = carouselService.list(wrapper);
 
         //新品
-        List<IndexConfig> newGoods = getIndexConfigs(4);
-        List<IndexConfig> hotGoods = getIndexConfigs(3);
-        List<IndexConfig> recommendGoods = getIndexConfigs(5);
+        List<IndexConfigVo> newGoodsVo = getIndexConfigVos(4);
+        List<IndexConfigVo> hotGoodsVo = getIndexConfigVos(3);
+        List<IndexConfigVo> recommendGoodsVo = getIndexConfigVos(5);
 
         HomeVo homeVo = new HomeVo();
         homeVo.setCarousels(carousels);
-        homeVo.setNewGoods(newGoods);
-        homeVo.setHotGoods(hotGoods);
-        homeVo.setRecommendGoods(recommendGoods);
+        homeVo.setNewGoods(newGoodsVo);
+        homeVo.setHotGoods(hotGoodsVo);
+        homeVo.setRecommendGoods(recommendGoodsVo);
         return Result.ok(homeVo);
     }
 
-
-    private List<IndexConfig> getIndexConfigs(int configType) {
-        LambdaQueryWrapper<IndexConfig> newWrapper = new LambdaQueryWrapper<IndexConfig>();
-        newWrapper.eq(IndexConfig::getIsDeleted, 0);
-        newWrapper.last("limit 5");
-        newWrapper.eq(IndexConfig::getConfigType, configType);
-        newWrapper.orderByDesc(true, IndexConfig::getConfigRank);
-        List<IndexConfig> newGoods = indexConfigDao.selectList(newWrapper);
-        List<Long> collect = newGoods.stream().map(IndexConfig::getGoodsId).collect(Collectors.toList());
-        List<GoodsInfo> goodsInfos = goodsInfoDao.selectBatchIds(collect);
-        newGoods.forEach(item -> {
-            GoodsInfo goodsInfo = goodsInfos.stream().filter(goods -> goods.getGoodsId().equals(item.getGoodsId())).findFirst().orElse(null);
-            if (goodsInfo != null) {
-                item.setPrice(goodsInfo.getSellingPrice());
-                item.setGoodsName(goodsInfo.getGoodsName());
-            }
-        });
-        return newGoods;
+    private List<IndexConfigVo> getIndexConfigVos(int configType) {
+        List<IndexConfig> newGoods = indexConfigDao.getIndexConfigs(configType);
+        List<IndexConfigVo> collect = newGoods.stream().map((item) -> {
+            IndexConfigVo vo = BeanCopyUtils.copyBean(item, IndexConfigVo.class);
+            vo.setGoodsName(item.getGoodsInfo().getGoodsName());
+            vo.setSellingPrice(item.getGoodsInfo().getSellingPrice());
+            return vo;
+        }).collect(Collectors.toList());
+        return collect;
     }
 }

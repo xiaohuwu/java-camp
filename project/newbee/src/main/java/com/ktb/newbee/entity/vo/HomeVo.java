@@ -1,7 +1,6 @@
 package com.ktb.newbee.entity.vo;
 
 import com.ktb.newbee.entity.Carousel;
-import com.ktb.newbee.entity.IndexConfig;
 import lombok.Data;
 
 import java.util.List;
@@ -9,9 +8,9 @@ import java.util.List;
 @Data
 public class HomeVo {
     private List<Carousel> carousels;
-    private List<IndexConfig> newGoods;
-    private List<IndexConfig> hotGoods;
-    private List<IndexConfig> recommendGoods;
+    private List<IndexConfigVo> newGoods;
+    private List<IndexConfigVo> hotGoods;
+    private List<IndexConfigVo> recommendGoods;
 
     public List<Carousel> getCarousels() {
         return carousels;

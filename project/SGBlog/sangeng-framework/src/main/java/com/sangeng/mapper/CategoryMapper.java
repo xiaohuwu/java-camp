@@ -7,10 +7,9 @@ import com.sangeng.entity.Category;
 /**
  * 分类表(Category)表数据库访问层
  *
- * @author 66
- * @since 2022-05-10 23:34:52
+ * @author makejava
+ * @since 2022-11-02 22:55:25
  */
 public interface CategoryMapper extends BaseMapper<Category> {
 
 }
-

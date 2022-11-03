@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
 
 @RestController
@@ -17,9 +18,11 @@ public class ArticleController {
     @Autowired
     private ArticleService articleService;
 
+
+
     @GetMapping("/list")
-    public List<Article> articleList(Integer pageNum,Integer pageSize,Integer categoryId) {
-        return articleService.articleList(pageNum,pageSize,categoryId);
+    public List<Article> articleList(Integer pageNum, Integer pageSize, Integer categoryId) {
+        return articleService.articleList(pageNum, pageSize, categoryId);
     }
 
 
@@ -27,6 +30,11 @@ public class ArticleController {
     public ResponseResult hotArticleList() {
         ResponseResult result = articleService.hotArticleList();
         return result;
+    }
+
+    @GetMapping("/getValue")
+    public String getValue() {
+        return System.getenv("test");
     }
 
 

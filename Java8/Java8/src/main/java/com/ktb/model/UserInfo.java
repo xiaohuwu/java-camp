@@ -1,6 +1,7 @@
 package com.ktb.model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class UserInfo implements Serializable {
     private Long id;
@@ -41,5 +42,18 @@ public class UserInfo implements Serializable {
     @Override
     public String toString() {
         return "UserInfo{" + "id=" + id + ", name='" + name + '\'' + ", age=" + age + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserInfo userInfo = (UserInfo) o;
+        return id.equals(userInfo.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

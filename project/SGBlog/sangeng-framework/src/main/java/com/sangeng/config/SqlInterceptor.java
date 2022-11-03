@@ -1,4 +1,5 @@
 package com.sangeng.config;
+
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
@@ -26,11 +27,7 @@ import java.util.Properties;
  * 2.可以用来获取实际执行的SQL
  */
 
-@Intercepts({
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}),
-        @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class}),
-        @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class})}
-)
+@Intercepts({@Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class}), @Signature(type = Executor.class, method = "query", args = {MappedStatement.class, Object.class, RowBounds.class, ResultHandler.class, CacheKey.class, BoundSql.class}), @Signature(type = Executor.class, method = "update", args = {MappedStatement.class, Object.class})})
 @Slf4j
 public class SqlInterceptor implements Interceptor {
 //    private static final Log log = LogFactory.getLog(SqlInterceptor.class);
@@ -134,6 +131,10 @@ public class SqlInterceptor implements Interceptor {
             if (sqlCommandType == SqlCommandType.UPDATE || sqlCommandType == SqlCommandType.INSERT || sqlCommandType == SqlCommandType.DELETE) {
                 log.warn("[{}ms] [{}] {}; 影响行数：{}", costTime, sqlId, sql, obj);
             }
+            String getenv = System.getProperty("spring.profiles.active");
+            String getenv1 = System.getenv("spring.profiles.active");
+            log.info("getenv:{}", getenv);
+            log.info("getenv1:{}", getenv1);
             if (sqlCommandType == SqlCommandType.SELECT) {
                 log.warn("[{}ms] [{}] {}; 结果行数：{}", costTime, sqlId, sql, ((Collection<?>) obj).size());
             }

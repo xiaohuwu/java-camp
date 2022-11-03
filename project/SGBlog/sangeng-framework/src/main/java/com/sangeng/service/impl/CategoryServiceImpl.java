@@ -12,6 +12,7 @@ import com.sangeng.service.CategoryService;
 import com.sangeng.utils.BeanCopyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -37,6 +38,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryMapper, Category> i
     @Autowired
     CategoryMapper categoryMapper;
 
+    @Transactional
     @Override
     public ResponseResult<Category> index() {
         LambdaQueryWrapper<Article> lambdaQueryWrapper = new LambdaQueryWrapper<Article>();

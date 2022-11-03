@@ -5,14 +5,11 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.sangeng.entity.Article;
 import com.sangeng.entity.HotArticleVo;
 import com.sangeng.entity.ResponseResult;
-import com.sangeng.entity.SystemConstants;
-import com.sangeng.enums.AppHttpCodeEnum;
 import com.sangeng.mapper.ArticleMapper;
 import com.sangeng.service.ArticleService;
 import com.sangeng.utils.BeanCopyUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.stream.Collectors;
 

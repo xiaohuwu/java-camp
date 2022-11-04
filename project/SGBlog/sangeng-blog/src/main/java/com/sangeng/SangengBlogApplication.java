@@ -11,7 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 @MapperScan("com.sangeng.mapper")
 @Slf4j
-public class SangengBlogApplication   implements ApplicationRunner {
+public class SangengBlogApplication implements ApplicationRunner {
 
     @Value("${spring.profiles.active}")
     private String profile;
@@ -23,9 +23,7 @@ public class SangengBlogApplication   implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        log.info("Foo from @Value: {}", profile);
-        log.info("Foo from System.getenv(): {}", System.getenv("spring.profiles.active"));
-//        System.setProperty("spring.profiles.active", profile);
+        System.setProperty("spring.profiles.active", profile);
         System.out.println("启动成功");
     }
 }

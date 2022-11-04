@@ -131,12 +131,8 @@ public class SqlInterceptor implements Interceptor {
             if (sqlCommandType == SqlCommandType.UPDATE || sqlCommandType == SqlCommandType.INSERT || sqlCommandType == SqlCommandType.DELETE) {
                 log.warn("[{}ms] [{}] {}; 影响行数：{}", costTime, sqlId, sql, obj);
             }
-            String getenv = System.getProperty("spring.profiles.active");
-            String getenv1 = System.getenv("spring.profiles.active");
-            log.info("getenv:{}", getenv);
-            log.info("getenv1:{}", getenv1);
             if (sqlCommandType == SqlCommandType.SELECT) {
-                log.warn("[{}ms] [{}] {}; 结果行数：{}", costTime, sqlId, sql, ((Collection<?>) obj).size());
+                log.warn("[{}ms] [{}] {};结果行数：{}", costTime, sqlId, sql, ((Collection<?>) obj).size());
             }
         }
     }

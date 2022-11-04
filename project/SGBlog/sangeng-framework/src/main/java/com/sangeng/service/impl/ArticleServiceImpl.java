@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
@@ -48,9 +49,13 @@ public class ArticleServiceImpl extends ServiceImpl<ArticleMapper, Article> impl
         Integer start = (pageNum - 1) * pageSize;
         List<Article> list = articleMapper.articleList(start, pageSize, categoryId);
 
+        List<Long> collect1 = list.stream().map(Article::getCategoryId).collect(Collectors.toList());
+        List<Category> categories = categoryMapper.selectBatchIds(collect1);
+        Map<Long, String> collect2 = categories.stream().collect(Collectors.toMap(Category::getId, Category::getName, (k1, k2) -> k1));
+
         List<ArticleVo> collect = list.stream().map((item) -> {
             ArticleVo articleVo = BeanCopyUtils.copyBean(item, ArticleVo.class);
-            articleVo.setCategoryName(item.getCategory().getName());
+            articleVo.setCategoryName(collect2.get(item.getCategoryId()));
             return articleVo;
         }).collect(Collectors.toList());
 

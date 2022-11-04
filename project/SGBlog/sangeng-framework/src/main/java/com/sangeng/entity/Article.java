@@ -1,7 +1,6 @@
 package com.sangeng.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,9 +18,8 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("sg_article")
-public class Article  {
-    @TableId
-    private Long id;
+public class Article extends BaseEntity  {
+
 
     //标题
     private String title;

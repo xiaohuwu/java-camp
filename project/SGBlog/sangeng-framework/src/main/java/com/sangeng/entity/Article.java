@@ -1,13 +1,13 @@
 package com.sangeng.entity;
 
-import java.util.Date;
-
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+
+import java.util.Date;
 /**
  * 文章表(Article)表实体类
  *
@@ -52,6 +52,11 @@ public class Article  {
     //删除标志（0代表未删除，1代表已删除）
     private Integer delFlag;
 
+    @TableField(exist = false)
+    private Category category;
+
+    @TableField(exist = false)
+    private String category_name;
 
 
 

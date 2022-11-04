@@ -2,10 +2,12 @@ package com.sangeng.entity;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.sangeng.enums.AppHttpCodeEnum;
+import lombok.Data;
 
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@Data
 public class ResponseResult<T> implements Serializable {
     private Integer code;
     private String msg;

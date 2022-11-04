@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sangeng.mapper.ArticleMapper">
+
+    <resultMap type="com.sangeng.entity.Article" id="SgArticleMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="summary" column="summary" jdbcType="VARCHAR"/>
+        <result property="categoryId" column="category_id" jdbcType="INTEGER"/>
+        <result property="thumbnail" column="thumbnail" jdbcType="VARCHAR"/>
+        <result property="isTop" column="is_top" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="viewCount" column="view_count" jdbcType="INTEGER"/>
+        <result property="isComment" column="is_comment" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+        <association property="category" column="category_id" javaType="com.sangeng.entity.Category" resultMap="orderUserMapUseAssociation"/>
+    </resultMap>
+
+    <resultMap id="orderUserMapUseAssociation" type="com.sangeng.entity.Category">
+        <id property="id" column="category_id"/>
+        <result property="name" column="category_name"></result>
+    </resultMap>
+
+
+    <select id="articleList" resultMap="SgArticleMap">
+        SELECT `sg_article`.*,`sg_category`.name as category_name,`sg_category`.id as category_id
+        FROM `sg_article`
+        INNER JOIN `sg_category`
+        ON `sg_category`.`id` =`sg_article`.`category_id`
+        <where>
+            `sg_article`.del_flag = 0
+            and `sg_article`.status = "0"
+            <if test="categoryId != null">
+                AND `sg_article`.`category_id` = #{categoryId}
+            </if>
+            limit #{start},#{limit}
+        </where>
+    </select>
+
+
+</mapper>
+

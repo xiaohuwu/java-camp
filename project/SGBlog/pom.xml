@@ -27,8 +27,6 @@
         <java.version>1.8</java.version>
     </properties>
 
-
-
     <dependencyManagement>
         <dependencies>
             <!-- SpringBoot的依赖配置-->

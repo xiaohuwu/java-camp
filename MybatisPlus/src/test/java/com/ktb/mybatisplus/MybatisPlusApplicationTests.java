@@ -1,21 +1,25 @@
 package com.ktb.mybatisplus;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.ktb.mybatisplus.entity.BaseModel;
+import com.ktb.mybatisplus.entity.Dept;
+import com.ktb.mybatisplus.entity.Student;
+import com.ktb.mybatisplus.mapper.DeptMapper;
+import com.ktb.mybatisplus.mapper.StudentMapper;
 import com.ktb.mybatisplus.mapper.UserMapper;
 import com.ktb.mybatisplus.entity.User;
 import com.ktb.mybatisplus.service.IUserService;
+import com.ktb.mybatisplus.utils.QueryUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @SpringBootTest
@@ -224,6 +228,9 @@ class MybatisPlusApplicationTests {
         System.out.println("b = " + b);
     }
 
+    /**
+     * mybatis plus 分页 只需要传一个IPage参数就可以了。
+     */
     @Test
     public void testPage1() {
         IPage<User> page = new Page<User>();
@@ -233,5 +240,49 @@ class MybatisPlusApplicationTests {
         System.out.println("userIPage.getTotal() = " + userIPage.getTotal());
         System.out.println(userIPage.getRecords().size());
     }
+
+    /**
+     * mybatis plus 分页 只需要传一个IPage参数就可以了。
+     */
+
+    @Autowired
+    DeptMapper deptMapper;
+    @Autowired
+    StudentMapper studentMapper;
+
+    /**
+     * 一对多查询
+     */
+    @Test
+    public void test10() {
+        List<Dept> depts = deptMapper.selectList(Wrappers.lambdaQuery(Dept.class));
+        QueryWrapper<Student> queryWrapper = QueryUtils.one_get_many(depts, "dept_id");
+        Map<Integer, List<Student>> collect = studentMapper.selectList(queryWrapper).stream().collect(Collectors.groupingBy(Student::getDeptId));
+        depts.forEach(dept -> {
+            dept.setStudents(collect.get(dept.getId()));
+        });
+        System.out.println("depts = " + depts);
+    }
+
+    /**
+     * 一对多 带条件 且条件在副表 数据量太大也有问题。
+     */
+    @Test
+    public void test11() {
+        LambdaQueryWrapper<Student> queryWrapper = Wrappers.lambdaQuery(Student.class);
+        queryWrapper.like(Student::getName, "大");
+        Set<Integer> collect = studentMapper.selectList(queryWrapper).stream().map(Student::getDeptId).collect(Collectors.toSet());
+
+        LambdaQueryWrapper<Dept> deptLambdaQueryWrapper = Wrappers.lambdaQuery(Dept.class);
+        deptLambdaQueryWrapper.in(Dept::getId, collect);
+        IPage<Dept> page = new Page<Dept>(1, 2);
+        IPage<Dept> deptIPage = deptMapper.selectPage(page, deptLambdaQueryWrapper);
+        List<Dept> records = deptIPage.getRecords();
+
+        long total = deptIPage.getTotal();
+        System.out.println("total = " + total);
+        System.out.println("records = " + records);
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package com.ktb.mybatisplus;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -221,6 +222,16 @@ class MybatisPlusApplicationTests {
         }
         boolean b = userService.saveBatch(arrayList);
         System.out.println("b = " + b);
+    }
+
+    @Test
+    public void testPage1() {
+        IPage<User> page = new Page<User>();
+        page.setSize(2);
+        page.setCurrent(1);
+        IPage<User> userIPage = userMapper.selectByPage(page);
+        System.out.println("userIPage.getTotal() = " + userIPage.getTotal());
+        System.out.println(userIPage.getRecords().size());
     }
 
 }

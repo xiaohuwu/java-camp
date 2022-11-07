@@ -279,6 +279,12 @@ class MybatisPlusApplicationTests {
         IPage<Dept> deptIPage = deptMapper.selectPage(page, deptLambdaQueryWrapper);
         List<Dept> records = deptIPage.getRecords();
 
+        QueryWrapper<Student> studentQueryWrapper = QueryUtils.one_get_many(records, "dept_id");
+        Map<Integer, List<Student>> mapping = studentMapper.selectList(studentQueryWrapper).stream().collect(Collectors.groupingBy(Student::getDeptId));
+        records.forEach(dept -> {
+            dept.setStudents(mapping.get(dept.getId()));
+        });
+
         long total = deptIPage.getTotal();
         System.out.println("total = " + total);
         System.out.println("records = " + records);

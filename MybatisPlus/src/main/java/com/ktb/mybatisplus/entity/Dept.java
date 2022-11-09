@@ -17,6 +17,7 @@ import java.util.List;
 @TableName("depts")
 public class Dept<T> extends BaseModel implements Serializable {
     private String name;
+
     @TableField(exist = false)
     private List<T> students;
 }

@@ -19,12 +19,4 @@ public class BaseModel {
     public void setId(Integer id) {
         this.id = id;
     }
-
-
-    private QueryWrapper one_get_many(List<BaseModel> records,String foreign_key) {
-        Set<Integer> foreign_key_ids = records.stream().map(BaseModel::getId).collect(Collectors.toSet());
-        QueryWrapper in = Wrappers.query().in(foreign_key, foreign_key_ids);
-        return in;
-    }
-
 }

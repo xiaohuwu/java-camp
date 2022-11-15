@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ktb.springsecurity.mapper.SysMenuMapper">
+
+    <resultMap type="com.ktb.springsecurity.entity.SysMenu" id="SysMenuMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="menuName" column="menu_name" jdbcType="VARCHAR"/>
+        <result property="path" column="path" jdbcType="VARCHAR"/>
+        <result property="component" column="component" jdbcType="VARCHAR"/>
+        <result property="visible" column="visible" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="VARCHAR"/>
+        <result property="perms" column="perms" jdbcType="VARCHAR"/>
+        <result property="icon" column="icon" jdbcType="VARCHAR"/>
+        <result property="createBy" column="create_by" jdbcType="INTEGER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateBy" column="update_by" jdbcType="INTEGER"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="delFlag" column="del_flag" jdbcType="INTEGER"/>
+        <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select  id="getMenues" resultMap="SysMenuMap">
+        SELECT `sys_menu`.*
+        FROM `sys_role_menu`
+                 INNER JOIN `sys_menu` ON `sys_menu`.`id` = `sys_role_menu`.`menu_id`
+        <where>
+            role_id in
+            <foreach collection="roles" item="item" separator="," open="("  close=")">
+                #{item}
+            </foreach>
+        </where>
+    </select>
+
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into sg_security.sys_menu(menu_name, path, component, visible, status, perms, icon, create_by,
+        create_time, update_by, update_time, del_flag, remark)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.menuName}, #{entity.path}, #{entity.component}, #{entity.visible}, #{entity.status},
+            #{entity.perms}, #{entity.icon}, #{entity.createBy}, #{entity.createTime}, #{entity.updateBy},
+            #{entity.updateTime}, #{entity.delFlag}, #{entity.remark})
+        </foreach>
+    </insert>
+
+
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into sg_security.sys_menu(menu_name, path, component, visible, status, perms, icon, create_by,
+        create_time, update_by, update_time, del_flag, remark)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.menuName}, #{entity.path}, #{entity.component}, #{entity.visible}, #{entity.status},
+            #{entity.perms}, #{entity.icon}, #{entity.createBy}, #{entity.createTime}, #{entity.updateBy},
+            #{entity.updateTime}, #{entity.delFlag}, #{entity.remark})
+        </foreach>
+        on duplicate key update
+        menu_name = values(menu_name) , path = values(path) , component = values(component) , visible = values(visible)
+        , status = values(status) , perms = values(perms) , icon = values(icon) , create_by = values(create_by) ,
+        create_time = values(create_time) , update_by = values(update_by) , update_time = values(update_time) , del_flag
+        = values(del_flag) , remark = values(remark)
+    </insert>
+
+</mapper>
+

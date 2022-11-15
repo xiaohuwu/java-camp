@@ -1,7 +1,7 @@
 package com.ktb.springsecurity.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ktb.springsecurity.entity.SysUser;
+import com.ktb.springsecurity.entity.User;
 
 
 /**
@@ -10,6 +10,6 @@ import com.ktb.springsecurity.entity.SysUser;
  * @author makejava
  * @since 2022-11-15 16:27:45
  */
-public interface SysUserService extends IService<SysUser> {
+public interface SysUserService extends IService<User> {
 
 }

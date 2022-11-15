@@ -1,6 +1,6 @@
 package com.ktb.springsecurity;
 
-import com.ktb.springsecurity.entity.SysUser;
+import com.ktb.springsecurity.entity.User;
 import com.ktb.springsecurity.mapper.SysUserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class MapperTest {
 
     @Test
     public void test(){
-        List<SysUser> users = sysUserMapper.selectList(null);
+        List<User> users = sysUserMapper.selectList(null);
         users.forEach((item)->{
             System.out.println("item = " + item);
         });

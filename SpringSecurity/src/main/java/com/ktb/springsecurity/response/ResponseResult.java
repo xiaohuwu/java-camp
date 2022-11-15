@@ -2,6 +2,8 @@ package com.ktb.springsecurity.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.HashMap;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseResult<T> {
     /**
@@ -25,6 +27,11 @@ public class ResponseResult<T> {
     public ResponseResult(Integer code, T data) {
         this.code = code;
         this.data = data;
+    }
+
+    public static <T> ResponseResult ok(T data) {
+        ResponseResult result = new ResponseResult(200, data);
+        return result;
     }
 
     public Integer getCode() {

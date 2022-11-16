@@ -25,6 +25,11 @@ import java.util.function.*;
  * <p>
  * 5. 方法引用使用的要求：要求接口中的抽象方法的形参列表和返回值类型与方法引用的方法的
  * 形参列表和返回值类型相同！（针对于情况1和情况2）
+ *
+ *
+ * 情况3、类名::实例方法名
+ * 若Lambda表达式的参数列表的第一个参数，是实例方法的调用者，第二个参数(或无参)是实例方法的参数时，就可以使用这种方法
+ * List<Long> collect = userRoleMapper.selectList(wrapper).stream().map(SysUserRole::getUserId).collect(Collectors.toList());
  */
 public class LambdaTest1 {
 

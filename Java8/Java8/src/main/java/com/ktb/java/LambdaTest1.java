@@ -29,6 +29,7 @@ import java.util.function.*;
  *
  * 情况3、类名::实例方法名
  * 若Lambda表达式的参数列表的第一个参数，是实例方法的调用者，第二个参数(或无参)是实例方法的参数时，就可以使用这种方法
+ * List<Long> collect = userRoleMapper.selectList(wrapper).stream().map(sysUserRole -> sysUserRole.getUserId()).collect(Collectors.toList());
  * List<Long> collect = userRoleMapper.selectList(wrapper).stream().map(SysUserRole::getUserId).collect(Collectors.toList());
  */
 public class LambdaTest1 {

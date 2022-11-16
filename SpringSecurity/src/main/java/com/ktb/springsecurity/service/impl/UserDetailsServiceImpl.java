@@ -42,7 +42,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         LambdaQueryWrapper<SysUserRole> wrapper = new LambdaQueryWrapper<SysUserRole>();
         wrapper.eq(SysUserRole::getUserId, user.getId());
-        List<Long> collect = userRoleMapper.selectList(wrapper).stream().map(SysUserRole::getUserId).collect(Collectors.toList());
+        List<Long> collect = userRoleMapper.selectList(wrapper).stream().map(sysUserRole -> sysUserRole.getUserId()).collect(Collectors.toList());
 
         List<SysMenu> menues = menuMapper.getMenues(collect);
         List<String> collect1 = menues.stream().map(SysMenu::getMenuName).collect(Collectors.toList());

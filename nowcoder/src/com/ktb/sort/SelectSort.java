@@ -11,7 +11,6 @@ public class SelectSort {
         array = select_sort(array);
         System.out.println("选择排序");
         System.out.println(Arrays.toString(array));
-
     }
 
     private static int[] select_sort(int[] array) {

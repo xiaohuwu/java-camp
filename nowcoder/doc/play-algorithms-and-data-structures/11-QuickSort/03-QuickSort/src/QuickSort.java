@@ -18,9 +18,9 @@ public class QuickSort {
     }
 
     private static <E extends Comparable<E>> int partition(E[] arr, int l, int r){
-
         // arr[l+1...j] < v ; arr[j+1...i] >= v
         //j作为分界索引，小于j 索引对应的值 小于v 大于J 索引对应的值 大于v
+        //doc/muke/快速排序/img_2.png img_1.png 排序
         int j = l;
         for(int i = l + 1; i <= r; i ++){
             if(arr[i].compareTo(arr[l]) < 0){
@@ -28,7 +28,7 @@ public class QuickSort {
                 swap(arr, i, j);
             }
         }
-        swap(arr, l, j);
+        swap(arr, l, j);//标定点l 和下标j
         return j;
     }
 

@@ -1,7 +1,10 @@
 package com.atguigu.paymentdemo.config;
 
 import com.wechat.pay.contrib.apache.httpclient.WechatPayHttpClientBuilder;
-import com.wechat.pay.contrib.apache.httpclient.auth.*;
+import com.wechat.pay.contrib.apache.httpclient.auth.PrivateKeySigner;
+import com.wechat.pay.contrib.apache.httpclient.auth.ScheduledUpdateCertificatesVerifier;
+import com.wechat.pay.contrib.apache.httpclient.auth.WechatPay2Credentials;
+import com.wechat.pay.contrib.apache.httpclient.auth.WechatPay2Validator;
 import com.wechat.pay.contrib.apache.httpclient.util.PemUtil;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
@@ -11,15 +14,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.security.PrivateKey;
 
 
 @Configuration
 @PropertySource("classpath:wxpay.properties") //读取配置文件
-@ConfigurationProperties(prefix="wxpay") //读取wxpay节点
+@ConfigurationProperties(prefix = "wxpay") //读取wxpay节点
 @Data //使用set方法将wxpay节点中的值填充到当前类的属性中
 @Slf4j
 public class WxPayConfig {
@@ -50,24 +52,22 @@ public class WxPayConfig {
 
     /**
      * 获取商户的私钥文件
+     *
      * @param filename
      * @return
      */
-    private PrivateKey getPrivateKey(String filename){
-
-        try {
-            return PemUtil.loadPrivateKey(new FileInputStream(filename));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException("私钥文件不存在", e);
-        }
+    private PrivateKey getPrivateKey(String filename) {
+        InputStream resourceAsStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(filename);
+        return PemUtil.loadPrivateKey(resourceAsStream);
     }
 
     /**
      * 获取签名验证器
+     *
      * @return
      */
     @Bean
-    public ScheduledUpdateCertificatesVerifier getVerifier(){
+    public ScheduledUpdateCertificatesVerifier getVerifier() {
 
         log.info("获取签名验证器");
 
@@ -81,9 +81,7 @@ public class WxPayConfig {
         WechatPay2Credentials wechatPay2Credentials = new WechatPay2Credentials(mchId, privateKeySigner);
 
         // 使用定时更新的签名验证器，不需要传入证书
-        ScheduledUpdateCertificatesVerifier verifier = new ScheduledUpdateCertificatesVerifier(
-                wechatPay2Credentials,
-                apiV3Key.getBytes(StandardCharsets.UTF_8));
+        ScheduledUpdateCertificatesVerifier verifier = new ScheduledUpdateCertificatesVerifier(wechatPay2Credentials, apiV3Key.getBytes(StandardCharsets.UTF_8));
 
         return verifier;
     }
@@ -91,20 +89,19 @@ public class WxPayConfig {
 
     /**
      * 获取http请求对象
+     *
      * @param verifier
      * @return
      */
     @Bean(name = "wxPayClient")
-    public CloseableHttpClient getWxPayClient(ScheduledUpdateCertificatesVerifier verifier){
+    public CloseableHttpClient getWxPayClient(ScheduledUpdateCertificatesVerifier verifier) {
 
         log.info("获取httpClient");
 
         //获取商户私钥
         PrivateKey privateKey = getPrivateKey(privateKeyPath);
 
-        WechatPayHttpClientBuilder builder = WechatPayHttpClientBuilder.create()
-                .withMerchant(mchId, mchSerialNo, privateKey)
-                .withValidator(new WechatPay2Validator(verifier));
+        WechatPayHttpClientBuilder builder = WechatPayHttpClientBuilder.create().withMerchant(mchId, mchSerialNo, privateKey).withValidator(new WechatPay2Validator(verifier));
         // ... 接下来，你仍然可以通过builder设置各种参数，来配置你的HttpClient
 
         // 通过WechatPayHttpClientBuilder构造的HttpClient，会自动的处理签名和验签，并进行证书自动更新
@@ -117,7 +114,7 @@ public class WxPayConfig {
      * 获取HttpClient，无需进行应答签名验证，跳过验签的流程
      */
     @Bean(name = "wxPayNoSignClient")
-    public CloseableHttpClient getWxPayNoSignClient(){
+    public CloseableHttpClient getWxPayNoSignClient() {
 
         //获取商户私钥
         PrivateKey privateKey = getPrivateKey(privateKeyPath);

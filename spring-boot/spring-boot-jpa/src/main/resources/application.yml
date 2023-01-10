@@ -1,0 +1,27 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/test?allowPublicKeyRetrieval=true&useSSL=false
+    username: root
+    password: 12345678
+
+
+logging:
+  level:
+    root: info
+    org:
+      springframework:
+        web: debug
+      hibernate:
+        type:
+          descriptor:
+            sql: trace

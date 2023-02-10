@@ -1,7 +1,8 @@
 package com.ktb.leetcode.linklist;
 
-public class MergeList {
+import com.ktb.offer.ListNode;
 
+public class MergeList {
 
     public static void main(String[] args) {
         ListNode five = new ListNode(8);

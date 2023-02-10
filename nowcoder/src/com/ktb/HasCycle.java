@@ -1,6 +1,6 @@
 package com.ktb;
 
-import com.ktb.linklist.ListNode;
+import com.ktb.offer.ListNode;
 
 import javax.xml.transform.Source;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ public class HasCycle {
         ListNode three = new ListNode(3, two);
         ListNode four = new ListNode(4, three);
         ListNode five = new ListNode(5, four);
-        one.setNextNode(three);
+        one.setNext(three);
 //        printListNode(five);
         System.out.println();
         boolean b = hasCycle(five);

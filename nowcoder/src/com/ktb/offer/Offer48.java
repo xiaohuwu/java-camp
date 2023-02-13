@@ -1,11 +1,29 @@
 package com.ktb.offer;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Offer48 {
 
     public static void main(String[] args) {
-        String str = "pwwkew";
-        int count = getMaxSubString(str);
+        String str = "abcabcbb";
+        int count = lengthOfLongestSubstring(str);
         System.out.println("count = " + count);
+    }
+
+
+    public static int lengthOfLongestSubstring(String s) {
+        int n = s.length(), ans = 0;
+        Map<Character, Integer> map = new HashMap<>();
+        for (int end = 0, start = 0; end < n; end++) {
+            char alpha = s.charAt(end);
+            if (map.containsKey(alpha)) {
+                start = end;
+            }
+            ans = Math.max(ans, end - start + 1);
+            map.put(s.charAt(end), end);
+        }
+        return ans;
     }
 
     private static int getMaxSubString(String str) {
@@ -17,7 +35,7 @@ public class Offer48 {
                 String aChar = String.valueOf(chars[k]);
                 if (!temp.contains(aChar)) {
                     temp += aChar;
-                }else{
+                } else {
                     break;
                 }
             }

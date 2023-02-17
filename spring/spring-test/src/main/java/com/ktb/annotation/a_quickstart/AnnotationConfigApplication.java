@@ -11,6 +11,5 @@ public class AnnotationConfigApplication {
         Person bean = annotationConfigApplicationContext.getBean(Person.class);
         System.out.println(bean.toString());
     }
-
-
+    
 }

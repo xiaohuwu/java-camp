@@ -2,8 +2,9 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
@@ -22,7 +23,9 @@
 
     <bean id="myDateConverter" class="org.example.MyDateConverter"/>
     <bean id="myBeanPostProcessor" class="org.example.MyBeanPostProcessor"/>
-
+    <bean id="userService" class="org.example.service.UserServiceImpl"/>
+    <bean id="before" class="org.example.aop.Before"/>
+    <bean id="arround" class="org.example.aop.Arround"/>
 
     <bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
         <property name="converters">
@@ -31,5 +34,14 @@
             </set>
         </property>
     </bean>
+
+    <aop:config>
+        <aop:pointcut id="pc" expression="execution(* org.example.service.UserServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="arround" pointcut-ref="pc"/>
+    </aop:config>
+
+
+
+
 
 </beans>

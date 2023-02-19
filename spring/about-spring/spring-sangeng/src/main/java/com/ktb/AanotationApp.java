@@ -17,8 +17,8 @@ public class AanotationApp {
         for (String item : beanDefinitionNames) {
             System.out.println(item);
         }
-        Validators bean = annotationConfigApplicationContext.getBean(Validators.class);
-        System.out.println("bean.getValidators().size() = " + bean.getValidators().size());
+        DruidDataSource bean = annotationConfigApplicationContext.getBean(DruidDataSource.class);
+        System.out.println("bean.getUrl() = " + bean.getUrl());
 
 
     }

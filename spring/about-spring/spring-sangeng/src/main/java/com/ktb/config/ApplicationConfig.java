@@ -9,8 +9,8 @@ import org.springframework.context.annotation.PropertySource;
 
 
 @Configuration
-@ComponentScan(basePackages = "com.ktb")
-@PropertySource("jdbc.properties.properties")
+//@ComponentScan(basePackages = "com.ktb")
+@PropertySource("classpath:jdbc.properties")
 public class ApplicationConfig {
 
     @Value("${jdbc.driver}")

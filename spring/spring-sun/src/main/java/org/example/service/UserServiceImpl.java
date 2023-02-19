@@ -1,8 +1,9 @@
 package org.example.service;
 
 import org.example.model.User;
+import org.example.service.UserService;
 
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     @Override
     public void register(User user) {
@@ -10,7 +11,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean login(User user) {
+    public boolean login(String userName, String age) {
         System.out.println("login");
         return true;
     }

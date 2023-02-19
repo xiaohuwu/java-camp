@@ -4,7 +4,11 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-        https://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        https://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
@@ -24,6 +28,7 @@
     <bean id="myDateConverter" class="org.example.MyDateConverter"/>
     <bean id="myBeanPostProcessor" class="org.example.MyBeanPostProcessor"/>
     <bean id="userService" class="org.example.service.UserServiceImpl"/>
+    <bean id="orderService" class="org.example.service.OrderServiceImpl"/>
     <bean id="before" class="org.example.aop.Before"/>
     <bean id="arround" class="org.example.aop.Arround"/>
 
@@ -36,12 +41,9 @@
     </bean>
 
     <aop:config>
-        <aop:pointcut id="pc" expression="execution(* org.example.service.UserServiceImpl.*(..))"/>
+        <aop:pointcut id="pc" expression="within(*..UserServiceImpl)"/>
         <aop:advisor advice-ref="arround" pointcut-ref="pc"/>
     </aop:config>
-
-
-
 
 
 </beans>

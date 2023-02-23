@@ -1,1 +1,16 @@
-2023-02-23 23:20:37.994 DEBUG 62604 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2023-02-23 23:32:38.253 DEBUG 62604 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2023-02-23 23:33:38.267 DEBUG 62604 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1677166418267 sessioncount 0
+2023-02-23 23:33:38.268 DEBUG 62604 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2023-02-23 23:34:28.768 DEBUG 62604 --- [SpringApplicationShutdownHook] o.s.b.a.ApplicationAvailabilityBean      : Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2023-02-23 23:34:28.769 DEBUG 62604 --- [SpringApplicationShutdownHook] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@79da1ec0, started on Thu Feb 23 23:05:36 CST 2023
+2023-02-23 23:34:28.770 DEBUG 62604 --- [SpringApplicationShutdownHook] ySourcesPropertyResolver$DefaultResolver : Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
+2023-02-23 23:34:28.781 DEBUG 62604 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483647
+2023-02-23 23:34:28.785 DEBUG 62604 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerGracefulShutdown' completed its stop procedure
+2023-02-23 23:34:28.786 DEBUG 62604 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 2147483646
+2023-02-23 23:34:29.948 DEBUG 62604 --- [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Bean 'webServerStartStop' completed its stop procedure
+2023-02-23 23:34:29.950 DEBUG 62604 --- [SpringApplicationShutdownHook] o.s.d.r.l.RedisMessageListenerContainer  : Stopped RedisMessageListenerContainer
+2023-02-23 23:34:29.951 DEBUG 62604 --- [SpringApplicationShutdownHook] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2023-02-23 23:34:29.952 DEBUG 62604 --- [SpringApplicationShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2023-02-23 23:34:29.956 DEBUG 62604 --- [SpringApplicationShutdownHook] io.lettuce.core.AbstractRedisClient      : Initiate shutdown (100, 100, MILLISECONDS)
+2023-02-23 23:34:29.973 DEBUG 62604 --- [SpringApplicationShutdownHook] i.l.c.resource.DefaultClientResources    : Initiate shutdown (0, 2, SECONDS)
+2023-02-23 23:34:29.978 DEBUG 62604 --- [SpringApplicationShutdownHook] i.l.c.r.DefaultEventLoopGroupProvider    : Initiate shutdown (0, 2, SECONDS)

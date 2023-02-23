@@ -28,6 +28,8 @@ public class RedisConfig {
         template.setHashKeySerializer(new StringRedisSerializer());
         template.setHashValueSerializer(new StringRedisSerializer());
         template.afterPropertiesSet();
+
+
         return template;
     }
 

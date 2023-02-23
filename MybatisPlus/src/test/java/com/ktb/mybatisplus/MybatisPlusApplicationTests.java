@@ -2,18 +2,16 @@ package com.ktb.mybatisplus;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ktb.mybatisplus.entity.BaseModel;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.ktb.mybatisplus.entity.Dept;
 import com.ktb.mybatisplus.entity.Student;
 import com.ktb.mybatisplus.mapper.DeptMapper;
 import com.ktb.mybatisplus.mapper.StudentMapper;
 import com.ktb.mybatisplus.mapper.UserMapper;
 import com.ktb.mybatisplus.entity.User;
-import com.ktb.mybatisplus.service.IUserService;
 import com.ktb.mybatisplus.utils.QueryUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -196,10 +194,8 @@ class MybatisPlusApplicationTests {
 
     @Test
     public void testPageDetail() {
-        IPage<User> page = new Page<User>();
-        page.setSize(3);
-        page.setCurrent(1);
-        IPage<User> userIPage = userMapper.selectPage(page, null);
+        IPage<User> page = new Page<User>(1,3);
+        IPage<User> userIPage = userIService.page(page, null);
         List<User> records = userIPage.getRecords();
         List<Long> collect = records.stream().map(User::getId).collect(Collectors.toList());
         System.out.println("-----------------");
@@ -207,7 +203,7 @@ class MybatisPlusApplicationTests {
     }
 
     @Autowired
-    private IUserService userService;
+    private IService<User> userIService;
 
     @Test
     public void testService() {
@@ -224,8 +220,6 @@ class MybatisPlusApplicationTests {
             user.setAge(18 + i);
             arrayList.add(user);
         }
-        boolean b = userService.saveBatch(arrayList);
-        System.out.println("b = " + b);
     }
 
     /**

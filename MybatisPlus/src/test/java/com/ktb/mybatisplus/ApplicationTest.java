@@ -2,12 +2,12 @@ package com.ktb.mybatisplus;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.extension.service.IService;
 import com.ktb.mybatisplus.entity.User;
 import com.ktb.mybatisplus.mapper.ProductMapper;
 import com.ktb.mybatisplus.mapper.UserMapper;
 import com.ktb.mybatisplus.entity.Product;
 import com.ktb.mybatisplus.service.IProductService;
-import com.ktb.mybatisplus.service.IUserService;
 import org.junit.jupiter.api.Test;
 import org.junit.platform.commons.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +26,8 @@ public class ApplicationTest {
     ProductMapper productMapper;
 
     @Autowired
-    IUserService userService;
+    IService userService;
+
     @Autowired
     IProductService productService;
 
@@ -106,7 +107,7 @@ public class ApplicationTest {
 
     @Test
     public void testDynamicDataSource() {
-        User byId = userService.getById(1L);
+        User byId = (User) userService.getById(1L);
         System.out.println("byId = " + byId);
         Product byId1 = productService.getById(1L);
         System.out.println("byId1 = " + byId1);

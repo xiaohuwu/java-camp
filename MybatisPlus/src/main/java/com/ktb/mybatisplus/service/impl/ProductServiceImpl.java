@@ -17,6 +17,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 @DS("slave_1")
-public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> implements IProductService {
+public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> implements IProductService{
 
 }

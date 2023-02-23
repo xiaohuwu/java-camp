@@ -2,8 +2,8 @@ package com.ktb.mybatisplus.service.impl;
 
 import com.ktb.mybatisplus.entity.User;
 import com.ktb.mybatisplus.mapper.UserMapper;
-import com.ktb.mybatisplus.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.ktb.mybatisplus.service.IUserService;
 import org.springframework.stereotype.Service;
 
 /**

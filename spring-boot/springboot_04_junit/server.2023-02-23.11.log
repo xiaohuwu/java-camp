@@ -1,0 +1,21 @@
+2023-02-23 23:05:40.586 DEBUG 62604 --- [RMI TCP Connection(3)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(3)-192.168.0.6: (port 62933) connection closed
+2023-02-23 23:05:40.587 DEBUG 62604 --- [RMI TCP Connection(1)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.0.6: (port 62933) connection closed
+2023-02-23 23:05:40.586 DEBUG 62604 --- [RMI TCP Connection(2)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(2)-192.168.0.6: (port 62933) connection closed
+2023-02-23 23:05:40.588 DEBUG 62604 --- [RMI TCP Connection(3)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(3)-192.168.0.6: close connection
+2023-02-23 23:05:40.588 DEBUG 62604 --- [RMI TCP Connection(2)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(2)-192.168.0.6: close connection
+2023-02-23 23:05:40.588 DEBUG 62604 --- [RMI TCP Connection(1)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(1)-192.168.0.6: close connection
+2023-02-23 23:05:40.589 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(4)-192.168.0.6: accepted socket from [192.168.0.6:62937]
+2023-02-23 23:05:40.590 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(4)-192.168.0.6: (port 62933) op = 80
+2023-02-23 23:05:40.590 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.loader                           : RMI TCP Connection(4)-192.168.0.6: name = "[Ljava.rmi.server.ObjID;", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@4d9fc6b4
+2023-02-23 23:05:40.590 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.loader                           : RMI TCP Connection(4)-192.168.0.6: name = "java.rmi.server.ObjID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@4d9fc6b4
+2023-02-23 23:05:40.590 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.loader                           : RMI TCP Connection(4)-192.168.0.6: name = "java.rmi.server.UID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@4d9fc6b4
+2023-02-23 23:05:40.591 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.loader                           : RMI TCP Connection(4)-192.168.0.6: name = "java.rmi.dgc.VMID", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@4d9fc6b4
+2023-02-23 23:05:40.591 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.loader                           : RMI TCP Connection(4)-192.168.0.6: name = "[B", codebase = "", defaultLoader = jdk.internal.loader.ClassLoaders$PlatformClassLoader@4d9fc6b4
+2023-02-23 23:06:06.572 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(4)-192.168.0.6: (port 62933) connection closed
+2023-02-23 23:06:06.572 DEBUG 62604 --- [RMI TCP Connection(4)-192.168.0.6] sun.rmi.transport.tcp                    : RMI TCP Connection(4)-192.168.0.6: close connection
+2023-02-23 23:06:37.756 DEBUG 62604 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1677164797755 sessioncount 0
+2023-02-23 23:06:37.757 DEBUG 62604 --- [Catalina-utility-1] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0
+2023-02-23 23:07:37.764 DEBUG 62604 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1677164857764 sessioncount 0
+2023-02-23 23:07:37.764 DEBUG 62604 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 0 expired sessions: 0
+2023-02-23 23:08:37.779 DEBUG 62604 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : Start expire sessions StandardManager at 1677164917778 sessioncount 0
+2023-02-23 23:08:37.779 DEBUG 62604 --- [Catalina-utility-2] org.apache.catalina.session.ManagerBase  : End expire sessions StandardManager processingTime 1 expired sessions: 0

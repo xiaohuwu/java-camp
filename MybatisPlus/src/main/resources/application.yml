@@ -15,7 +15,8 @@ spring:
           password: 12345678
           driver-class-name: com.mysql.cj.jdbc.Driver
 
-logging.level.com.ktb.mybatisplus.mapper: DEBUG
+logging.level.com.ktb.mybatisplus: DEBUG
+logging.level.org.springframework.web: DEBUG
 
 
 mybatis-plus:
@@ -27,4 +28,4 @@ mybatis-plus:
       id-type: ASSIGN_ID
       logic-delete-value: 1 # 逻辑已删除值(默认为 1)
       logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
-  type-enums-package: com.ktb.mybatisplus.model.enums
+  type-enums-package: com.ktb.mybatisplus.entity.enums

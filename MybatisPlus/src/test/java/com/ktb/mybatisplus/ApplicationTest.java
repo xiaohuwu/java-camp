@@ -2,10 +2,10 @@ package com.ktb.mybatisplus;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.ktb.mybatisplus.entity.User;
 import com.ktb.mybatisplus.mapper.ProductMapper;
 import com.ktb.mybatisplus.mapper.UserMapper;
 import com.ktb.mybatisplus.entity.Product;
-import com.ktb.mybatisplus.entity.User;
 import com.ktb.mybatisplus.service.IProductService;
 import com.ktb.mybatisplus.service.IUserService;
 import org.junit.jupiter.api.Test;
@@ -35,7 +35,9 @@ public class ApplicationTest {
         String username = "J";
         Integer age = 18;
         LambdaQueryWrapper<User> queryWrapper = new LambdaQueryWrapper<>();
-        queryWrapper.select(User::getUid, User::getName, User::getAge, User::getEmail, User::getSex).like(StringUtils.isNotBlank(username), User::getName, username).eq(Objects.nonNull(age), User::getAge, 18);
+        queryWrapper.select(User::getId, User::getName, User::getAge)
+                .like(StringUtils.isNotBlank(username), User::getName, username)
+                .eq(Objects.nonNull(age), User::getAge, age);
         List<User> user = userMapper.selectList(queryWrapper);
         user.forEach(System.out::println);
     }
@@ -84,7 +86,7 @@ public class ApplicationTest {
         int result1 = productMapper.updateById(p1);
         System.out.println("小李修改结果:" + result1);
 
-         //4、小王将商品减了30元，存入了数据库
+        //4、小王将商品减了30元，存入了数据库
         p2.setPrice(p2.getPrice() - 30);
         int result2 = productMapper.updateById(p2);
         System.out.println("小王修改结果:" + result2);
@@ -103,14 +105,12 @@ public class ApplicationTest {
 
 
     @Test
-    public void testDynamicDataSource(){
+    public void testDynamicDataSource() {
         User byId = userService.getById(1L);
         System.out.println("byId = " + byId);
         Product byId1 = productService.getById(1L);
         System.out.println("byId1 = " + byId1);
     }
-
-
 
 
 }

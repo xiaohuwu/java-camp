@@ -43,7 +43,7 @@ class MybatisPlusApplicationTests {
         QueryWrapper<User> queryWrapper = new QueryWrapper<>();
         QueryWrapper<User> select = queryWrapper.select("max(uid) as uid");
         User user1 = userMapper.selectOne(select);
-        User user2 = userMapper.selectById(user1.getUid());
+        User user2 = userMapper.selectById(user1.getId());
         System.out.println(user2);
     }
 
@@ -67,9 +67,8 @@ class MybatisPlusApplicationTests {
     @Test
     public void testUpdateById() {
         User user = new User();
-        user.setName("张三").setEmail("123@qq.com").setUid(6L);
         int i = userMapper.updateById(user);
-        userMapper.selectById(user.getUid());
+        userMapper.selectById(user.getId());
     }
 
 
@@ -161,9 +160,9 @@ class MybatisPlusApplicationTests {
     @Test
     public void testLambdaWrapper() {
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper();
-        wrapper.select(User::getUid, User::getName);
-        wrapper.in(User::getUid, 1, 2, 1485992030160064518L);
-        wrapper.gt(User::getAge, 12);
+        wrapper.select(User::getId, User::getName)
+                .in(User::getId, 1, 2, 1485992030160064518L)
+                .gt(User::getAge, 12);
         List<User> list = userMapper.selectList(wrapper);
         list.forEach(System.out::println);
     }
@@ -171,7 +170,7 @@ class MybatisPlusApplicationTests {
 
     @Test
     public void test09() {
-        User myUserByWrapper = userMapper.selectOne(Wrappers.<User>lambdaQuery().eq(User::getUid, 1));
+        User myUserByWrapper = userMapper.selectOne(Wrappers.<User>lambdaQuery().eq(User::getId, 1));
         System.out.println("myUserByWrapper = " + myUserByWrapper);
     }
 
@@ -202,7 +201,9 @@ class MybatisPlusApplicationTests {
         page.setCurrent(1);
         IPage<User> userIPage = userMapper.selectPage(page, null);
         List<User> records = userIPage.getRecords();
-        List<Long> collect = records.stream().map(User::getUid).collect(Collectors.toList());
+        List<Long> collect = records.stream().map(User::getId).collect(Collectors.toList());
+        System.out.println("-----------------");
+        records.forEach(System.out::println);
     }
 
     @Autowired
@@ -210,8 +211,7 @@ class MybatisPlusApplicationTests {
 
     @Test
     public void testService() {
-        int count = userService.count();
-        System.out.println("count = " + count);
+
     }
 
 
@@ -247,6 +247,7 @@ class MybatisPlusApplicationTests {
 
     @Autowired
     DeptMapper deptMapper;
+
     @Autowired
     StudentMapper studentMapper;
 
@@ -257,7 +258,10 @@ class MybatisPlusApplicationTests {
     public void test10() {
         List<Dept> depts = deptMapper.selectList(Wrappers.lambdaQuery(Dept.class));
         QueryWrapper<Student> queryWrapper = QueryUtils.one_get_many(depts, "dept_id");
-        Map<Integer, List<Student>> collect = studentMapper.selectList(queryWrapper).stream().collect(Collectors.groupingBy(Student::getDeptId));
+        Map<Integer, List<Student>> collect = studentMapper
+                .selectList(queryWrapper)
+                .stream()
+                .collect(Collectors.groupingBy(Student::getDeptId));
         depts.forEach(dept -> {
             dept.setStudents(collect.get(dept.getId()));
         });
@@ -271,8 +275,10 @@ class MybatisPlusApplicationTests {
     public void test11() {
         LambdaQueryWrapper<Student> queryWrapper = Wrappers.lambdaQuery(Student.class);
         queryWrapper.like(Student::getName, "大");
-        Set<Integer> collect = studentMapper.selectList(queryWrapper).stream().map(Student::getDeptId).collect(Collectors.toSet());
-
+        Set<Integer> collect = studentMapper
+                .selectList(queryWrapper)
+                .stream().map(Student::getDeptId)
+                .collect(Collectors.toSet());
         LambdaQueryWrapper<Dept> deptLambdaQueryWrapper = Wrappers.lambdaQuery(Dept.class);
         deptLambdaQueryWrapper.in(Dept::getId, collect);
         IPage<Dept> page = new Page<Dept>(1, 2);
@@ -280,7 +286,10 @@ class MybatisPlusApplicationTests {
         List<Dept> records = deptIPage.getRecords();
 
         QueryWrapper<Student> studentQueryWrapper = QueryUtils.one_get_many(records, "dept_id");
-        Map<Integer, List<Student>> mapping = studentMapper.selectList(studentQueryWrapper).stream().collect(Collectors.groupingBy(Student::getDeptId));
+        Map<Integer, List<Student>> mapping = studentMapper
+                .selectList(studentQueryWrapper)
+                .stream()
+                .collect(Collectors.groupingBy(Student::getDeptId));
         records.forEach(dept -> {
             dept.setStudents(mapping.get(dept.getId()));
         });

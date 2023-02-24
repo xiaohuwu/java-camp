@@ -7,7 +7,6 @@ import org.junit.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class LambdaTest3 {
 
@@ -38,9 +37,16 @@ public class LambdaTest3 {
         author2.setBooks(books2);
         author3.setBooks(books3);
         author4.setBooks(books3);
+//        List<Author> authors = Arrays.asList(author, author2, author3, author4);
+        List<Author> authors = new ArrayList<>(Arrays.asList(author, author2, author3, author4));
+        return authors;
+    }
 
-        List<Author> authorList = new ArrayList<>(Arrays.asList(author, author2, author3, author4));
-        return authorList;
+    @Test
+    public void test0() {
+        List<Author> authors = getAuthors();
+        Author remove = authors.remove(0);
+        System.out.println("remove = " + remove);
     }
 
     /**
@@ -49,7 +55,11 @@ public class LambdaTest3 {
     @Test
     public void test1() {
         List<Author> authors = getAuthors();
-        authors.stream().flatMap((item) -> item.getBooks().stream()).distinct().forEach(System.out::println);
+        authors.stream()
+                .flatMap((item) -> item.getBooks().stream())
+                .distinct().forEach(System.out::println);
+
+//      authors.stream().flatMap((item) -> item.getBooks().stream()).distinct().forEach(System.out::println);
     }
 
     /**

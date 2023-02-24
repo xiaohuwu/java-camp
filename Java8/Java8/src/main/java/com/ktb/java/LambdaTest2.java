@@ -1,12 +1,12 @@
 package com.ktb.java;
 
+import com.ktb.model.Student;
 import com.ktb.model.UserInfo;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 
 public class LambdaTest2 {
@@ -18,10 +18,10 @@ public class LambdaTest2 {
         List<UserInfo> userInfoList = new ArrayList<>();
         userInfoList.add(new UserInfo(1L, "捡田螺的小男孩", 18));
         userInfoList.add(new UserInfo(2L, "程序员田螺", 27));
-        userInfoList.add(new UserInfo(2L, "捡瓶子的小男孩", 26));
+        userInfoList.add(new UserInfo(3L, "捡瓶子的小男孩", 27));
 
-        Map<Long, UserInfo> collect = userInfoList.stream().collect(Collectors.toMap(UserInfo::getId, userInfo -> userInfo, (k1, k2) -> k1));
-        collect.forEach((k, v) -> System.out.println("k:" + k + "v:" + v));
+        Map<Integer, UserInfo> collect = userInfoList.stream().collect(Collectors.toMap(UserInfo::getAge, userInfo -> userInfo, (k1, k2) -> k1));
+        collect.forEach((k, v) -> System.out.println("k:" + k + "  v:" + v));
     }
 
     @Test
@@ -30,11 +30,19 @@ public class LambdaTest2 {
         userInfoList.add(new UserInfo(1L, "捡田螺的小男孩", 18));
         userInfoList.add(new UserInfo(2L, "程序员田螺", 27));
         userInfoList.add(new UserInfo(3L, "捡瓶子的小男孩", 26));
+
+
         /**
          * filter 过滤，留下超过18岁的用户
          */
-        List<UserInfo> collect = userInfoList.stream().filter((item) -> item.getAge() > 18).collect(Collectors.toList());
-        collect.forEach(System.out::println);
+        List<UserInfo> collect1 = userInfoList.stream()
+                .filter((item) -> item.getAge() > 18)
+                .collect(Collectors.toList());
+        collect1.forEach(System.out::println);
+
+//
+//        List<UserInfo> collect = userInfoList.stream().filter((item) -> item.getAge() > 18).collect(Collectors.toList());
+//        collect.forEach(System.out::println);
     }
 
     /**
@@ -46,19 +54,26 @@ public class LambdaTest2 {
         userInfoList.add(new UserInfo(1L, "捡田螺的小男孩", 18));
         userInfoList.add(new UserInfo(2L, "程序员田螺", 27));
         userInfoList.add(new UserInfo(3L, "捡瓶子的小男孩", 26));
+
         List<String> collect = userInfoList.stream().map((item) -> item.getName()).collect(Collectors.toList());
         collect.forEach(System.out::println);
+//        List<String> collect = userInfoList.stream().map((item) -> item.getName()).collect(Collectors.toList());
+//        collect.forEach(System.out::println);
     }
 
 
     @Test
     public void test4() {
         List<UserInfo> userInfoList = new ArrayList<>();
-//        userInfoList.add(new UserInfo(1L, "捡田螺的小男孩", 18));
-//        userInfoList.add(new UserInfo(2L, "程序员田螺", 27));
-//        userInfoList.add(new UserInfo(3L, "捡瓶子的小男孩", 26));
-        UserInfo userInfo = userInfoList.stream().findFirst().orElse(null);
-        System.out.println("userInfo = " + userInfo);
+        userInfoList.add(new UserInfo(1L, "捡田螺的小男孩", 18));
+        userInfoList.add(new UserInfo(2L, "程序员田螺", 27));
+        userInfoList.add(new UserInfo(3L, "捡瓶子的小男孩", 26));
+
+        UserInfo userInfo1 = userInfoList.stream().findFirst().orElse(null);
+        System.out.println("userInfo1 = " + userInfo1);
+
+//        UserInfo userInfo = userInfoList.stream().findFirst().orElse(null);
+//        System.out.println("userInfo = " + userInfo);
     }
 
 
@@ -71,11 +86,17 @@ public class LambdaTest2 {
         userInfoList.add(new UserInfo(1L, "捡田螺的小男孩", 18));
         userInfoList.add(new UserInfo(2L, "程序员田螺", 27));
         userInfoList.add(new UserInfo(3L, "捡瓶子的小男孩", 18));
-        Map<Integer, List<UserInfo>> collect = userInfoList.stream().collect(Collectors.groupingBy(UserInfo::getAge));
-        collect.forEach((key, val) -> {
-            System.out.print("key = " + key + "\t");
+        Map<Integer, List<UserInfo>> collect1 = userInfoList.stream().collect(Collectors.groupingBy(UserInfo::getAge));
+        collect1.forEach((key, val) -> {
+            System.out.println("key = " + key);
             System.out.println("val = " + val);
         });
+//
+//        Map<Integer, List<UserInfo>> collect = userInfoList.stream().collect(Collectors.groupingBy(UserInfo::getAge));
+//        collect.forEach((key, val) -> {
+//            System.out.print("key = " + key + "\t");
+//            System.out.println("val = " + val);
+//        });
     }
 
     /**
@@ -100,7 +121,7 @@ public class LambdaTest2 {
         userInfoList.add(new UserInfo(1L, "捡田螺的小男孩", 18));
         userInfoList.add(new UserInfo(2L, "程序员田螺", 27));
         userInfoList.add(new UserInfo(2L, "捡瓶子的小男孩", 26));
-        userInfoList.stream().sorted((o1, o2) -> o1.getAge() - o2.getAge()).forEach(System.out::println);
+        userInfoList.stream().sorted(Comparator.comparingInt(UserInfo::getAge)).forEach(System.out::println);
     }
 
 
@@ -138,6 +159,8 @@ public class LambdaTest2 {
                 .collect(Collectors.toList());
         collect.forEach(System.out::println);
     }
+
+
 
 
 }

@@ -27,9 +27,9 @@ public class ViewCountRunner implements CommandLineRunner {
     @Autowired
     RedisProperties redisProperties;
 
+
     @Override
     public void run(String... args) throws Exception {
-
         log.info("redisProperties = " + redisProperties.getDatabase());
 //        List<Article> articles = articleMapper.selectList(null);
 //        Map<String, Integer> collect = articles.stream()

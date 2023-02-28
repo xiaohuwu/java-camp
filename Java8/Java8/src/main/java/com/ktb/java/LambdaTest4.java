@@ -1,9 +1,11 @@
 package com.ktb.java;
 
+import com.ktb.model.MyStudent;
 import com.ktb.model.Student;
 import org.junit.Test;
 
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -172,12 +174,51 @@ public class LambdaTest4 {
 
     /**
      * 按年龄分组
+     * list to array
      */
     @Test
     public void test11() {
         List<Student> students = students();
         Map<Integer, List<Student>> collect = students.stream().collect(Collectors.groupingBy(Student::getAge));
+        Student[] as = students.stream().toArray(Student[]::new);
         System.out.println("collect = " + collect);
+        System.out.println("as = " + Arrays.toString(as));
     }
+
+
+    @Test
+    public void test12() {
+        Long max = 10000000L;
+        List<MyStudent> values = new ArrayList<MyStudent>();
+        for (int i = 0; i < max; i++) {
+            Long random = Double.valueOf(Math.random() * max).longValue();
+            values.add(new MyStudent(random));
+        }
+        long t0 = System.nanoTime();
+        List<MyStudent> collect = values.stream().sorted().collect(Collectors.toList());
+        long t1 = System.nanoTime();
+        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
+        System.out.println(String.format("test12 sort took: %d ms", millis));
+    }
+
+
+    /**
+     * test12 需要和test13 对比着看
+     */
+    @Test
+    public void test13() {
+        Long max = 20000000L;
+        List<Long> values = new ArrayList<Long>();
+        for (int i = 0; i < max; i++) {
+            Long random = Double.valueOf(Math.random() * max).longValue();
+            values.add(random);
+        }
+        long t0 = System.nanoTime();
+        List<Long> collect = values.parallelStream().sorted().collect(Collectors.toList());
+        long t1 = System.nanoTime();
+        long millis = TimeUnit.NANOSECONDS.toMillis(t1 - t0);
+        System.out.println(String.format("test13 sort took: %d ms", millis));
+    }
+
 
 }

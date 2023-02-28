@@ -5,6 +5,9 @@ public class Student {
     int age;
     int height;
 
+    public Student(int age) {
+        this.age = age;
+    }
 
     public Student(String name, int age, int height) {
         this.name = name;

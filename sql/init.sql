@@ -1,7 +1,9 @@
+
 -- 建表
 -- 学生表
 CREATE TABLE `Student`(
                           `s_id` VARCHAR(20),
+
                           `s_name` VARCHAR(20) NOT NULL DEFAULT '',
                           `s_birth` VARCHAR(20) NOT NULL DEFAULT '',
                           `s_sex` VARCHAR(10) NOT NULL DEFAULT '',
@@ -65,3 +67,33 @@ insert into Score values('06' , '01' , 31);
 insert into Score values('06' , '03' , 34);
 insert into Score values('07' , '02' , 89);
 insert into Score values('07' , '03' , 98);
+
+
+
+INSERT INTO t1(id, pattern)
+VALUES(1,'Divot'),
+      (2,'Brick'),
+      (3,'Grid');
+
+INSERT INTO t2(id, pattern)
+VALUES('A','Brick'),
+      ('B','Grid'),
+      ('C','Diamond');
+
+select * from t1;
+select * from t2;
+
+
+select * from Student;
+
+show create table student;
+
+
+desc student;
+
+
+
+ALTER TABLE student modify s_birth VARCHAR(20)  comment '这是一个注释';
+
+
+SHOW CREATE TABLE Student;

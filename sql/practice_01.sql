@@ -246,6 +246,8 @@ from Score
   having count(*) > 2
 
 
+-- 44.查询本月过生日的学生
+
 
 
 

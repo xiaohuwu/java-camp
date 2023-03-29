@@ -135,6 +135,71 @@ left join Course C on S.CId = C.CId;
 select S.Sname,SC.CId,SC.score from SC
  inner join Student S on SC.SId = S.SId
 where SC.SId not in (select distinct SC.SId from SC
-                     where score < 70)
+                     where score < 70);
 
 
+
+-- 31.查询课程编号为 01 且课程成绩在 80 分及以上的学生的学号和姓名
+
+select SC.SId ,S.Sname
+from  SC
+inner join Course C on SC.CId = C.CId
+inner join Student S on SC.SId = S.SId
+where SC.score >= 80 and C.CId= '01';
+
+
+
+-- 32.求每门课程的学生人数
+select SC.CId,count(*) from SC
+group by SC.CId;
+
+-- 36.查询每门功成绩最好的前两名
+
+
+-- 37.统计每门课程的学生选修人数（超过 5 人的课程才统计）
+select SC.CId,count(*)  from SC
+inner join Course C on SC.CId = C.CId
+group by SC.CId having count(*) > 5;
+
+-- 38.检索至少选修两门课程的学生学号
+select Sc.SId,S.Sname from SC
+inner join Student S on SC.SId = S.SId
+group by Sc.SId,S.Sname
+having count(*) >= 2;
+
+-- 39 查询选修了全部课程的学生信息
+select Sc.SId,S.Sname from SC
+inner join Student S on SC.SId = S.SId
+group by Sc.SId,S.Sname
+having count(*) = (select count(*) from Course);
+
+
+
+
+
+-- 43 按照出生日期来算，当前月日 < 出生年月的月日则
+
+
+select student.SId as 学生编号,student.Sname  as  学生姓名,
+       TIMESTAMPDIFF(YEAR,student.Sage,CURDATE()) as 学生年龄
+from student;
+
+
+
+-- 43 查询下周过生日的学生
+select *
+from Student
+ where   WEEKOFYEAR(Sage) = WEEKOFYEAR(now());
+
+
+
+
+-- 44.查询本月过生日的学生
+select *
+from Student
+where month(Student.Sage) = month(now());
+
+-- 45.查询本月过生日的学生
+select *
+from Student
+where month(Student.Sage)  = month(now()) + 1;

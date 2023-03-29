@@ -1,6 +1,8 @@
 --  以下题目均采集于 https://zhuanlan.zhihu.com/p/43289968
+-- https://www.jianshu.com/p/476b52ee4f1b
 
 -- 1.查询课程编号为“01”的课程比“02”的课程成绩高的所有学生的学号
+
 select Student.*, a.s_score, b.s_score
 from Student
          inner join
@@ -208,6 +210,11 @@ where C.c_name = '数学' and  Score.s_score < 60 order by s_score;
 
 
 -- 17、按平均成绩从高到低显示所有学生的所有课程的成绩以及平均成绩(重重点与35一样)
+
+-- 18 查询各科成绩前三名的记录
+
+
+
 
 
 -- 21 、查询不同老师所教不同课程平均分从高到低显示(不重点)

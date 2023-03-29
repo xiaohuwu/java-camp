@@ -130,5 +130,50 @@ select * from orderitems;
 
 
 
+SELECT *
+INTO OUTFILE '/tmp/orderitems.csv'
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n'
+FROM orderitems;
 
+show create table orderitems;
+
+create database test_app;
+
+use test_app;
+
+CREATE TABLE `orderitems` (`order_num` int NOT NULL,
+                              `order_item` int NOT NULL,
+                              `prod_id` char(10) NOT NULL,
+                              `quantity` int NOT NULL,
+                              `item_price` decimal(8,2) NOT NULL,
+                              PRIMARY KEY (`order_num`,`order_item`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+
+
+LOAD DATA INFILE '/tmp/orderitems.csv'
+    INTO TABLE orderitems
+    FIELDS TERMINATED BY ','
+    LINES TERMINATED BY '\n';
+
+
+show create table orderitems;
+
+create database demo;
+
+
+select * from goodsmaster;
+Show binary logs;
+FLUSH BINARY LOGS;
+Show binary logs;
+-- binlog.000011
+drop database demo;
+create database demo;
+use demo;
+-- source /tmp/mybackup.sql;
+-- mysql -u root -p demo<mybackup.sql
+select * from goodsmaster;
+show binlog events  in 'binlog.000011';
+-- mysqlbinlog --start-position=236 "/usr/local/var/mysql/binlog.000011" | mysql -u root -p
 

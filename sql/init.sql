@@ -231,7 +231,7 @@ on Student.s_id = b.s_id;
 select S.*,Score.s_score from Score
 inner join Student S on Score.s_id = S.s_id
 where c_id = '01' and s_score < 60
-order by s_score desc
+order by s_score desc;
 
 
 
@@ -244,7 +244,8 @@ order by s_score desc
 
 
 -- 19、按各科成绩进行排序，并显示排名(重点row_number) todo
-
+select s_id,c_id,s_score,dense_rank() over(partition by c_id order by s_score desc)
+from score;
 
 
 -- 20、查询学生的总成绩并进行排名（不重点）
@@ -422,15 +423,3 @@ on Student.s_id = c.s_id;
 
 
 
-# INSERT INTO t1(id, pattern)
-# VALUES(1,'Divot'),
-#       (2,'Brick'),
-#       (3,'Grid');
-#
-# INSERT INTO t2(id, pattern)
-# VALUES('A','Brick'),
-#       ('B','Grid'),
-#       ('C','Diamond');
-#
-# select * from t1;
-# select * from t2;

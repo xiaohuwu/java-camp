@@ -1,9 +1,12 @@
 package com.example.jucdemo.basic;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+@Slf4j
 public class CountDownLatchDemo {
 
     public static void main(String[] args) throws InterruptedException {
@@ -17,13 +20,13 @@ public class CountDownLatchDemo {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                System.out.println(Thread.currentThread().getName() + "run-");
+               log.info(Thread.currentThread().getName() + "run-");
                 countDownLatch.countDown();
             });
             executorService.shutdown();
         }
 
         countDownLatch.await();
-        System.out.println("end");
+        log.info("end");
     }
 }

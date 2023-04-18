@@ -59,6 +59,9 @@ class Ticket {
 
     //老师的版本
     public void sale() {
+
+
+//        number++;
         lock.lock();
         try {
             number++;

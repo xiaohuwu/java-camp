@@ -9,12 +9,11 @@ public class Test6 {
     public static int publicFlag = 1;
 
     public static void main(String[] args) {
-        notification notification = new notification();
         new Thread(new Runnable() {
             @SneakyThrows
             @Override
             public void run() {
-                notification.print("a", 1, 2, 10);
+                print("a", 1, 2, 10);
             }
         }).start();
 
@@ -22,7 +21,7 @@ public class Test6 {
             @SneakyThrows
             @Override
             public void run() {
-                notification.print("b", 2, 3, 10);
+                print("b", 2, 3, 10);
             }
         }).start();
 
@@ -30,23 +29,35 @@ public class Test6 {
             @SneakyThrows
             @Override
             public void run() {
-                notification.print("c", 3, 1, 10);
+                print("c", 3, 1, 10);
 
             }
         }).start();
     }
 
-    static class notification {
-        public synchronized void print(String content, Integer flag, Integer nextFlag, int count) throws InterruptedException {
-            for (int i = 0; i < count; i++) {
-                while (publicFlag != flag) {
-                    this.wait();
-                }
-                log.info(content);
-                publicFlag = nextFlag;
-                this.notifyAll();
+
+    public synchronized static void print(String content, Integer flag, Integer nextFlag, int count) throws InterruptedException {
+        for (int i = 0; i < count; i++) {
+            while (publicFlag != flag) {
+                Test6.class.wait();
             }
+            log.info(content);
+            publicFlag = nextFlag;
+            Test6.class.notifyAll();
         }
     }
+
+//    static class notification {
+//        public synchronized void print(String content, Integer flag, Integer nextFlag, int count) throws InterruptedException {
+//            for (int i = 0; i < count; i++) {
+//                while (publicFlag != flag) {
+//                    this.wait();
+//                }
+//                log.info(content);
+//                publicFlag = nextFlag;
+//                this.notifyAll();
+//            }
+//        }
+//    }
 
 }

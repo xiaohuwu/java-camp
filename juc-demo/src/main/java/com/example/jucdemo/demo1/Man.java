@@ -6,17 +6,19 @@ public class Man {
 
     ArrayBlockingQueue queue = new ArrayBlockingQueue<Integer>(64);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
+
         Man man = new Man();
-        new Thread(() -> {
-            man.getRunnable1();
-        }).start();
         new Thread(() -> {
             man.getRunnable2();
         }).start();
+        Thread.sleep(100);
+        new Thread(() -> {
+            man.getRunnable1();
+        }).start();
+
     }
-
-
 
 
     public void getRunnable1() {

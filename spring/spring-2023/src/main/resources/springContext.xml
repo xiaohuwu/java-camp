@@ -6,7 +6,7 @@
 
 <!--    <context:component-scan base-package="org.example.service"/>-->
 
-    <!--    <bean class="org.example.model.Person" id="person">-->
+    <!--    <bean class="Person" id="person">-->
     <!--        <property name="name" value="xiaohu"/>-->
     <!--        <property name="age" value="19"/>-->
     <!--    </bean>-->

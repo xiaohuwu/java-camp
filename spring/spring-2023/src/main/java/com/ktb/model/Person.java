@@ -1,4 +1,4 @@
-package org.example.model;
+package com.ktb.model;
 
 
 import org.springframework.stereotype.Component;

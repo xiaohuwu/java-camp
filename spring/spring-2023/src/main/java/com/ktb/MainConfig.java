@@ -1,8 +1,7 @@
-package org.example;
+package com.ktb;
 
-import org.example.model.Person;
+import com.ktb.model.Person;
 import org.springframework.context.annotation.*;
-import org.springframework.stereotype.Service;
 
 
 @ComponentScan(basePackages = "org.example.service")

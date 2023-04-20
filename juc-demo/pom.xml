@@ -48,6 +48,13 @@
 
 
 
+        <dependency>
+            <groupId>io.lettuce</groupId>
+            <artifactId>lettuce-core</artifactId>
+            <version>5.2.1.RELEASE</version>
+        </dependency>
+
+
     </dependencies>
 
 

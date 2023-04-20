@@ -1,5 +1,5 @@
-import org.example.MainConfig;
-import org.example.model.Person;
+import com.ktb.MainConfig;
+import com.ktb.model.Person;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

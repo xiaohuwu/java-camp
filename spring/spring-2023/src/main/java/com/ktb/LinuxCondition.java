@@ -21,7 +21,7 @@ public class LinuxCondition implements Condition {
 
         String property = environment.getProperty("os.name");
         System.out.println("\"property\" = " + property);
-        if (property.contains("Mac OS")) {
+        if (property.contains("linux")) {
             return true;
         }
         return false;

@@ -1,8 +1,8 @@
 package com.ktb.model;
 
 
-import org.springframework.stereotype.Component;
-
+import com.ktb.LinuxCondition;
+import org.springframework.context.annotation.Conditional;
 
 public class Person {
     private String name;

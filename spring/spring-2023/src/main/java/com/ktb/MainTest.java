@@ -15,6 +15,14 @@ public class MainTest {
         System.out.println("person01 == person02 : " + (person01 == person02));
 //        Person person = (Person) applicationContext.getBean("person");
 //        System.out.println("person = " + person);
+
+
+        // 从 Spring 上下文中获取 systemProperties bean
+        java.util.Properties systemProperties = (java.util.Properties) run.getBean("systemProperties");
+
+        // 打印系统属性值
+        System.out.println("User Home: " + systemProperties.getProperty("user.home"));
+        System.out.println("Java Version: " + systemProperties.getProperty("java.version"));
     }
 
 

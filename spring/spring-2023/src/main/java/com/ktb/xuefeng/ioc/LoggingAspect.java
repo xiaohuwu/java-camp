@@ -1,4 +1,4 @@
-package com.ktb.xuefeng;
+package com.ktb.xuefeng.ioc;
 
 
 import lombok.extern.slf4j.Slf4j;
@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Slf4j
 public class LoggingAspect {
-    @Before("execution(public * com.ktb.xuefeng.UserService.*(..))")
+    @Before("execution(public * com.ktb.xuefeng.service.UserService.*(..))")
     public void doAccessCheck() {
        log.info("[Before] do access check...");
     }

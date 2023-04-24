@@ -1,11 +1,13 @@
 import com.ktb.MainConfig;
 import com.ktb.model.Person;
+import com.ktb.xuefeng.service.MailService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 import java.util.Arrays;
 import java.util.Map;
 
@@ -37,4 +39,13 @@ public class SpringAnnotaionTest {
         System.out.println("=========" + persons);
     }
 
+
+    /**
+     * 属性条件注解测试
+     */
+    @Test
+    public void test3() {
+        MailService bean = applicationContext.getBean(MailService.class);
+        System.out.println("bean = " + bean);
+    }
 }

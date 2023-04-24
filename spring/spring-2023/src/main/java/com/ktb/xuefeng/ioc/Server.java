@@ -1,4 +1,4 @@
-package com.ktb.xuefeng;
+package com.ktb.xuefeng.ioc;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;

@@ -1,11 +1,27 @@
 package com.ktb.model;
 
+import java.time.LocalDateTime;
+
 //1, "bob@example.com", "password", "Bob"
 public class User {
     private Long id;
     private String email;
     private String password;
     private String name;
+    private LocalDateTime createdAt;
+
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public User() {
+
+    }
 
     public User(Long id, String email, String password, String name) {
         this.id = id;
@@ -44,5 +60,15 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

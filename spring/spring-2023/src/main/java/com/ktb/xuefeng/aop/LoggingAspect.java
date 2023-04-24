@@ -8,7 +8,7 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 @Aspect
-@Component
+@Component("log")
 public class LoggingAspect {
     // 在执行UserService的每个方法前执行:
     @Before("execution(public * com.ktb.xuefeng.service.UserService.*(..))")

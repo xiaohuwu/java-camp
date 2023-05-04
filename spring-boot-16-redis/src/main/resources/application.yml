@@ -3,13 +3,11 @@ spring:
     client-type: lettuce
     host: localhost
     port: 6379
-
 logging:
   level:
-    root: debug
+    root: info
   file:
     name: server.log
   logback:
     rollingpolicy:
       file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
-      max-file-size: 4KB

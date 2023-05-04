@@ -19,19 +19,28 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationEvent;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.*;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
+import org.springframework.web.context.support.WebApplicationContextUtils;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.servlet.ServletContext;
+import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 import javax.sql.DataSource;
 import java.io.File;
+import java.util.Arrays;
 
 @Configuration
 @ComponentScan
@@ -46,11 +55,15 @@ public class AppConfig {
         tomcat.setPort(Integer.getInteger("port", 8080));
         tomcat.getConnector();
         Context ctx = tomcat.addWebapp("", new File("src/main/webapp").getAbsolutePath());
+
+
         WebResourceRoot resources = new StandardRoot(ctx);
         resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", new File("target/classes").getAbsolutePath(), "/"));
         ctx.setResources(resources);
+
         tomcat.start();
         tomcat.getServer().await();
+
     }
 
 
@@ -66,7 +79,7 @@ public class AppConfig {
                 .loader(new ServletLoader(servletContext))
                 // build:
                 .build();
-        var viewResolver = new PebbleViewResolver();
+        PebbleViewResolver viewResolver = new PebbleViewResolver();
         viewResolver.setPrefix("/WEB-INF/templates/");
         viewResolver.setSuffix("");
         viewResolver.setPebbleEngine(build);

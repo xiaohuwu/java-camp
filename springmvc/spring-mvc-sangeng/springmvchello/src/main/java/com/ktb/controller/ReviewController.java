@@ -53,13 +53,9 @@ public class ReviewController {
      * @param user
      * @return
      */
-<<<<<<< HEAD
-    @RequestMapping(value = "/userQuery", consumes = "application/json")
-    public String test4(@RequestBody User user) {
-=======
+
     @RequestMapping(value = "/userQuery5", consumes = "application/json")
     public String test4(User user) {
->>>>>>> origin/master
         System.out.println("id = " + user);
         return user.toString();
     }

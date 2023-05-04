@@ -10,6 +10,7 @@ import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Service;
 
+import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -49,7 +50,7 @@ public class UserService {
         user.setCreatedAt(LocalDateTime.now());
         KeyHolder holder = new GeneratedKeyHolder();
         if (1 != jdbcTemplate.update((conn) -> {
-            var ps = conn.prepareStatement("INSERT INTO users(email,password,name,createdAt) VALUES(?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = conn.prepareStatement("INSERT INTO users(email,password,name,createdAt) VALUES(?,?,?,?)", Statement.RETURN_GENERATED_KEYS);
             ps.setObject(1, user.getEmail());
             ps.setObject(2, user.getPassword());
             ps.setObject(3, user.getName());

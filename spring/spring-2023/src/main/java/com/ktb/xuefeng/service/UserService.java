@@ -8,6 +8,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
@@ -28,7 +29,7 @@ public class UserService {
         this.mailService = mailService;
     }
 
-    private List<User> users = new ArrayList<>(List.of( // users:
+    private List<User> users = new ArrayList<>(Arrays.asList( // users:
             new User(1L, "bob@example.com", "password", "Bob"), // bob
             new User(2L, "alice@example.com", "password", "Alice"), // alice
             new User(3L, "tom@example.com", "password", "Tom"))); // tom
@@ -45,7 +46,7 @@ public class UserService {
     }
 
     public User getUser(long id) {
-        return this.users.stream().filter(user -> user.getId() == id).findFirst().orElseThrow();
+        return this.users.stream().filter(user -> user.getId() == id).findFirst().get();
     }
 
     public User register(String email, String password, String name) {

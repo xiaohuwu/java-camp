@@ -3,12 +3,9 @@ package com.ktb.controller;
 import com.ktb.model.User;
 import com.ktb.service.UserService;
 import lombok.extern.slf4j.Slf4j;
-import org.mybatis.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
@@ -24,6 +21,22 @@ public class UserController {
 
     @Autowired
     UserService userService;
+
+
+    @ExceptionHandler(RuntimeException.class)
+    public ModelAndView handleUnknowException(Exception ex) {
+        HashMap<String, String> hashMap = new HashMap<>();
+        hashMap.put("error", ex.getClass().getSimpleName());
+        hashMap.put("message", ex.getMessage());
+        return new ModelAndView("500.html", hashMap);
+    }
+
+
+    @PostMapping(value = "/rest", consumes = "application/json;charset=utf-8", produces = "application/json;charset=utf-8")
+    @ResponseBody
+    public String rest(@RequestBody User user) {
+        return "{\"restSupport\":true}";
+    }
 
     @GetMapping("/")
     public ModelAndView index(HttpSession session) {
@@ -46,7 +59,7 @@ public class UserController {
             User user = userService.register(email, password, name);
             log.info("user registered: {}", user.getEmail());
         } catch (RuntimeException e) {
-            return new ModelAndView("register.html", Map.of("email", email, "error", "Register failed"));
+//            return new ModelAndView("register.html", Map.of("email", email, "error", "Register failed"));
         }
         return new ModelAndView("redirect:/signin");
     }
@@ -66,18 +79,15 @@ public class UserController {
             User user = userService.signin(email, password);
             session.setAttribute(KEY_USER, user);
         } catch (RuntimeException e) {
-            return new ModelAndView("signin.html", Map.of("email", email, "error", "Signin failed"));
+            return new ModelAndView("signin.html");
         }
         return new ModelAndView("redirect:/profile");
     }
 
     @GetMapping("/profile")
     public ModelAndView profile(HttpSession session) {
-        User user = (User) session.getAttribute(KEY_USER);
-        if (user == null) {
-            return new ModelAndView("redirect:/signin");
-        }
-        return new ModelAndView("profile.html", Map.of("user", user));
+        int result = 1 / 0;
+        return new ModelAndView("profile.html");
     }
 
     @GetMapping("/signout")

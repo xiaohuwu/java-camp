@@ -15,8 +15,6 @@ public class BookController {
         log.warn("this is warn");
         log.error("this is error");
         log.info("this is info");
-
-
         return "hello";
     }
 

@@ -8,14 +8,17 @@
         http://www.springframework.org/schema/context/spring-context-3.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <context:component-scan base-package="com.ktb.controller"/>
-<<<<<<< HEAD
-    <mvc:annotation-driven/>
-=======
 
-<!--    <mvc:annotation-driven/>-->
->>>>>>> origin/master
+    <mvc:annotation-driven />
+
 <!--    &lt;!&ndash; 解决静态资源访问问题，如果不加mvc:annotation-driven会导致无法访问handler&ndash;&gt;-->
     <mvc:default-servlet-handler/>
+
+    <bean name="/greeting.html"  class="com.ktb.controller.SimpleController"/>
+    <bean name="/example" class="com.ktb.controller.ExampleHttpRequestHandler"/>
+
+<!--    <bean name="simpleServletHandlerAdapter" class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter" />-->
+<!--    <bean name="requestMappingHandlerAdapter"  class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>-->
 
 
 <!--    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>-->
@@ -46,32 +49,21 @@
 <!--        </mvc:annotation-driven>-->
 
 
-<<<<<<< HEAD
+
+<!--    <mvc:interceptors>-->
+<!--        <mvc:interceptor>-->
+<!--            &lt;!&ndash;要拦截的路径&ndash;&gt;-->
+<!--            <mvc:mapping path="/**"/>-->
+<!--            &lt;!&ndash;排除不拦截的路径&ndash;&gt;-->
+<!--            <mvc:exclude-mapping path="/static/**"></mvc:exclude-mapping>-->
+<!--            <mvc:exclude-mapping path="/WEB-INF/page/**"></mvc:exclude-mapping>-->
+<!--            <mvc:exclude-mapping path="/login_new"></mvc:exclude-mapping>-->
+<!--            <mvc:exclude-mapping path="/login"></mvc:exclude-mapping>-->
+<!--            <bean class="com.ktb.config.LoginInterceptor"></bean>-->
+<!--        </mvc:interceptor>-->
+<!--    </mvc:interceptors>-->
 
 
-    <bean class="org.springframework.context.support.ConversionServiceFactoryBean" id="myConversionService">
-        <property name="converters">
-            <set>
-                <bean class="com.ktb.controller.config.StringToDateConverter"></bean>
-            </set>
-        </property>
-    </bean>
-=======
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <!--要拦截的路径-->
-            <mvc:mapping path="/**"/>
-            <!--排除不拦截的路径-->
-            <mvc:exclude-mapping path="/static/**"></mvc:exclude-mapping>
-            <mvc:exclude-mapping path="/WEB-INF/page/**"></mvc:exclude-mapping>
-            <mvc:exclude-mapping path="/login_new"></mvc:exclude-mapping>
-            <mvc:exclude-mapping path="/login"></mvc:exclude-mapping>
-            <bean class="com.ktb.config.LoginInterceptor"></bean>
-        </mvc:interceptor>
-    </mvc:interceptors>
-
-
->>>>>>> origin/master
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>

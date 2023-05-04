@@ -31,7 +31,7 @@ public class UserService1 {
             // PreparedStatement实例已经由JdbcTemplate创建，并在回调后自动释放:
             ps.setObject(1, email);
             ps.setObject(2, password);
-            try (var rs = ps.executeQuery()) {
+            try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return new User( // new User object:
                             rs.getLong("id"), // id
@@ -50,9 +50,9 @@ public class UserService1 {
         return jdbcTemplate.execute((Connection conn) -> {
             // 可以直接使用conn实例，不要释放它，回调结束后JdbcTemplate自动释放:
             // 在内部手动创建的PreparedStatement、ResultSet必须用try(...)释放:
-            try (var ps = conn.prepareStatement("SELECT * FROM users WHERE id = ?")) {
+            try (PreparedStatement ps = conn.prepareStatement("SELECT * FROM users WHERE id = ?")) {
                 ps.setObject(1, id);
-                try (var rs = ps.executeQuery()) {
+                try (ResultSet rs = ps.executeQuery()) {
                     if (rs.next()) {
                         return new User( // new User object:
                                 rs.getLong("id"), // id
@@ -72,7 +72,7 @@ public class UserService1 {
         return jdbcTemplate.execute("SELECT * FROM users WHERE name = ?", (PreparedStatement ps) -> {
             // PreparedStatement实例已经由JdbcTemplate创建，并在回调后自动释放:
             ps.setObject(1, name);
-            try (var rs = ps.executeQuery()) {
+            try (ResultSet rs = ps.executeQuery()) {
                 if (rs.next()) {
                     return new User( // new User object:
                             rs.getLong("id"), // id

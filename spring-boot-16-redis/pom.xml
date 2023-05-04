@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.4</version>
+        <version>2.3.4.RELEASE</version>
     </parent>
     <groupId>com.example</groupId>
     <artifactId>spring-boot-16-redis</artifactId>
@@ -13,7 +13,7 @@
     <name>spring-boot-16-redis</name>
     <description>Demo project for Spring Boot</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>8</java.version>
     </properties>
     <dependencies>
         <dependency>

@@ -45,11 +45,10 @@ public class ReportController {
 
     @RequestMapping(value = "/get")
     @ResponseBody
-    public Map<String, String> doGet(@RequestParam String foo, String bar) {
-
+    public Map<String, String> doGet() {
         Map<String, String> map = new HashMap<>();
-        map.put("foo", foo);
-        map.put("bar", bar);
+        map.put("foo", "foo");
+        map.put("bar", "bar");
         return map;
     }
 

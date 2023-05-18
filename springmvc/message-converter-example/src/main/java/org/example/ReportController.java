@@ -3,6 +3,7 @@ package org.example;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -50,6 +51,14 @@ public class ReportController {
         map.put("foo", "foo");
         map.put("bar", "bar");
         return map;
+    }
+
+
+    @RequestMapping(path = "/hi1/**", method = RequestMethod.GET)
+    @ResponseBody
+    public String hello1(HttpServletRequest request){
+        String requestURI = request.getRequestURI();
+        return requestURI.split("/hi1/")[1];
     }
 
 

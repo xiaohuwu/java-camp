@@ -13,8 +13,10 @@ public class RefreshListener {
 
     @EventListener
     public void handleContextRefresh(ContextRefreshedEvent event) {
+
         handlerAdapter.getMessageConverters()
                 .stream()
                 .forEach(System.out::println);
     }
+
 }

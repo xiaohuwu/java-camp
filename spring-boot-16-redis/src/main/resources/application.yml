@@ -4,11 +4,10 @@ logging:
     org:
       hibernate:
         type: trace
-  file:
-    name: server.log
-  logback:
-    rollingpolicy:
-      file-name-pattern: server.%d{yyyy-MM-dd}.%i.log
+#  config: classpath:log4j2.xml
+
+
+
 
 spring:
   datasource:

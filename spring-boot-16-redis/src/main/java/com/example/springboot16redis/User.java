@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDate;
 
 @Table(name = "users")
 @Entity
@@ -14,8 +17,26 @@ public class User implements Serializable {
     @GeneratedValue
     private Long id;
 
+    @Size(max = 5)
     private String name;
     private String email;
+    private LocalDate birthday;
+
+    public User() {
+    }
+
+    public User(String name, String email) {
+        this.name = name;
+        this.email = email;
+    }
+
+    public LocalDate getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(LocalDate birthday) {
+        this.birthday = birthday;
+    }
 
     public Long getId() {
         return id;

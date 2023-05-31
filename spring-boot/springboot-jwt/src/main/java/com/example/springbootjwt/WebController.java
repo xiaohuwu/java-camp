@@ -43,11 +43,12 @@ public class WebController {
     @GetMapping("/article")
     public ResponseBean article() {
         Subject subject = SecurityUtils.getSubject();
-        if (subject.isAuthenticated()) {
-            return new ResponseBean(200, "You are already logged in", null);
-        } else {
-            return new ResponseBean(200, "You are guest", null);
-        }
+        return new ResponseBean(200, "this is data", null);
+//        if (subject.isAuthenticated()) {
+//            return new ResponseBean(200, "You are already logged in", null);
+//        } else {
+//            return new ResponseBean(200, "You are guest", null);
+//        }
     }
 
     @GetMapping("/require_auth")

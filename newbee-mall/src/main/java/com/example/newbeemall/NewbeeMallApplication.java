@@ -1,16 +1,15 @@
-package com.example.springboot_05_mybatis;
+package com.example.newbeemall;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-@MapperScan("com.example.springboot_05_mybatis.mapper")
+@MapperScan("com.example.newbeemall.dao")
 @SpringBootApplication
-public class Springboot05MybatisApplication {
+public class NewbeeMallApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Springboot05MybatisApplication.class, args);
+        SpringApplication.run(NewbeeMallApplication.class, args);
     }
 
 }

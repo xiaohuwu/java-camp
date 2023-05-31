@@ -35,11 +35,7 @@ insert  into `role`(`id`,`name`,`desc`) values (1,'总经理','一人之下'),(2
 
 /*Table structure for table `user` */
 
-<<<<<<< HEAD
 DROP TABLE IF EXISTS `user`;
-=======
-DROP TABLE IF EXISTS users;
->>>>>>> origin/master
 
 CREATE TABLE `user` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -51,11 +47,7 @@ CREATE TABLE `user` (
 
 /*Data for the table `user` */
 
-<<<<<<< HEAD
 insert  into `user`(`id`,`username`,`age`,`address`) values (2,'pdd',26,NULL),(3,'UZI',19,'上海11'),(4,'RF',19,NULL);
-=======
-insert  into users(`id`,`username`,`age`,`address`) values (2,'pdd',26,NULL),(3,'UZI',19,'上海11'),(4,'RF',19,NULL);
->>>>>>> origin/master
 
 /*Table structure for table `user_role` */
 

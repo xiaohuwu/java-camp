@@ -1,7 +1,4 @@
 package com.ktb.model;
-
-
-import lombok.Builder;
 import lombok.Data;
 
 import java.util.List;
@@ -20,32 +17,5 @@ public class User {
 
     private List<Role> roles;
 
-<<<<<<< HEAD
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Integer getId() {
-        return id;
-=======
-
-
-
-    public User() {
->>>>>>> origin/master
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", age=" + age +
-                ", address='" + address + '\'' +
-                '}';
-    }
 }

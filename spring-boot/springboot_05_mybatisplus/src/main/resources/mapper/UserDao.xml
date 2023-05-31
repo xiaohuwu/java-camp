@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springboot_05_mybatis.mapper.UserMapper">
+
+    <resultMap type="com.example.springboot_05_mybatis.entity.User" id="UserMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userName" column="user_name" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="age" column="age" jdbcType="INTEGER"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!-- 批量插入 -->
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into ssm_db.user(user_name, password, name, age, address)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userName}, #{entity.password}, #{entity.name}, #{entity.age}, #{entity.address})
+        </foreach>
+    </insert>
+
+
+    <!-- 批量插入或按主键更新 -->
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into ssm_db.user(user_name, password, name, age, address)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userName}, #{entity.password}, #{entity.name}, #{entity.age}, #{entity.address})
+        </foreach>
+        on duplicate key update
+        user_name = values(user_name) , password = values(password) , name = values(name) , age = values(age) , address
+        = values(address)
+    </insert>
+
+
+    <select id="findMyUserByWrapper" resultType="com.example.springboot_05_mybatis.entity.User">
+        select *
+        from user ${ew.customSqlSegment}
+    </select>
+
+
+</mapper>
+

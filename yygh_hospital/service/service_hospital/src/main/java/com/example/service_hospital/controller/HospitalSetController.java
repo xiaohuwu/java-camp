@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Random;
 
+
 @Api(tags = "医院设置管理")
 @RestController
 @RequestMapping("/admin/hosp/hospitalSet")
@@ -47,7 +48,7 @@ public class HospitalSetController {
     }
 
     //3 条件查询带分页
-    @PostMapping("findPageHospSet/{current}/{limit}")
+    @GetMapping("findPageHospSet/{current}/{limit}")
     public Result findPageHospSet(@PathVariable long current,
                                   @PathVariable long limit,
                                   @RequestBody
@@ -55,13 +56,15 @@ public class HospitalSetController {
         Page<HospitalSet> page = new Page<>(current,limit);
         //构建条件
         QueryWrapper<HospitalSet> wrapper = new QueryWrapper<>();
-        String hosname = hospitalSetQueryVo.getHosname();//医院名称
-        String hoscode = hospitalSetQueryVo.getHoscode();//医院编号
-        if(!StringUtils.isEmpty(hosname)) {
-            wrapper.like("hosname",hospitalSetQueryVo.getHosname());
-        }
-        if(!StringUtils.isEmpty(hoscode)) {
-            wrapper.eq("hoscode",hospitalSetQueryVo.getHoscode());
+        if (hospitalSetQueryVo != null) {
+            String hosname = hospitalSetQueryVo.getHosname();//医院名称
+            String hoscode = hospitalSetQueryVo.getHoscode();//医院编号
+            if(!StringUtils.isEmpty(hosname)) {
+                wrapper.like("hosname",hospitalSetQueryVo.getHosname());
+            }
+            if(!StringUtils.isEmpty(hoscode)) {
+                wrapper.eq("hoscode",hospitalSetQueryVo.getHoscode());
+            }
         }
         //调用方法实现分页查询
         Page<HospitalSet> pageHospitalSet = hospitalSetService.page(page, wrapper);
@@ -95,6 +98,19 @@ public class HospitalSetController {
 
     @PostMapping("updateHospitalSet")
     public Result updateHospitalSet(@RequestBody HospitalSet hospitalSet) {
+        boolean flag = hospitalSetService.updateById(hospitalSet);
+        if(flag) {
+            return Result.ok();
+        } else {
+            return Result.fail();
+        }
+    }
+
+    @PutMapping("lockHospitalSet/{id}/{status}")
+    public Result lockHospitalSet(@PathVariable Long id, @PathVariable Integer status) {
+        HospitalSet hospitalSet = new HospitalSet();
+        hospitalSet.setId(id);
+        hospitalSet.setStatus(status);
         boolean flag = hospitalSetService.updateById(hospitalSet);
         if(flag) {
             return Result.ok();

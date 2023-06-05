@@ -1,4 +1,4 @@
-package com.ktb.common.configure;
+package com.ktb.febsgateway.configure;
 
 
 import org.springframework.context.annotation.Bean;

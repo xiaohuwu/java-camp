@@ -10,6 +10,8 @@ import com.example.service_cmn.mapper.DictMapper;
 import com.example.service_cmn.service.DictService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,6 +27,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
     @Autowired
     DictMapper dictMapper;
 
+    @Cacheable(value = "dict",keyGenerator = "keyGenerator")
     @Override
     public List<Dict> findChlidData(Long id) {
         QueryWrapper<Dict> wrapper = new QueryWrapper<>();
@@ -38,6 +41,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
         }
         return dictList;
     }
+
 
     @Override
     public void exportData(HttpServletResponse response) {
@@ -62,6 +66,7 @@ public class DictServiceImpl extends ServiceImpl<DictMapper, Dict> implements Di
     }
 
 
+    @CacheEvict(value = "dict", allEntries=true)
     @Override
     public void importDictData(MultipartFile file) {
         try {

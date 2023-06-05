@@ -1,8 +1,14 @@
 package com.ktb.auth.properties;
 
 import lombok.Data;
+import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 
 @Data
+@SpringBootConfiguration
+@PropertySource(value = {"classpath:febs-auth.properties"})
+@ConfigurationProperties(prefix = "febs.auth")
 public class FebsValidateCodeProperties {
     /**
      * 验证码有效时间，单位秒

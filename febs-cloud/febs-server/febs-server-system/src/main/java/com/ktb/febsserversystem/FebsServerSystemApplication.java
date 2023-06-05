@@ -1,6 +1,6 @@
 package com.ktb.febsserversystem;
 
-import com.ktb.common.annotation.EnableFebsServerProtect;
+import com.ktb.common.annotation.FebsCloudApplication;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableDiscoveryClient
 @SpringBootApplication
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@EnableFebsServerProtect
+@FebsCloudApplication
 @EnableTransactionManagement
 @MapperScan("com.ktb.febsserversystem.mapper")
 public class FebsServerSystemApplication {

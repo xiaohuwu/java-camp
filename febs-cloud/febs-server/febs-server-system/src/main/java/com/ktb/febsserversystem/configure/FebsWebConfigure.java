@@ -31,6 +31,16 @@ public class FebsWebConfigure {
 
 
     @Bean
+    public PaginationInterceptor paginationInterceptor() {
+        PaginationInterceptor paginationInterceptor = new PaginationInterceptor();
+        List<ISqlParser> sqlParserList = new ArrayList<>();
+        sqlParserList.add(new BlockAttackSqlParser());
+        paginationInterceptor.setSqlParserList(sqlParserList);
+        return paginationInterceptor;
+    }
+
+
+    @Bean
     public Docket swaggerApi() {
         FebsSwaggerProperties swagger = properties.getSwagger();
         return new Docket(DocumentationType.SWAGGER_2)

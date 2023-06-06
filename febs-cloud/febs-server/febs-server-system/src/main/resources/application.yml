@@ -2,6 +2,16 @@ server:
   port: 8201
 
 spring:
+  boot:
+    admin:
+      client:
+        url: http://localhost:8401
+        username: febs
+        password: 123456
+  security:
+    user:
+      name: febs
+      password: 123456
   application:
     name: FEBS-Server-System
   datasource:
@@ -31,6 +41,23 @@ eureka:
     instance-info-replication-interval-seconds: 30
     serviceUrl:
       defaultZone: http://febs:123456@localhost:8001/register/eureka/
+
+
+info:
+  app:
+    name: ${spring.application.name}
+    description: "@project.description@"
+    version: "@project.version@"
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
 security:
   oauth2:
     resource:

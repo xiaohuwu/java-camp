@@ -12,6 +12,5 @@ public class FebsRegisterWebSecurityConfigure extends WebSecurityConfigurerAdapt
         http.csrf().ignoringAntMatchers("/eureka/**")
                 .and()
                 .authorizeRequests().antMatchers("/actuator/**").permitAll();
-        super.configure(http);
     }
 }

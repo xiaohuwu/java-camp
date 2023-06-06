@@ -26,5 +26,6 @@ public class FebsResourceServerConfigure extends ResourceServerConfigurerAdapter
                 .and()
                 .authorizeRequests()
                 .antMatchers("/**").authenticated();
+        super.configure(http);
     }
 }

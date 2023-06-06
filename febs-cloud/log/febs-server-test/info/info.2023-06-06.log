@@ -1,0 +1,216 @@
+2023-06-06 17:47:33 INFO  [springAppName_IS_UNDEFINED,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$18467ce9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 17:47:43 INFO  [FEBS-Server-Test,,,] main com.ktb.febsservertest.FebsServerTestApplication No active profile set, falling back to default profiles: default
+2023-06-06 17:47:46 INFO  [FEBS-Server-Test,,,] main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-06-06 17:47:46 INFO  [FEBS-Server-Test,,,] main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-06-06 17:47:46 INFO  [FEBS-Server-Test,,,] main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 18ms. Found 0 repository interfaces.
+2023-06-06 17:47:47 INFO  [FEBS-Server-Test,,,] main org.springframework.cloud.context.scope.GenericScope BeanFactory id=0f5a9277-e51a-3948-9cc3-5a82b82b2682
+2023-06-06 17:47:48 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$94da4226] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 17:47:48 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 17:47:48 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@12e12ac9' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 17:47:48 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$b9aee4d8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 17:47:48 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 17:47:48 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$18467ce9] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 17:47:48 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.sleuth.instrument.web.client.TraceWebClientAutoConfiguration$TraceOAuthConfiguration' of type [org.springframework.cloud.sleuth.instrument.web.client.TraceWebClientAutoConfiguration$TraceOAuthConfiguration$$EnhancerBySpringCGLIB$$41290c4b] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 17:47:49 INFO  [FEBS-Server-Test,,,] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8202 (http)
+2023-06-06 17:47:49 INFO  [FEBS-Server-Test,,,] main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8202"]
+2023-06-06 17:47:49 INFO  [FEBS-Server-Test,,,] main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2023-06-06 17:47:49 INFO  [FEBS-Server-Test,,,] main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-06-06 17:47:50 INFO  [FEBS-Server-Test,,,] main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2023-06-06 17:47:50 INFO  [FEBS-Server-Test,,,] main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 6401 ms
+2023-06-06 17:47:50 INFO  [FEBS-Server-Test,,,] main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2023-06-06 17:47:50 INFO  [FEBS-Server-Test,,,] main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@be164d8
+2023-06-06 17:47:56 INFO  [FEBS-Server-Test,,,] main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2023-06-06 17:47:57 INFO  [FEBS-Server-Test,,,] main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2023-06-06 17:47:58 INFO  [FEBS-Server-Test,,,] main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 0f2f47ef-99b5-4906-80b9-ce46b421b3a6
+
+2023-06-06 17:47:59 INFO  [FEBS-Server-Test,,,] main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f82209e, org.springframework.security.web.context.SecurityContextPersistenceFilter@13f36d75, org.springframework.security.web.header.HeaderWriterFilter@60b553f, org.springframework.security.web.authentication.logout.LogoutFilter@3c62be3c, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@225ddf5f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5a63fa71, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27746c5e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@515c732d, org.springframework.security.web.session.SessionManagementFilter@55397d15, org.springframework.security.web.access.ExceptionTranslationFilter@fb2c2f3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@bea5941]
+2023-06-06 17:47:59 INFO  [FEBS-Server-Test,,,] main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-06 17:48:01 INFO  [FEBS-Server-Test,,,] main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2023-06-06 17:48:01 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2023-06-06 17:48:01 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2023-06-06 17:48:01 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2023-06-06 17:48:01 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2023-06-06 17:48:01 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1686044882842 with initial instances count: 3
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application FEBS-SERVER-TEST with eureka with status UP
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1686044882874, current=UP, previous=STARTING]
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202: registering service...
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202 - registration status: 204
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8202"]
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8202 (http) with context path ''
+2023-06-06 17:48:02 INFO  [FEBS-Server-Test,,,] main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8202
+2023-06-06 17:48:03 INFO  [FEBS-Server-Test,,,] main com.ktb.febsservertest.FebsServerTestApplication Started FebsServerTestApplication in 41.69 seconds (JVM running for 47.655)
+2023-06-06 17:48:03 INFO  [FEBS-Server-Test,,,] RMI TCP Connection(18)-192.168.0.47 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-06 17:48:03 INFO  [FEBS-Server-Test,,,] RMI TCP Connection(18)-192.168.0.47 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2023-06-06 17:48:03 INFO  [FEBS-Server-Test,,,] RMI TCP Connection(18)-192.168.0.47 org.springframework.web.servlet.DispatcherServlet Completed initialization in 37 ms
+2023-06-06 17:48:03 INFO  [FEBS-Server-Test,ac0f9a3f244bc762,ac0f9a3f244bc762,false] parallel-1 io.lettuce.core.EpollProvider Starting without optional epoll library
+2023-06-06 17:48:03 INFO  [FEBS-Server-Test,ac0f9a3f244bc762,ac0f9a3f244bc762,false] parallel-1 io.lettuce.core.KqueueProvider Starting without optional kqueue library
+2023-06-06 17:53:02 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 17:58:02 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:03:02 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:03:19 INFO  [FEBS-Server-Test,36255f39cd241e26,36255f39cd241e26,false] http-nio-8202-exec-1 com.ktb.febsservertest.controller.TestController Feign调用febs-server-system的/hello服务
+2023-06-06 18:07:03 INFO  [FEBS-Server-Test,,,] Thread-89 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application FEBS-SERVER-TEST with eureka with status DOWN
+2023-06-06 18:07:03 INFO  [FEBS-Server-Test,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202: registering service...
+2023-06-06 18:07:03 INFO  [FEBS-Server-Test,,,] DiscoveryClient-InstanceInfoReplicator-0 org.apache.http.impl.client.DefaultHttpClient I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8001: Broken pipe (Write failed)
+2023-06-06 18:07:03 INFO  [FEBS-Server-Test,,,] DiscoveryClient-InstanceInfoReplicator-0 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2023-06-06 18:07:03 INFO  [FEBS-Server-Test,,,] Thread-89 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2023-06-06 18:07:04 INFO  [FEBS-Server-Test,,,] Thread-89 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2023-06-06 18:07:07 INFO  [FEBS-Server-Test,,,] Thread-89 com.netflix.discovery.DiscoveryClient Unregistering ...
+2023-06-06 18:07:08 INFO  [FEBS-Server-Test,,,] Thread-89 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient
+2023-06-06 18:07:50 INFO  [springAppName_IS_UNDEFINED,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$c923b830] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 18:08:01 INFO  [FEBS-Server-Test,,,] main com.ktb.febsservertest.FebsServerTestApplication No active profile set, falling back to default profiles: default
+2023-06-06 18:08:05 INFO  [FEBS-Server-Test,,,] main org.springframework.data.repository.config.RepositoryConfigurationDelegate Multiple Spring Data modules found, entering strict repository configuration mode!
+2023-06-06 18:08:05 INFO  [FEBS-Server-Test,,,] main org.springframework.data.repository.config.RepositoryConfigurationDelegate Bootstrapping Spring Data repositories in DEFAULT mode.
+2023-06-06 18:08:05 INFO  [FEBS-Server-Test,,,] main org.springframework.data.repository.config.RepositoryConfigurationDelegate Finished Spring Data repository scanning in 29ms. Found 0 repository interfaces.
+2023-06-06 18:08:08 INFO  [FEBS-Server-Test,,,] main org.springframework.cloud.context.scope.GenericScope BeanFactory id=0f5a9277-e51a-3948-9cc3-5a82b82b2682
+2023-06-06 18:08:09 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration' of type [org.springframework.security.config.annotation.configuration.ObjectPostProcessorConfiguration$$EnhancerBySpringCGLIB$$45b77d6d] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 18:08:09 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'objectPostProcessor' of type [org.springframework.security.config.annotation.configuration.AutowireBeanFactoryObjectPostProcessor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 18:08:09 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@3f63a513' of type [org.springframework.security.oauth2.provider.expression.OAuth2MethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 18:08:09 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration' of type [org.springframework.security.config.annotation.method.configuration.GlobalMethodSecurityConfiguration$$EnhancerBySpringCGLIB$$6a8c201f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 18:08:09 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 18:08:09 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration' of type [org.springframework.cloud.autoconfigure.ConfigurationPropertiesRebinderAutoConfiguration$$EnhancerBySpringCGLIB$$c923b830] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 18:08:09 INFO  [FEBS-Server-Test,,,] main org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker Bean 'org.springframework.cloud.sleuth.instrument.web.client.TraceWebClientAutoConfiguration$TraceOAuthConfiguration' of type [org.springframework.cloud.sleuth.instrument.web.client.TraceWebClientAutoConfiguration$TraceOAuthConfiguration$$EnhancerBySpringCGLIB$$f2064792] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2023-06-06 18:08:11 INFO  [FEBS-Server-Test,,,] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat initialized with port(s): 8202 (http)
+2023-06-06 18:08:11 INFO  [FEBS-Server-Test,,,] main org.apache.coyote.http11.Http11NioProtocol Initializing ProtocolHandler ["http-nio-8202"]
+2023-06-06 18:08:11 INFO  [FEBS-Server-Test,,,] main org.apache.catalina.core.StandardService Starting service [Tomcat]
+2023-06-06 18:08:11 INFO  [FEBS-Server-Test,,,] main org.apache.catalina.core.StandardEngine Starting Servlet engine: [Apache Tomcat/9.0.21]
+2023-06-06 18:08:11 INFO  [FEBS-Server-Test,,,] main org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring embedded WebApplicationContext
+2023-06-06 18:08:11 INFO  [FEBS-Server-Test,,,] main org.springframework.web.context.ContextLoader Root WebApplicationContext: initialization completed in 10173 ms
+2023-06-06 18:08:12 INFO  [FEBS-Server-Test,,,] main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2023-06-06 18:08:12 INFO  [FEBS-Server-Test,,,] main com.netflix.config.DynamicPropertyFactory DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@7aea704c
+2023-06-06 18:08:20 INFO  [FEBS-Server-Test,,,] main com.netflix.config.sources.URLConfigurationSource To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+2023-06-06 18:08:21 INFO  [FEBS-Server-Test,,,] main org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Initializing ExecutorService 'applicationTaskExecutor'
+2023-06-06 18:08:23 INFO  [FEBS-Server-Test,,,] main org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration 
+
+Using generated security password: 284ee955-1c88-4ccc-9e8a-25e332173998
+
+2023-06-06 18:08:24 INFO  [FEBS-Server-Test,,,] main org.springframework.security.web.DefaultSecurityFilterChain Creating filter chain: OrRequestMatcher [requestMatchers=[Ant [pattern='/**']]], [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47c5cbf2, org.springframework.security.web.context.SecurityContextPersistenceFilter@56b704ea, org.springframework.security.web.header.HeaderWriterFilter@3cf70afa, org.springframework.security.web.authentication.logout.LogoutFilter@1c8e2850, org.springframework.security.oauth2.provider.authentication.OAuth2AuthenticationProcessingFilter@301d84f6, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2aa0feb2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c7c75fb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1031c1a0, org.springframework.security.web.session.SessionManagementFilter@3a3bc0da, org.springframework.security.web.access.ExceptionTranslationFilter@59b3f754, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@2052f095]
+2023-06-06 18:08:25 INFO  [FEBS-Server-Test,,,] main org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver Exposing 2 endpoint(s) beneath base path '/actuator'
+2023-06-06 18:08:26 INFO  [FEBS-Server-Test,,,] main org.springframework.cloud.netflix.eureka.InstanceInfoFactory Setting initial instance status as: STARTING
+2023-06-06 18:08:26 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Initializing Eureka in region us-east-1
+2023-06-06 18:08:27 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON encoding codec LegacyJacksonJson
+2023-06-06 18:08:27 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.provider.DiscoveryJerseyProvider Using JSON decoding codec LegacyJacksonJson
+2023-06-06 18:08:28 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML encoding codec XStreamXml
+2023-06-06 18:08:28 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.provider.DiscoveryJerseyProvider Using XML decoding codec XStreamXml
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Application version is -1: true
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Starting heartbeat executor: renew interval is: 20
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.InstanceInfoReplicator InstanceInfoReplicator onDemand update allowed rate per min is 4
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Discovery Client initialized at timestamp 1686046109913 with initial instances count: 0
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Registering application FEBS-SERVER-TEST with eureka with status UP
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] main com.netflix.discovery.DiscoveryClient Saw local status change event StatusChangeEvent [timestamp=1686046109955, current=UP, previous=STARTING]
+2023-06-06 18:08:29 INFO  [FEBS-Server-Test,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202: registering service...
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,,,] main org.apache.coyote.http11.Http11NioProtocol Starting ProtocolHandler ["http-nio-8202"]
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,,,] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer Tomcat started on port(s): 8202 (http) with context path ''
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,,,] main org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration Updating port to 8202
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,,,] main com.ktb.febsservertest.FebsServerTestApplication Started FebsServerTestApplication in 52.721 seconds (JVM running for 59.12)
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202 - registration status: 204
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,,,] RMI TCP Connection(32)-192.168.0.47 org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,,,] RMI TCP Connection(32)-192.168.0.47 org.springframework.web.servlet.DispatcherServlet Initializing Servlet 'dispatcherServlet'
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,,,] RMI TCP Connection(32)-192.168.0.47 org.springframework.web.servlet.DispatcherServlet Completed initialization in 49 ms
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,69c3f57874245a96,69c3f57874245a96,false] parallel-1 io.lettuce.core.EpollProvider Starting without optional epoll library
+2023-06-06 18:08:30 INFO  [FEBS-Server-Test,69c3f57874245a96,69c3f57874245a96,false] parallel-1 io.lettuce.core.KqueueProvider Starting without optional kqueue library
+2023-06-06 18:08:32 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:32 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:32 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:32 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:32 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:32 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:32 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:32 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:35 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:35 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:35 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:35 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:35 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:35 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:35 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:35 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:38 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:38 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:38 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:38 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:38 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:38 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:38 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:38 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:41 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:41 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:41 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:41 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:41 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:42 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:42 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:42 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:45 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:45 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:45 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:45 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:45 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:45 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:45 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:45 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:48 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:48 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:48 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:48 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:48 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:48 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:48 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:48 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:51 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:51 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:51 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:51 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:51 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:51 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:51 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:51 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:54 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:54 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:54 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:54 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:54 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:54 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:54 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:54 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:08:57 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:08:57 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:08:57 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:08:57 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:08:57 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:08:57 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:08:57 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:08:57 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:09:00 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Disable delta property : false
+2023-06-06 18:09:00 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Single vip registry refresh property : null
+2023-06-06 18:09:00 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Force full registry fetch : false
+2023-06-06 18:09:00 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application is null : false
+2023-06-06 18:09:00 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Registered Applications size is zero : true
+2023-06-06 18:09:00 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Application version is -1: false
+2023-06-06 18:09:00 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient Getting all instance registry info from the eureka server
+2023-06-06 18:09:00 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
+2023-06-06 18:09:46 INFO  [FEBS-Server-Test,549430f05ac95bf3,549430f05ac95bf3,false] http-nio-8202-exec-1 com.ktb.febsservertest.controller.TestController Feign调用febs-server-system的/hello服务
+2023-06-06 18:13:27 INFO  [FEBS-Server-Test,093c23e767c0cef7,093c23e767c0cef7,false] http-nio-8202-exec-3 com.ktb.febsservertest.controller.TestController Feign调用febs-server-system的/hello服务
+2023-06-06 18:13:29 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:18:29 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration

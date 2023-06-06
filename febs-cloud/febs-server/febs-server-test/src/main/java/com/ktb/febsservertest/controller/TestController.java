@@ -1,6 +1,7 @@
 package com.ktb.febsservertest.controller;
 
 import com.ktb.febsservertest.service.IHelloService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.client.RestTemplate;
 import javax.servlet.http.HttpServletRequest;
 import java.security.Principal;
 
+@Slf4j
 @RestController
 public class TestController {
 
@@ -48,6 +50,7 @@ public class TestController {
 ////        }
 //        return restTemplate.postForObject("http://FEBS-Server-System/hello?name=" + name, new HttpEntity<String>(headers), String.class);
 
+        log.info("Feign调用febs-server-system的/hello服务");
         return helloService.hello(name);
     }
 

@@ -59,33 +59,32 @@ public class FebsGatewayRequestFilter extends ZuulFilter {
         log.info("请求URI：{}，HTTP Method：{}，请求IP：{}，ServerId：{}", uri, method, host, serviceId);
 
         // 禁止外部访问资源实现
-//        boolean shouldForward = true;
-//        String forbidRequestUri = properties.getForbidRequestUri();
-//        String[] forbidRequestUris = StringUtils.splitByWholeSeparatorPreserveAllTokens(forbidRequestUri, ",");
-//        if (forbidRequestUris != null && ArrayUtils.isNotEmpty(forbidRequestUris)) {
-//            for (String u : forbidRequestUris) {
-//                if (pathMatcher.match(u, uri)) {
-//                    shouldForward = false;
-//                }
-//            }
-//        }
-//        if (!shouldForward) {
-//            HttpServletResponse response = ctx.getResponse();
-//            FebsResponse febsResponse = new FebsResponse().message("该URI不允许外部访问");
-//            try {
-//
-//                FebsUtil.makeResponse(
-//                        response, MediaType.APPLICATION_JSON_UTF8_VALUE,
-//                        HttpServletResponse.SC_FORBIDDEN, febsResponse
-//                );
-//                ctx.setSendZuulResponse(false);
-//                ctx.setResponse(response);
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//            return null;
-//        }
+        boolean shouldForward = true;
+        String forbidRequestUri = properties.getForbidRequestUri();
+        String[] forbidRequestUris = StringUtils.splitByWholeSeparatorPreserveAllTokens(forbidRequestUri, ",");
+        if (forbidRequestUris != null && ArrayUtils.isNotEmpty(forbidRequestUris)) {
+            for (String u : forbidRequestUris) {
+                if (pathMatcher.match(u, uri)) {
+                    shouldForward = false;
+                }
+            }
+        }
+        if (!shouldForward) {
+            HttpServletResponse response = ctx.getResponse();
+            FebsResponse febsResponse = new FebsResponse().message("该URI不允许外部访问");
+            try {
 
+                FebsUtil.makeResponse(
+                        response, MediaType.APPLICATION_JSON_UTF8_VALUE,
+                        HttpServletResponse.SC_FORBIDDEN, febsResponse
+                );
+                ctx.setSendZuulResponse(false);
+                ctx.setResponse(response);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
         byte[] token = Base64Utils.encode((FebsConstant.ZUUL_TOKEN_VALUE).getBytes());
         ctx.addZuulRequestHeader(FebsConstant.ZUUL_TOKEN_HEADER, new String(token));
         return null;

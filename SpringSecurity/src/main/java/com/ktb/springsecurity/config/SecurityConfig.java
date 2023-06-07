@@ -46,9 +46,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 
-    public static void main(String[] args) {
-        String encode = new BCryptPasswordEncoder().encode("123456");
-        System.out.println("encode = " + encode);
-    }
+
 
 }

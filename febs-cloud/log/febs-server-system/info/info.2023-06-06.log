@@ -181,3 +181,26 @@
 2023-06-06 18:13:27 INFO  [FEBS-Server-System,093c23e767c0cef7,17e2ac0dc1454876,false] http-nio-8201-exec-10 com.ktb.febsserversystem.controller.TestController /hello服务被调用
 2023-06-06 18:13:57 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
 2023-06-06 18:18:57 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:23:57 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:28:57 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 19:20:46 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:24:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:29:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:34:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:39:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:44:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:49:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:54:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:59:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:04:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:09:08 INFO  [FEBS-Server-System,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:10:25 INFO  [FEBS-Server-System,,,] Thread-91 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application FEBS-SERVER-SYSTEM with eureka with status DOWN
+2023-06-06 22:10:25 INFO  [FEBS-Server-System,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-SYSTEM/192.168.0.47:FEBS-Server-System:8201: registering service...
+2023-06-06 22:10:25 INFO  [FEBS-Server-System,,,] Thread-91 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2023-06-06 22:10:25 INFO  [FEBS-Server-System,,,] Thread-91 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2023-06-06 22:10:26 INFO  [FEBS-Server-System,,,] Thread-91 com.baomidou.dynamic.datasource.DynamicRoutingDataSource closing dynamicDatasource  ing....
+2023-06-06 22:10:26 INFO  [FEBS-Server-System,,,] Thread-91 com.zaxxer.hikari.HikariDataSource base - Shutdown initiated...
+2023-06-06 22:10:26 INFO  [FEBS-Server-System,,,] Thread-91 com.zaxxer.hikari.HikariDataSource base - Shutdown completed.
+2023-06-06 22:10:26 INFO  [FEBS-Server-System,,,] Thread-91 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2023-06-06 22:10:29 INFO  [FEBS-Server-System,,,] Thread-91 com.netflix.discovery.DiscoveryClient Unregistering ...
+2023-06-06 22:10:29 INFO  [FEBS-Server-System,,,] Thread-91 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient

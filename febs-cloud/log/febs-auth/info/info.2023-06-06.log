@@ -288,3 +288,28 @@
 2023-06-06 18:09:02 INFO  [FEBS-Auth,,,] DiscoveryClient-CacheRefreshExecutor-0 com.netflix.discovery.DiscoveryClient The response status is 200
 2023-06-06 18:13:34 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
 2023-06-06 18:18:34 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:23:34 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:28:35 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 19:20:24 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:23:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:28:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:33:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:38:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:43:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:48:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:53:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:58:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:03:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:08:46 INFO  [FEBS-Auth,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:10:08 INFO  [FEBS-Auth,,,] Thread-102 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application FEBS-AUTH with eureka with status DOWN
+2023-06-06 22:10:08 INFO  [FEBS-Auth,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-AUTH/192.168.0.47:FEBS-Auth:8101: registering service...
+2023-06-06 22:10:08 INFO  [FEBS-Auth,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-AUTH/192.168.0.47:FEBS-Auth:8101 - registration status: 204
+2023-06-06 22:10:08 INFO  [FEBS-Auth,,,] Thread-102 org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler Shutting down ExecutorService
+2023-06-06 22:10:08 INFO  [FEBS-Auth,,,] Thread-102 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2023-06-06 22:10:10 INFO  [FEBS-Auth,,,] Thread-102 com.baomidou.dynamic.datasource.DynamicRoutingDataSource closing dynamicDatasource  ing....
+2023-06-06 22:10:10 INFO  [FEBS-Auth,,,] Thread-102 com.zaxxer.hikari.HikariDataSource base - Shutdown initiated...
+2023-06-06 22:10:10 INFO  [FEBS-Auth,,,] Thread-102 com.zaxxer.hikari.HikariDataSource base - Shutdown completed.
+2023-06-06 22:10:10 INFO  [FEBS-Auth,,,] Thread-102 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2023-06-06 22:10:13 INFO  [FEBS-Auth,,,] Thread-102 com.netflix.discovery.DiscoveryClient Unregistering ...
+2023-06-06 22:10:13 INFO  [FEBS-Auth,,,] Thread-102 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-AUTH/192.168.0.47:FEBS-Auth:8101 - deregister  status: 200
+2023-06-06 22:10:13 INFO  [FEBS-Auth,,,] Thread-102 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient

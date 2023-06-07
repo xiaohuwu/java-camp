@@ -214,3 +214,34 @@ Using generated security password: 284ee955-1c88-4ccc-9e8a-25e332173998
 2023-06-06 18:13:27 INFO  [FEBS-Server-Test,093c23e767c0cef7,093c23e767c0cef7,false] http-nio-8202-exec-3 com.ktb.febsservertest.controller.TestController Feign调用febs-server-system的/hello服务
 2023-06-06 18:13:29 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
 2023-06-06 18:18:29 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:23:29 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 18:28:29 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 19:02:46 INFO  [FEBS-Server-Test,,,] DiscoveryClient-HeartbeatExecutor-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202 - Re-registering apps/FEBS-SERVER-TEST
+2023-06-06 19:02:46 INFO  [FEBS-Server-Test,,,] DiscoveryClient-HeartbeatExecutor-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202: registering service...
+2023-06-06 19:02:46 INFO  [FEBS-Server-Test,,,] DiscoveryClient-HeartbeatExecutor-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202 - registration status: 204
+2023-06-06 19:03:25 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 19:20:21 INFO  [FEBS-Server-Test,,,] DiscoveryClient-HeartbeatExecutor-0 com.netflix.discovery.shared.transport.decorator.RetryableEurekaHttpClient Request execution succeeded on retry #1
+2023-06-06 19:45:42 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 org.apache.http.impl.client.DefaultHttpClient I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8001: Connection reset
+2023-06-06 19:45:42 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2023-06-06 21:23:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:28:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:33:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:38:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:43:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:48:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:53:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 21:58:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:03:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:08:40 INFO  [FEBS-Server-Test,,,] AsyncResolver-bootstrap-executor-0 com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver Resolving eureka endpoints via configuration
+2023-06-06 22:10:24 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 org.apache.http.impl.client.DefaultHttpClient I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8001: Connection reset
+2023-06-06 22:10:24 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2023-06-06 22:10:24 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 org.apache.http.impl.client.DefaultHttpClient I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://localhost:8001: The target server failed to respond
+2023-06-06 22:10:24 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2023-06-06 22:10:24 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 org.apache.http.impl.client.DefaultHttpClient I/O exception (java.net.SocketException) caught when processing request to {}->http://localhost:8001: Connection reset
+2023-06-06 22:10:24 INFO  [FEBS-Server-Test,,,] DiscoveryClient-CacheRefreshExecutor-0 org.apache.http.impl.client.DefaultHttpClient Retrying request to {}->http://localhost:8001
+2023-06-06 22:10:31 INFO  [FEBS-Server-Test,,,] Thread-111 org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry Unregistering application FEBS-SERVER-TEST with eureka with status DOWN
+2023-06-06 22:10:31 INFO  [FEBS-Server-Test,,,] DiscoveryClient-InstanceInfoReplicator-0 com.netflix.discovery.DiscoveryClient DiscoveryClient_FEBS-SERVER-TEST/192.168.0.47:FEBS-Server-Test:8202: registering service...
+2023-06-06 22:10:31 INFO  [FEBS-Server-Test,,,] Thread-111 org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor Shutting down ExecutorService 'applicationTaskExecutor'
+2023-06-06 22:10:33 INFO  [FEBS-Server-Test,,,] Thread-111 com.netflix.discovery.DiscoveryClient Shutting down DiscoveryClient ...
+2023-06-06 22:10:36 INFO  [FEBS-Server-Test,,,] Thread-111 com.netflix.discovery.DiscoveryClient Unregistering ...
+2023-06-06 22:10:36 INFO  [FEBS-Server-Test,,,] Thread-111 com.netflix.discovery.DiscoveryClient Completed shut down of DiscoveryClient

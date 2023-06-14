@@ -1,5 +1,6 @@
 package com.example.springboot16redis;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -42,6 +43,10 @@ public class SpringBoot16RedisApplication {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+
+
+
+
 
     }
 

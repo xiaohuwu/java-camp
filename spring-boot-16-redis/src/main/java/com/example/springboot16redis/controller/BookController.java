@@ -39,8 +39,8 @@ public class BookController {
             consumes = MediaType.APPLICATION_XML_VALUE,
             produces = MediaType.APPLICATION_XML_VALUE)
     public User create(@RequestBody User user) {
-        user.setName("didispace.com : " + user.getName());
-        user.setEmail("didispace.com : " + user.getEmail());
+//        user.setName("didispace.com : " + user.getName());
+//        user.setEmail("didispace.com : " + user.getEmail());
         return user;
     }
 

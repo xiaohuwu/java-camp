@@ -50,19 +50,19 @@ public class SpringBootRedisTest {
     @Test
     public void test5() {
         redisTemplate.getConnectionFactory();
-        Class<? extends CacheManager> aClass = cacheManager.getClass();
-        System.out.println("aClass = " + aClass);
-        User u1 = userRepository.findByName("xiaohu");
-        System.out.println("第一次查询：" + u1.getEmail());
-        User gegeg = userRepository.findByName("xiaohu");
-        System.out.println("gegeg.getName() = " + gegeg.getName());
+//        Class<? extends CacheManager> aClass = cacheManager.getClass();
+//        System.out.println("aClass = " + aClass);
+//        User u1 = userRepository.findByName("xiaohu");
+//        System.out.println("第一次查询：" + u1.getEmail());
+//        User gegeg = userRepository.findByName("xiaohu");
+//        System.out.println("gegeg.getName() = " + gegeg.getName());
     }
 
     @Test
 //    @Transactional
     public void test6() {
-        userRepository.save(new User("AAA", "120"));
-        userRepository.save(new User("HHHHHHHHHH", "11"));
+//        User gege = new User.UserBuilder().name("gege").email("12@qq.com").build();
+//        userRepository.save(gege);
     }
 
 

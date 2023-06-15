@@ -18,6 +18,7 @@ public class Person implements InitializingBean {
     }
 
     public Person() {
+        System.out.println("\"我被调用了\" = " + "我被调用了");
     }
 
     public Person(String name, Integer age) {
@@ -51,11 +52,11 @@ public class Person implements InitializingBean {
         System.out.println("init_method");
     }
 
-//    @Override
-//    public String toString() {
-//        return "Person{" +
-//                "name='" + name + '\'' +
-//                ", age=" + age +
-//                '}';
-//    }
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }

@@ -5,6 +5,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @EnableAspectJAutoProxy
+/**
+ *
+ * 注册一个 AnnotationAwareAspectJAutoProxyCreator
+ *
+ *
+ *
+ */
 @Configuration
 public class MainConfigOfAOP {
 

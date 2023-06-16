@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 @CacheConfig(cacheNames = "users")
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    @Cacheable
+   @Cacheable
     User findByName(String name);
 
     User findByNameAndEmail(String name, String email);

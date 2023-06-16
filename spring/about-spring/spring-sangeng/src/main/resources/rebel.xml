@@ -6,10 +6,10 @@
 -->
 <application generated-by="intellij" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.zeroturnaround.com" xsi:schemaLocation="http://www.zeroturnaround.com http://update.zeroturnaround.com/jrebel/rebel-2_3.xsd">
 
-	<id>spring-boot-16-redis</id>
+	<id>spring-sangeng</id>
 
 	<classpath>
-		<dir name="/Users/xioahuge/IdeaProjects/java-camp/spring-boot-16-redis/target/classes">
+		<dir name="/Users/xioahuge/IdeaProjects/java-camp/spring/about-spring/spring-sangeng/target/classes">
 		</dir>
 	</classpath>
 

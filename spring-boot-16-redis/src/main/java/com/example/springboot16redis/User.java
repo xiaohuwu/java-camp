@@ -20,7 +20,11 @@ import java.time.LocalDate;
 @Entity
 @Data
 @Builder
-public class User implements Serializable {
+public class User implements Serializable{
+
+
+    private static final long serialVersionUID = 834663673051285150L;
+
     @Id
     @GeneratedValue
     private Long id;

@@ -19,10 +19,15 @@ public class SpringBootRedisTest {
 
     @Autowired
     private CacheManager cacheManager;
+    @Autowired
+    private RedisTemplate redisTemplate;
+
 
     @Test
     public void test1() {
-        redisTemplate.opsForValue().set("name", "gege");
+        User xioahu = userRepository.findByName("xiaohu");
+        System.out.println("xioahu = " + xioahu);
+        redisTemplate.opsForValue().set("name", xioahu);
     }
 
 
@@ -34,6 +39,9 @@ public class SpringBootRedisTest {
     @Test
     public void test3() {
         HashOperations hashOperations = redisTemplate.opsForHash();
+
+
+
         hashOperations.put("info", "b", "bb");
     }
 
@@ -44,8 +52,7 @@ public class SpringBootRedisTest {
         System.out.println("s = " + s);
     }
 
-    @Autowired
-    private RedisTemplate redisTemplate;
+
 
     @Test
     public void test5() {

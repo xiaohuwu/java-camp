@@ -1,6 +1,7 @@
 package com.ktb.juejin.aop;
 
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
  *
  */
 @Configuration
+@ComponentScan(basePackages = "com.ktb.juejin.aop")
 public class MainConfigOfAOP {
 
     @Bean

@@ -10,7 +10,8 @@ public class AOPTest {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(MainConfigOfAOP.class);
         String beanName = null;
         MathCalculator calculator = applicationContext.getBean(MathCalculator.class);
-        System.out.println(calculator.div(10, 2));
+        int div = calculator.div(10, 2);
+        System.out.println(div);
 
         applicationContext.close();
 

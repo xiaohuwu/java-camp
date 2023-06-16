@@ -12,9 +12,9 @@ public class UserDao {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     public void insert(){
-        String sql = "INSERT INTO `users`(name,age) VALUES(?,?)";
+        String sql = "INSERT INTO `users`(name,email) VALUES(?,?)";
         String username = UUID.randomUUID().toString().substring(0, 5);
-        jdbcTemplate.update(sql, username,19);
+        jdbcTemplate.update(sql, username,"120515@qq.com");
     }
 
 

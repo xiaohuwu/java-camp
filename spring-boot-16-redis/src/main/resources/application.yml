@@ -1,15 +1,23 @@
 logging:
   level:
     root: info
+    web: debug
+    org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod: trace
+    org.springframework.web.servlet.DispatcherServlet: trace
+    org.springframework.web.method.support.InvocableHandlerMethod: trace
     org:
       hibernate:
         type: trace
+#    web: debug
 #  config: classpath:log4j2.xml
 
 
 
-
 spring:
+  mvc:
+    hiddenmethod:
+      filter: true
+    log-request-details: true
   datasource:
     url: jdbc:mysql://localhost:3306/test
     username: root
@@ -27,3 +35,11 @@ spring:
       pool:
         max-idle: 8
         max-active: 8
+  resources:
+    add-mappings: true
+    cache:
+      period: 1000
+      cachecontrol:
+        max-age: 1000
+    chain:
+      cache: true

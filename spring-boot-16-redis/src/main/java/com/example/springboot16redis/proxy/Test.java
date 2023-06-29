@@ -1,6 +1,5 @@
 package com.example.springboot16redis.proxy;
 
-import java.lang.reflect.Proxy;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;

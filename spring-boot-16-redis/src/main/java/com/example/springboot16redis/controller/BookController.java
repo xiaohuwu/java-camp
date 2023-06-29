@@ -36,7 +36,7 @@ public class BookController {
 
 
     @PostMapping(value = "/user",
-            consumes = MediaType.APPLICATION_XML_VALUE,
+            consumes = MediaType.APPLICATION_JSON_VALUE,
             produces = MediaType.APPLICATION_XML_VALUE)
     public User create(@RequestBody User user) {
 //        user.setName("didispace.com : " + user.getName());

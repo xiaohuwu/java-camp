@@ -1,30 +1,24 @@
 package com.example.springboot16redis;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
-import org.springframework.http.converter.xml.MappingJackson2XmlHttpMessageConverter;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import javax.sql.DataSource;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 
 @EnableCaching
 @SpringBootApplication
+@EnableScheduling
+@EnableAsync
 public class SpringBoot16RedisApplication {
 
     public static void main(String[] args) {
@@ -32,7 +26,7 @@ public class SpringBoot16RedisApplication {
         DataSource bean = run.getBean(DataSource.class);
         RequestMappingHandlerAdapter bean2 = run.getBean(RequestMappingHandlerAdapter.class);
         List<HttpMessageConverter<?>> messageConverters = bean2.getMessageConverters();
-        messageConverters.forEach((item)->{
+        messageConverters.forEach((item) -> {
             System.out.println("item = " + item);
         });
         try {
@@ -44,8 +38,8 @@ public class SpringBoot16RedisApplication {
             throwables.printStackTrace();
         }
 
-
-
+//        LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
+//        lc.addTurboFilter(new MyTurboFilter());
 
 
     }
@@ -55,10 +49,6 @@ public class SpringBoot16RedisApplication {
 //        return new HttpMessageConverters(
 //                false, Arrays.asList(new TheCustomConverter()));
 //    }
-
-
-
-
 
 
     @EventListener

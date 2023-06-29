@@ -1,16 +1,19 @@
 package com.example.springboot16redis;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.event.EventListener;
+import org.springframework.core.env.Environment;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
+import javax.annotation.PostConstruct;
 import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.List;
@@ -21,9 +24,13 @@ import java.util.List;
 @EnableAsync
 public class SpringBoot16RedisApplication {
 
+
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(SpringBoot16RedisApplication.class, args);
         DataSource bean = run.getBean(DataSource.class);
+        Environment bean3 = run.getBean(Environment.class);
+        String property = bean3.getProperty("spring.application.name");
+//        System.out.println("property = " + property);
         RequestMappingHandlerAdapter bean2 = run.getBean(RequestMappingHandlerAdapter.class);
         List<HttpMessageConverter<?>> messageConverters = bean2.getMessageConverters();
         messageConverters.forEach((item) -> {
@@ -42,6 +49,15 @@ public class SpringBoot16RedisApplication {
 //        lc.addTurboFilter(new MyTurboFilter());
 
 
+    }
+
+    @Autowired
+    Environment environment;
+
+    @PostConstruct
+    public void init(){
+        String property = environment.getProperty("spring.application.name");
+        System.out.println("property = " + property);
     }
 
 //    @Bean

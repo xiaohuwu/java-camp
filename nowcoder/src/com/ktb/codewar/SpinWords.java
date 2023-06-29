@@ -1,6 +1,5 @@
 package com.ktb.codewar;
 
-import com.sun.tools.javac.util.ArrayUtils;
 
 import java.util.Arrays;
 import java.util.Collections;

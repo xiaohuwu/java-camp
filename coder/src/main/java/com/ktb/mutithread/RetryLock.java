@@ -1,10 +1,13 @@
 package com.ktb.mutithread;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 可重入锁
  */
+@Slf4j
 public class RetryLock {
     private static ReentrantLock lock = new ReentrantLock();
 
@@ -15,13 +18,12 @@ public class RetryLock {
         } finally {
             lock.unlock();
         }
-
     }
 
     public static void m1(){
         lock.lock();
         try {
-            System.out.println("m1");
+            log.info("m1");
             m2();
         } finally {
             lock.unlock();
@@ -31,7 +33,7 @@ public class RetryLock {
     public static void m2(){
         lock.lock();
         try {
-            System.out.println("m2");
+            log.info("m2");
         } finally {
             lock.unlock();
         }

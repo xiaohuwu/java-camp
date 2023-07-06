@@ -31,6 +31,7 @@ public class CyclicBarrierExample {
                     System.out.println("Player " + Thread.currentThread().getName() + " is ready");
                     try {
                         cyclicBarrier.await();
+                        System.out.println("Player " + Thread.currentThread().getName() + " continue");
                     } catch (InterruptedException | BrokenBarrierException e) {
                         e.printStackTrace();
                     }

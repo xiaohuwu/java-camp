@@ -20,15 +20,16 @@
         <result property="name" column="name"/>
         <result property="age" column="age"/>
         <result property="birthday" column="birthday"/>
-        <association property="department"   select="com.ktb.dao.DepartmentDao.findById" column="department_id">
+        <association property="department" select="com.ktb.dao.DepartmentDao.findById" column="department_id">
         </association>
 
     </resultMap>
 
     <!--注意此处的 resultMap-->
     <select id="findAll" resultMap="userMap">
-        select tbl_user.*, tbl_department.name as department_name
-        FROM `tbl_user` INNER JOIN `tbl_department` ON `tbl_department`.`id` = `tbl_user`.`department_id`
+        select tbl_user.*, tbl_department.id as department_id, tbl_department.name as department_name
+        FROM `tbl_user`
+                 INNER JOIN `tbl_department` ON `tbl_department`.`id` = `tbl_user`.`department_id`
     </select>
 
 
@@ -39,18 +40,22 @@
 
 
     <select id="findById" resultType="com.ktb.entity.User">
-        select * from tbl_user where id=#{id}
+        select *
+        from tbl_user
+        where id = #{id}
     </select>
 
     <select id="findUsers" resultType="com.ktb.entity.User">
-        select * from tbl_user where department_id=#{id}
+        select *
+        from tbl_user
+        where department_id = #{department_id}
     </select>
 
 
-
-
     <delete id="deleteById" parameterType="string">
-        delete from tbl_user where id = #{id}
+        delete
+        from tbl_user
+        where id = #{id}
     </delete>
 
 

@@ -5,6 +5,8 @@
 
 
 <mapper namespace="com.ktb.dao.EmployeeDao">
+
+
     <select id="findOne" resultType="com.ktb.entity.Employee">
         SELECT `tbl_employee`.*
         FROM `tbl_employee`

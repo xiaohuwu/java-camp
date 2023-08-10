@@ -64,9 +64,9 @@ public class App {
         Department department1 = new Department();
         department1.setTableName("tbl_department");
         list.add(department1);
-        Department department2 = new Department();
-        department2.setTableName("tbl_department1");
-        list.add(department2);
+//        Department department2 = new Department();
+//        department2.setTableName("tbl_department1");
+//        list.add(department2);
         departmentMapper.update(list);
 
     }
@@ -135,9 +135,9 @@ public class App {
         List<Department> all = departmentDao.findAllLazy();
         for (Department department : all) {
             System.out.println("department:" + department);
-//            for (User user : department.getUsers()) {
-//                System.out.println("user:" + user);
-//            }
+            for (User user : department.getUsers()) {
+                System.out.println("user:" + user);
+            }
         }
     }
 
@@ -167,6 +167,18 @@ public class App {
         Employee entity = new Employee(null, "123", "男");
         Integer integer = employeeDao.insertEmployee(entity);
         System.out.println("entity = " + entity.getId());
+    }
+
+
+
+
+    @Test
+    public void test09() throws IOException {
+        InputStream xml = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(xml);
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        List<Department> departmentList = sqlSession.selectList("com.ktb.dao.DepartmentDao.findAll");
+        departmentList.forEach(System.out::println);
     }
 
 

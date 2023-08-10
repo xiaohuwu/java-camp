@@ -1,10 +1,13 @@
 package com.example.springboot16redis.juc;
 
+import com.example.springboot16redis.TestClassLoader;
+
+import java.util.ArrayList;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
-public class LockExample {
+public class LockExample  extends TestClassLoader{
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
     ReentrantReadWriteLock.WriteLock writeLock = lock.writeLock();
     public void func() {
@@ -27,6 +30,9 @@ public class LockExample {
                 lockExample.func();
             });
         }
+        TestClassLoader testClassLoader = new TestClassLoader();
+
+        ArrayList<Integer> list = testClassLoader.list;
 
     }
 

@@ -3,6 +3,7 @@ package com.ktb.how2j;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.stream.Stream;
 
 public class TestLambda {
     public static void main(String[] args) {
@@ -18,6 +19,13 @@ public class TestLambda {
             return hero.hp > 100 && hero.damage < 50;
         };
         filter(heros, checker);
+
+
+        Stream<Hero> heroStream = heros.stream().filter(hero -> hero.hp > 100 && hero.damage < 50);
+        heroStream.forEach((item)->{
+            System.out.println("item = " + item);
+        });
+
     }
 
     private static void filter(List<Hero> heros, HeroChecker checker) {

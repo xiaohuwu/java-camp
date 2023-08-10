@@ -1,10 +1,15 @@
 package com.example.springboot16redis;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class TestClassLoader {
+   protected   static ArrayList<Integer> list = new ArrayList<>();
+
     public static void main(String[] args) {
-        ArrayList<Integer> list = new ArrayList<>();
         list.add(1);
         list.add(2);
         list.add(3);
@@ -17,5 +22,11 @@ public class TestClassLoader {
         }
         list.forEach(System.out::println);
 
+
+        ExecutorService executor = Executors.newFixedThreadPool(10);
+
+        int[] array = {1, 2, 3};
+        List list1 = Arrays.asList(array);
+        System.out.println(list1.size());
     }
 }

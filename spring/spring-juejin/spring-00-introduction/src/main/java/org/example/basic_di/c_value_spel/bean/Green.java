@@ -4,16 +4,22 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Black {
+public class Green {
 
-    @Value("${red.name}")
+
+
+    @Value("#{blue.name.substring(0,3)}")
     private String name;
 
-    @Value("${red.order}")
+    @Value("#{2 + blue.order }")
     private Integer order;
+
 
     @Override
     public String toString() {
-        return "Black{" + "name='" + name + '\'' + ", order=" + order + '}';
+        return "Green{" +
+                "name='" + name + '\'' +
+                ", order=" + order +
+                '}';
     }
 }

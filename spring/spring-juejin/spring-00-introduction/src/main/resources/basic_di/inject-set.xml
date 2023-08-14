@@ -5,6 +5,7 @@
         https://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="person" class="org.example.basic_di.a_quickstart_set.Person">
+
         <property name="name" value="test-person-byset"/>
         <property name="age" value="18"/>
     </bean>

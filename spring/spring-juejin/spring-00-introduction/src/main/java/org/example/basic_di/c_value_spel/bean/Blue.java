@@ -4,13 +4,20 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Red {
+public class Blue {
+    @Value("#{'blue-value-byspel'}")
+    private String name;
 
+    @Value("#{2}")
+    private Integer order;
 
-    public String name;
-
-
-    public Integer order;
+    @Override
+    public String toString() {
+        return "Blue{" +
+                "name='" + name + '\'' +
+                ", order=" + order +
+                '}';
+    }
 
 
     public String getName() {
@@ -27,10 +34,5 @@ public class Red {
 
     public void setOrder(Integer order) {
         this.order = order;
-    }
-
-    @Override
-    public String toString() {
-        return "Black{" + "name='" + name + '\'' + ", order=" + order + '}';
     }
 }

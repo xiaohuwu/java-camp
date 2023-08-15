@@ -1,5 +1,6 @@
 package org.example.basic_di.d_complexfield.bean;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component

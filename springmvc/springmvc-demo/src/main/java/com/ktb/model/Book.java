@@ -15,7 +15,18 @@ public class Book {
     private String name;
     private String author;
     private Integer id;
-//    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
+    private Float price;
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
+    }
+
+
+    //    @JsonFormat(pattern = "yyyy-MM-dd",timezone = "Asia/Shanghai")
 
     private Date publishDate;
 

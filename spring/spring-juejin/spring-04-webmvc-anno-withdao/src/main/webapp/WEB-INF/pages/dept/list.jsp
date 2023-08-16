@@ -8,7 +8,7 @@
 <script>
     function del(id) {
         if (confirm("是否删除部门？")) {
-            window.location = "${pageContext.request.contextPath}/department/delete?id=" + id;
+            window.location = "${pageContext.request.contextPath}/departments/delete?id=" + id;
         }
     }
 </script>
@@ -16,7 +16,7 @@
 <body>
 <h3>部门列表</h3>
 <div>
-    <form id="query-form" method="get" action="${pageContext.request.contextPath}/department/list">
+    <form id="query-form" method="get" action="${pageContext.request.contextPath}/departments/list">
         <label>部门名称：</label>
         <input type="text" name="name" value="">
         <input type="submit" value="查询">
@@ -39,7 +39,7 @@
                 <td align="center">${dept.name}</td>
                 <td align="center">${dept.tel}</td>
                 <td align="center">
-                    <a href="${pageContext.request.contextPath}/department/edit?id=${dept.id}">编辑</a>
+                    <a href="${pageContext.request.contextPath}/departments/${dept.id}">编辑</a>
                     <a href="javascript:del(${dept.id})">删除</a>
                 </td>
             </tr>

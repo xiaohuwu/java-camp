@@ -17,5 +17,6 @@ public class User {
 
     private byte[] photo;
 
+
     private Department department;
 }

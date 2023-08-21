@@ -10,6 +10,7 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -61,6 +62,13 @@ public class EnableWebMvcConfiguration implements WebMvcConfigurer {
         Properties fileEncodings = new Properties();
         fileEncodings.setProperty("file.encodings", "utf-8");
         return messageSource;
+    }
+
+    @Bean("multipartResolver")
+    public CommonsMultipartResolver multipartResolver(){
+        CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
+        commonsMultipartResolver.setMaxUploadSize(2097152);
+        return commonsMultipartResolver;
     }
 
     @Bean

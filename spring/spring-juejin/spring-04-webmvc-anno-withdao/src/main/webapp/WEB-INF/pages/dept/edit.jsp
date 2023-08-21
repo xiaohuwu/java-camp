@@ -14,7 +14,7 @@
 
 <body>
 <h3>部门信息</h3>
-<form id="data-form" method="post" action="${pageContext.request.contextPath}/department/save">
+<form id="data-form" method="post" action="${pageContext.request.contextPath}/departments/save">
     <input type="hidden" name="id" value="${dept.id}">
 
     <label>部门名称：</label>

@@ -5,7 +5,6 @@ import com.ktb.service.DepartmentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
 import javax.servlet.http.HttpServletRequest;
 
 
@@ -48,10 +47,13 @@ public class DepartmentController {
         return "dept/edit";
     }
 
-    @PostMapping("/")
-    public String save(Department department) {
+    @PostMapping("/save")
+    public String save( @ModelAttribute("dept") Department department) {
         log.error("department：" + department);
-        departmentService.save(department);
+//        departmentService.save(department);
+        if (department.getName().length() > 10) {
+            return "dept/edit";
+        }
         return "redirect:/department/list";
     }
 
@@ -65,8 +67,10 @@ public class DepartmentController {
 
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String list(HttpServletRequest request, @RequestParam(value = "dept_name", required = false) String name) {
+    public String list(HttpServletRequest request, @ModelAttribute("name") String name) {
         request.setAttribute("deptList", departmentService.findDepartmentsByName(name));
+        // 模拟部门名称过长导致校验失败
+//        request.setAttribute("name", name);
         return "dept/list";
     }
 

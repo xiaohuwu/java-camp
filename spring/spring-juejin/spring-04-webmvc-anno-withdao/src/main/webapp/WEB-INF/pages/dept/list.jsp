@@ -18,7 +18,7 @@
 <div>
     <form id="query-form" method="get" action="${pageContext.request.contextPath}/departments/list">
         <label>部门名称：</label>
-        <input type="text" name="name" value="">
+        <input type="text" name="name" value="${name}">
         <input type="submit" value="查询">
     </form>
 </div>
@@ -39,7 +39,7 @@
                 <td align="center">${dept.name}</td>
                 <td align="center">${dept.tel}</td>
                 <td align="center">
-                    <a href="${pageContext.request.contextPath}/departments/${dept.id}">编辑</a>
+                    <a href="${pageContext.request.contextPath}/departments/edit/${dept.id}">编辑</a>
                     <a href="javascript:del(${dept.id})">删除</a>
                 </td>
             </tr>

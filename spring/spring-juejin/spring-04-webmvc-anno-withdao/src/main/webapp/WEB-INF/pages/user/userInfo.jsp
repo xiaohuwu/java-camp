@@ -6,7 +6,8 @@
 </head>
 <body>
 <h3>用户信息</h3>
-<form id="data-form" method="post" action="${pageContext.request.contextPath}/user/save">
+<form id="data-form" method="post" action="${pageContext.request.contextPath}/user/save"
+      enctype="multipart/form-data">
     <input type="hidden" name="id" value="${user.id}">
     <label>用户名：</label>
     <input type="text" name="username" value="${user.username}">

@@ -23,23 +23,25 @@
             return;
         }
         if (confirm("是否删除选中的用户？")) {
-            $.post("${pageContext.request.contextPath}/user/batchDelete", {ids: selectedIds}, function(data) {
+            $.post("${pageContext.request.contextPath}/user/batchDelete", {ids: selectedIds}, function (data) {
                 alert(data)
             });
         }
     }
 
-    function updateSelected(){
+    function updateSelected() {
         $.ajax({
             url: '${pageContext.request.contextPath}/user/batchUpdate',
             type: 'post',
-            data:JSON.stringify({users: [
+            data: JSON.stringify({
+                users: [
                     {username: 'zhangsan', name: '张三'},
                     {username: 'lisi', name: '李四'},
                     {username: 'wangwu', name: '王五'}
-                ]}) ,
+                ]
+            }),
             contentType: 'application/json',
-            success: function(data) {
+            success: function (data) {
                 alert("修改成功！");
             }
         });
@@ -80,7 +82,8 @@
                 <td align="center">${user.username}</td>
                 <td align="center">${user.name}</td>
                 <td align="center">${user.birthday}</td>
-                <td align="center"></td>
+                <td align="center"><img style="width: 100px;height: auto;"
+                                        src="${pageContext.request.contextPath}/user/getPhoto?id=${user.id}"></td>
                 <td align="center">${user.department.name}</td>
                 <td align="center">
                     <a href="${pageContext.request.contextPath}/user/edit?id=${user.id}">编辑</a>

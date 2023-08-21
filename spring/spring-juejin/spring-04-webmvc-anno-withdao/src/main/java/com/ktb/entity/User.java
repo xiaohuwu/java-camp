@@ -17,7 +17,6 @@ public class User {
     private String username;
 
 
-    @NotBlank(message = "{user.name.notblank}")
     private String name;
 
     private Date birthday;

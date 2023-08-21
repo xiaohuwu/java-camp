@@ -13,6 +13,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -55,7 +56,14 @@ public class UserController {
 
 
     @PostMapping("/save")
-    public String save(User user, MultipartFile photoFile) throws IOException {
+    public String save(@Validated User user, MultipartFile photoFile, BindingResult bindingResult) throws IOException {
+        if (StringUtils.isEmpty(user.getName())) {
+            throw new IllegalArgumentException("User的name为空");
+        }
+
+        if (bindingResult.hasErrors()) {
+            throw new RuntimeException("数据格式不正确！");
+        }
         log.info("user:{}", user);
 //        Locale locale = new Locale("en", "US"); // 英文
 //        LocaleContextHolder.setLocale(locale);
@@ -65,8 +73,10 @@ public class UserController {
 //            throw new RuntimeException("数据格式不正确！");
 //        }
         System.out.println(user);
-        System.out.println(photoFile);
-        user.setPhoto(photoFile.getBytes());
+        if (photoFile != null) {
+            System.out.println(photoFile);
+            user.setPhoto(photoFile.getBytes());
+        }
         userService.update(user);
         return "redirect:/user/list";
     }

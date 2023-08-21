@@ -12,11 +12,7 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
+import org.springframework.web.servlet.config.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
@@ -46,6 +42,14 @@ public class EnableWebMvcConfiguration implements WebMvcConfigurer {
     }
 
 
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        // 添加您的拦截器实例到拦截器注册表
+        registry.addInterceptor(new DemoInterceptor())
+                .addPathPatterns("/departments/**"); // 设置不需要拦截的URL模式
+        registry.addInterceptor(new DemoInterceptor2())
+                .addPathPatterns("/departments/**"); // 设置不需要拦截的URL模式
+    }
 
     @Override
     public Validator getValidator() {
@@ -65,7 +69,7 @@ public class EnableWebMvcConfiguration implements WebMvcConfigurer {
     }
 
     @Bean("multipartResolver")
-    public CommonsMultipartResolver multipartResolver(){
+    public CommonsMultipartResolver multipartResolver() {
         CommonsMultipartResolver commonsMultipartResolver = new CommonsMultipartResolver();
         commonsMultipartResolver.setMaxUploadSize(2097152);
         return commonsMultipartResolver;

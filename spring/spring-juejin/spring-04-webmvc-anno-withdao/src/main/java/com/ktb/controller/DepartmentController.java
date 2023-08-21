@@ -2,7 +2,6 @@ package com.ktb.controller;
 
 import com.ktb.entity.Department;
 import com.ktb.service.DepartmentService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -43,7 +42,7 @@ public class DepartmentController {
     }
 
 
-    @GetMapping("/{id}")
+    @GetMapping("/edit/{id}")
     public String edit(HttpServletRequest request, @PathVariable String id) {
         request.setAttribute("dept", departmentService.findById(id));
         return "dept/edit";
@@ -65,7 +64,7 @@ public class DepartmentController {
     }
 
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String list(HttpServletRequest request, @RequestParam(value = "dept_name", required = false) String name) {
         request.setAttribute("deptList", departmentService.findDepartmentsByName(name));
         return "dept/list";

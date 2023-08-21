@@ -26,14 +26,14 @@
         </c:forEach>
     </select>
     <br/>
-    <%--
+
     <label>生日：</label>
     <input type="text" name="birthday" value="${user.birthday}">
     <br/>
     <label>头像：</label>
     <input type="file" name="photoFile">
     <br/>
-    --%>
+
     <input type="submit" value="保存用户">
 </form>
 <button onclick="window.history.go(-1)">返回</button>

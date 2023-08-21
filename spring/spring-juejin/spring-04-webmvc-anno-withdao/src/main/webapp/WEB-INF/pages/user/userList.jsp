@@ -29,6 +29,22 @@
         }
     }
 
+    function updateSelected(){
+        $.ajax({
+            url: '${pageContext.request.contextPath}/user/batchUpdate',
+            type: 'post',
+            data:JSON.stringify({users: [
+                    {username: 'zhangsan', name: '张三'},
+                    {username: 'lisi', name: '李四'},
+                    {username: 'wangwu', name: '王五'}
+                ]}) ,
+            contentType: 'application/json',
+            success: function(data) {
+                alert("修改成功！");
+            }
+        });
+    }
+
 </script>
 
 <body>
@@ -40,6 +56,7 @@
         <input type="submit" value="查询">
     </form>
     <button onclick="delSelected()">批量删除</button>
+    <button onclick="updateSelected()">批量修改</button>
 </div>
 <table id="dept-table" border="1">
     <thead>

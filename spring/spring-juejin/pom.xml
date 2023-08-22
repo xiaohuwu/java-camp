@@ -13,6 +13,7 @@
       <module>spring-04-webmvc</module>
     <module>spring-04-webmvc-xml-withdao</module>
       <module>spring-04-webmvc-anno-withdao</module>
+    <module>spring-05-integration</module>
   </modules>
 
   <name>spring-juejin</name>

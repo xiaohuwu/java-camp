@@ -5,10 +5,10 @@
 <configuration>
 
 
-    <mappers>
-        <mapper resource="mybatis/department_mapper.xml"/>
-        <mapper resource="mybatis/department.xml"/>
-    </mappers>
+<!--    <mappers>-->
+<!--        <mapper resource="mybatis/department_mapper.xml"/>-->
+<!--        <mapper resource="mybatis/department.xml"/>-->
+<!--    </mappers>-->
 
 
 </configuration>

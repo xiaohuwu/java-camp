@@ -10,12 +10,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.transaction.TransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
+import java.io.IOException;
 
 @Configuration
 @ComponentScan("com.ktb.mybatis")
@@ -39,20 +41,11 @@ public class MyBatisConfiguration {
     }
 
     @Bean
-    public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) {
+    public SqlSessionFactoryBean sqlSessionFactoryBean(DataSource dataSource) throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setConfigLocation(new ClassPathResource("/mybatis/SqlMapConfig.xml"));
+        sqlSessionFactoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/dao/*.xml"));
         return sqlSessionFactoryBean;
-    }
-
-
-    @Bean
-    public MapperFactoryBean<DepartmentMapper> departmentMapper(SqlSessionFactory sqlSessionFactory) {
-        MapperFactoryBean<DepartmentMapper> departmentMapperFactoryBean = new MapperFactoryBean<>();
-        departmentMapperFactoryBean.setMapperInterface(DepartmentMapper.class);
-        departmentMapperFactoryBean.setSqlSessionFactory(sqlSessionFactory);
-        return departmentMapperFactoryBean;
     }
 
 
@@ -65,7 +58,6 @@ public class MyBatisConfiguration {
     public MapperScannerConfigurer mapperScannerConfigurer() {
         MapperScannerConfigurer mapperScannerConfigurer = new MapperScannerConfigurer();
         mapperScannerConfigurer.setBasePackage("com.ktb.mybatis.dao");
-        mapperScannerConfigurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
         return mapperScannerConfigurer;
     }
 }

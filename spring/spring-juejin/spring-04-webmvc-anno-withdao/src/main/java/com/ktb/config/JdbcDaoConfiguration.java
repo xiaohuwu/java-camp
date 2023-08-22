@@ -1,5 +1,6 @@
 package com.ktb.config;
 
+import com.ktb.entity.Cat;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -35,5 +36,14 @@ public class JdbcDaoConfiguration {
     public TransactionManager transactionManager(DataSource dataSource) {
         return new DataSourceTransactionManager(dataSource);
     }
+
+    @Bean("cat")
+    public Cat getCat() {
+        Cat cat = new Cat();
+        return cat;
+    }
+
+
+
 
 }

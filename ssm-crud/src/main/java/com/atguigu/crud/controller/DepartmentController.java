@@ -15,7 +15,7 @@ import com.atguigu.crud.service.DepartmentService;
  * 处理和部门有关的请求
  * @author lfy
  *
- */
+ *//**/
 @Controller
 public class DepartmentController {
 	

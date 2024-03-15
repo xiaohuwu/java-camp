@@ -50,8 +50,10 @@ public class UserController {
             return Result.fail("密码错误！");
         }
         String jwt = jwtUtils.generateToken(user.getId());
+
         response.setHeader("Authorization", jwt);
         response.setHeader("Access-Control-Expose-Headers", "Authorization");
+        int result = 1 / 0 ;
         // 用户可以另一个接口
         return Result.succ(MapUtil.builder()
                 .put("id", user.getId())
@@ -60,6 +62,7 @@ public class UserController {
                 .put("email", user.getEmail())
                 .map()
         );
+
     }
 
     @GetMapping("/logout")
@@ -67,6 +70,8 @@ public class UserController {
     public Result logout() {
         SecurityUtils.getSubject().logout();
         return Result.succ(null);
+
+
     }
 
 }

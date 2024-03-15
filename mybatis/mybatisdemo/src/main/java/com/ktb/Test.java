@@ -25,7 +25,7 @@ public class Test {
         sqlSession.close();
     }
 
-    private static SqlSession getSqlSession() throws IOException {
+    private static SqlSession getSqlSession() throws   IOException {
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
@@ -98,7 +98,7 @@ public class Test {
         SqlSession sqlSession = getSqlSession();
         UserDao mapper = sqlSession.getMapper(UserDao.class);
 //        Customer customer = mapper.get(new Customer(6));
-        List<User> user = mapper.findById(1);
+        User user = mapper.findById(1);
         System.out.println(new Gson().toJson(user));
         sqlSession.close();
     }

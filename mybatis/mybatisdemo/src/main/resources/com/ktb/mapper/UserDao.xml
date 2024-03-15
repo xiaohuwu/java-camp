@@ -12,12 +12,10 @@
         <result property="address" column="address"/>
     </resultMap>
 
-    <resultMap id="userRoleMap" type="com.ktb.model.User" extends="userMap">
-        <collection property="roles" ofType="com.ktb.model.Role">
-            <id property="id" column="rid"></id>
-            <result property="name" column="name"></result>
-            <result property="desc" column="desc"></result>
-        </collection>
+    <resultMap id="roleMap" type="com.ktb.model.Role">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="desc" column="desc"/>
     </resultMap>
 
 
@@ -46,12 +44,11 @@
         FROM users
     </select>
 
-    <select id="findById" resultMap="userRoleMap">
+    <select id="findById" resultMap="roleMap">
         SELECT  roles.id as rid, roles.name, roles.desc
-        FROM `users`
-                 INNER JOIN `user_roles` ON `user_roles`.`user_id` = `users`.`id`
+        FROM `user_roles`
                  INNER JOIN `roles` ON `roles`.`id` = `user_roles`.`role_id`
-        WHERE `users`.`id` = #{id};
+        WHERE `user_roles`.`user_id` = #{id};
     </select>
 
 
@@ -103,6 +100,9 @@
         </trim>
 
     </select>
+
+
+
     <select id="findbyConditionThree" resultType="com.ktb.model.User">
         select * from users
         <trim prefix="where">

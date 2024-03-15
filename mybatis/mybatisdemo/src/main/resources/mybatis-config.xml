@@ -37,12 +37,12 @@
 
     <mappers>
         <!-- 定义dao接口所在的包。要求xml文件存放的路径和dao接口的包名要对应 -->
-<!--        <package name="com.ktb.mapper"/>-->
+        <package name="com.ktb.mapper"/>
 
         <!--        <mapper resource="com/ktb/mapper/ComstomerMapper.xml"/>-->
         <!--        <mapper resource="mapper/StudentMapper.xml"/>-->
 <!--        <mapper resource="com/ktb/mapper/UserDao.xml"/>-->
-        <mapper resource="com/ktb/mapper/UserDao.xml"/>
+<!--        <mapper resource="com/ktb/mapper/UserDao.xml"/>-->
         <!--        <mapper resource="com/ktb/mapper/EmployeeMapper.xml"/>-->
     </mappers>
 

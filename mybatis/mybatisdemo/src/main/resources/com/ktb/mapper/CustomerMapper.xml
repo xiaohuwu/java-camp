@@ -5,26 +5,26 @@
 <mapper namespace="com.ktb.mapper.CustomerMapper">
     <!--返回主键-->
     <insert id="save" parameterType="com.ktb.model.Customer" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
-     INSERT INTO t_customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
+     INSERT INTO Customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
     </insert>
 
 
     <!--不是用object直接传值 而是object的包装类型-->
     <insert id="testParameterType" parameterType="com.ktb.model.CustomerVo">
-                                                         INSERT INTO t_customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
+                                                         INSERT INTO Customer(NAME,gender,telephone) VALUES(#{customer.name},#{customer.gender},#{customer.telephone})
 
     </insert>
 
     <update id="update" parameterType="com.ktb.model.Customer">
 
-                                                        update t_customer set name =#{name} where id=#{id}
+                                                        update Customer set name =#{name} where id=#{id}
 
     </update>
 
     <!--返回一个对象类型 prefixOverrides 前缀删除  suffixOverrides  后缀删除 prefix 动态语句块有内容 则添加 and 1= 1  -->
     <!--   -->
     <select id="get" resultType="com.ktb.model.Customer">
-        SELECT `t_customer`.* FROM `t_customer`
+        SELECT `Customer`.* FROM `Customer`
         <trim prefix="where" prefixOverrides="and|or">
             <if test="id!=null">
                 id = #{id}
@@ -40,7 +40,7 @@
 
 
 
-                              select count(*)from t_customer
+                              select count(*)from Customer
 
 
 
@@ -60,7 +60,7 @@
 
     <select id="queryByNameAndTelephone" resultType="com.ktb.model.Customer"
             parameterType="com.ktb.model.Customer">
-        select * from t_customer
+        select * from Customer
         <where>
             <if test="name !=null">
                 and name =#{name}
@@ -75,7 +75,7 @@
     <!-- where 标签能把跟在它后面的 or and 去掉 choose  when 相当于 if else if  else-->
     <select id="queryByNameAndTelephone2" resultType="com.ktb.model.Customer"
             parameterType="com.ktb.model.Customer">
-        select * from t_customer
+        select * from Customer
         <where>
             <choose>
                 <when test="name !=null">
@@ -92,7 +92,7 @@
 
    <!--foreach 基本用法-->
     <select id="findByIds" resultType="com.ktb.model.Customer">
-        select * from t_customer
+        select * from Customer
         <where>
             id in
             <foreach collection="ids" open="(" close=")" separator="," item="item">

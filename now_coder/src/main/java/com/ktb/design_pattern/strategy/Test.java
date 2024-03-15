@@ -1,7 +1,6 @@
 package com.ktb.design_pattern.strategy;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Test {
@@ -25,7 +24,6 @@ public class Test {
             DealStrategy deal = target.getDeal();
             deal.dealMethod(message);
         }
-        List<Integer> integers = Arrays.asList(1, 23, 3);
 
     }
 }

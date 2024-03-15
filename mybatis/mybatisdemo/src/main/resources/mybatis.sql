@@ -1,6 +1,6 @@
-CREATE TABLE employee(
-                         id INT(11) PRIMARY KEY AUTO_INCREMENT,
-                         last_name VARCHAR(255),
-                         gender CHAR(1),
-                         email VARCHAR(255)
+CREATE TABLE Customer (
+                          id INT AUTO_INCREMENT PRIMARY KEY,
+                          name VARCHAR(255),
+                          gender VARCHAR(50),
+                          telephone VARCHAR(255)
 );

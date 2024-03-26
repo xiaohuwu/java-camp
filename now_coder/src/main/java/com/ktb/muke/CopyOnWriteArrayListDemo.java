@@ -1,5 +1,6 @@
 package com.ktb.muke;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.*;
 
@@ -15,7 +16,8 @@ import java.util.concurrent.*;
  */
 public class CopyOnWriteArrayListDemo {
     //    public static AtomicInteger anInt = new AtomicInteger(0);
-    private static List<Integer> list = new java.util.concurrent.CopyOnWriteArrayList<>();
+//    private static List<Integer> list = new java.util.concurrent.CopyOnWriteArrayList<>();
+    private static List<Integer> list = new ArrayList<>();
 
     public static void main(String[] args) throws InterruptedException {
         Semaphore semaphore = new Semaphore(200);

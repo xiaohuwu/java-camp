@@ -100,7 +100,7 @@ public class MethodRefTest {
                 new Person(35)
         };
 
-        int sum1 = Arrays.stream(people).mapToInt(Person::getAge).sum();
+        int sum1 = Arrays.stream(people).map((item)-> item.getAge()).mapToInt((item)-> item).sum();
         System.out.println("sum1 = " + sum1);
 
 

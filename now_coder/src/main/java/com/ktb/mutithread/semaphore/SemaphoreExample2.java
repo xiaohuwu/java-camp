@@ -1,9 +1,12 @@
 package com.ktb.mutithread.semaphore;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
+@Slf4j
 public class SemaphoreExample2 {
 
     private final static int threadCount = 20;
@@ -30,7 +33,7 @@ public class SemaphoreExample2 {
     }
 
     private static void test(int threadNum) throws Exception {
-        System.out.println("threadNum = " + threadNum);
+        log.info("threadNum = {}", threadNum);
         Thread.sleep(1000);
     }
 

@@ -7,14 +7,20 @@ import java.util.concurrent.CompletableFuture;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static com.mmall.concurrency.heima.Sleeper.sleep;
+
 @Slf4j
 public class Main {
-    public static void main(String[] args) throws IOException {
-        CompletableFuture.runAsync(() -> {
-            FileReader.read(Constants.MP4_FULL_PATH);
-        });
-        log.debug("do other things ...");
-        System.in.read();
-    }
+    static  boolean run = true;    //添加volatile
 
+    public static void main(String[] args) throws InterruptedException {
+        Thread t = new Thread(() -> {
+            while (run) {
+
+            }
+        });
+        t.start();
+        sleep(1);
+        run = false;
+    }
 }

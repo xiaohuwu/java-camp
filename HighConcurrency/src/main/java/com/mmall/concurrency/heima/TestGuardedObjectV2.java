@@ -5,20 +5,21 @@ import lombok.extern.slf4j.Slf4j;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.mmall.concurrency.heima.Sleeper.sleep;
-
 @Slf4j(topic = "c.TestGuardedObjectV2")
 public class TestGuardedObjectV2 {
     public static void main(String[] args) {
         GuardedObjectV2 v2 = new GuardedObjectV2();
         new Thread(() -> {
-            sleep(1);
-            v2.complete(null);
-            sleep(1);
-            v2.complete(Arrays.asList("a", "b", "c"));
+            try {
+                Thread.sleep(400l);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+            List<String> strings = Arrays.asList("a", "b", "c");
+            v2.complete(strings);
         },"thread-0").start();
 
-        Object response = v2.get(2500);
+        Object response = v2.get(1000l);
         if (response != null) {
             log.debug("get response: [{}] lines", ((List<String>) response).size());
         } else {

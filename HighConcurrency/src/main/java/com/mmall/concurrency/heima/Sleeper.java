@@ -20,6 +20,15 @@ public class Sleeper {
 
     }
 
+    public static void sleepMills(int i) {
+        try {
+            TimeUnit.MILLISECONDS.sleep((long) i);
+        } catch (InterruptedException var2) {
+            var2.printStackTrace();
+        }
+
+    }
+
     public static void main(String[] args) {
 //        Duration d2 = Duration.parse("P1DT2H3M");
 //        long l = d2.toDays();

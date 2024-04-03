@@ -1,10 +1,7 @@
-package cn.itcast.n8;
-
+package com.mmall.concurrency.heima;
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.concurrent.locks.StampedLock;
-
-import static cn.itcast.n2.util.Sleeper.sleep;
+import static com.mmall.concurrency.heima.Sleeper.sleep;
 
 @Slf4j(topic = "c.TestStampedLock")
 public class TestStampedLock {
@@ -13,7 +10,7 @@ public class TestStampedLock {
         new Thread(() -> {
             dataContainer.read(1);
         }, "t1").start();
-        sleep(0.5);
+        Sleeper.sleepMills(500);
         new Thread(() -> {
             dataContainer.write(0);
         }, "t2").start();

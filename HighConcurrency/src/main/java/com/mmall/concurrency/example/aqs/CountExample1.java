@@ -1,4 +1,4 @@
-package com.mmall.concurrency.example.count;
+package com.mmall.concurrency.example.aqs;
 
 import com.mmall.concurrency.annoations.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
@@ -18,23 +18,29 @@ public class CountExample1 {
     public static int count = 0;
 
     public static void main(String[] args) throws Exception {
-        ExecutorService executorService = Executors.newFixedThreadPool(200);
-        final Semaphore semaphore = new Semaphore(threadTotal);
+        ExecutorService executorService = Executors.newFixedThreadPool(threadTotal);
         final CyclicBarrier barrier = new CyclicBarrier(clientTotal, () -> log.info("count:{}", count));
+
         for (int i = 0; i < clientTotal; i++) {
             executorService.execute(() -> {
                 try {
-                    semaphore.acquire();
                     add();
-                    barrier.await();
-                    semaphore.release();
                 } catch (Exception e) {
                     log.error("exception", e);
+                } finally {
+                    try {
+                        int numberWaiting = barrier.getNumberWaiting();
+                        log.info("numberWaiting:{}", numberWaiting);
+                        barrier.await(); // 确保即使发生异常也调用await，以防止阻塞其他线程
+                    } catch (InterruptedException | BrokenBarrierException e) {
+                        log.error("Barrier exception", e);
+                    }
                 }
-
             });
         }
+
         executorService.shutdown();
+        executorService.awaitTermination(10, TimeUnit.MINUTES); // 等待直到所有任务完成
     }
 
     private synchronized static void add() {

@@ -3,8 +3,10 @@ package com.mmall.concurrency.heima;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 public class MessageQueue {
@@ -50,6 +52,8 @@ public class MessageQueue {
     }
 
     public static void main(String[] args) {
+        int a = 0;
+        Arrays.asList("a","b","c").stream().collect(Collectors.toList());
         MessageQueue messageQueue = new MessageQueue(2);
         for (int i = 0; i < 3; i++) {
             int finalI = i;

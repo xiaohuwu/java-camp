@@ -1,7 +1,5 @@
 package com.mmall.concurrency.heima;
-
 import lombok.extern.slf4j.Slf4j;
-
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,16 +8,13 @@ public class TestGuardedObjectV2 {
     public static void main(String[] args) {
         GuardedObjectV2 v2 = new GuardedObjectV2();
         new Thread(() -> {
-            try {
-                Thread.sleep(400l);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
-            List<String> strings = Arrays.asList("a", "b", "c");
-            v2.complete(strings);
-        },"thread-0").start();
+            Sleeper.sleep(1);
+            v2.complete(null); //模拟第三方线程的虚假唤醒
+//            Sleeper.sleep(1);
+//            v2.complete(Arrays.asList("a", "b", "c"));
+        }).start();
 
-        Object response = v2.get(1000l);
+        Object response = v2.get(2500);
         if (response != null) {
             log.debug("get response: [{}] lines", ((List<String>) response).size());
         } else {

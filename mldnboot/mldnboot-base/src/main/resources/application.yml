@@ -1,7 +1,0 @@
-c3p0:                                       # 定义C3P0配置
-  jdbcUrl: jdbc:mysql://localhost:3306/mybatis # 数据库连接地址
-  user: root                                # 数据库用户名
-  password: 123456                      # 数据库密码
-  driverClass: com.mysql.cj.jdbc.Driver      # 数据库驱动程序
-server:
-  port: 80

@@ -2,7 +2,6 @@ package com.example.springboottest.exception;
 
 import com.example.springboottest.Result;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.shiro.ShiroException;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
@@ -15,12 +14,12 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    @ExceptionHandler(value = ShiroException.class)
-    public Result handler(ShiroException e) {
-        log.error("运行时异常：----------------{}", e);
-        return Result.fail(String.valueOf(401), e.getMessage());
-    }
+//    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+//    @ExceptionHandler(value = ShiroException.class)
+//    public Result handler(ShiroException e) {
+//        log.error("运行时异常：----------------{}", e);
+//        return Result.fail(String.valueOf(401), e.getMessage());
+//    }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = MethodArgumentNotValidException.class)

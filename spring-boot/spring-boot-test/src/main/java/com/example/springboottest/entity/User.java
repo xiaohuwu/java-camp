@@ -13,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author 关注公众号：MarkerHub
@@ -22,7 +22,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("m_user")
+@TableName("user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = 1L;

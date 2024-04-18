@@ -8,8 +8,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.example.springboottest.Result;
 import com.example.springboottest.entity.Blog;
 import com.example.springboottest.service.BlogService;
-import com.example.springboottest.utils.ShiroUtil;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
@@ -33,7 +31,6 @@ public class BlogController {
     BlogService blogService;
 
 
-    @RequiresAuthentication
     @GetMapping("/blogs")
     public Result list(@RequestParam(defaultValue = "1") Integer currentPage) {
         Page page = new Page(currentPage, 5);
@@ -49,7 +46,7 @@ public class BlogController {
         return Result.succ(blog);
     }
 
-    @RequiresAuthentication
+//    @RequiresAuthentication
     @PostMapping("/blog/edit")
     public Result edit(@Validated @RequestBody Blog blog) {
 
@@ -59,13 +56,13 @@ public class BlogController {
         if(blog.getId() != null) {
             temp = blogService.getById(blog.getId());
             // 只能编辑自己的文章
-            System.out.println(ShiroUtil.getProfile().getId());
-            Assert.isTrue(temp.getUserId().longValue() == ShiroUtil.getProfile().getId().longValue(), "没有权限编辑");
+//            System.out.println(ShiroUtil.getProfile().getId());
+//            Assert.isTrue(temp.getUserId().longValue() == ShiroUtil.getProfile().getId().longValue(), "没有权限编辑");
 
         } else {
 
             temp = new Blog();
-            temp.setUserId(ShiroUtil.getProfile().getId());
+//            temp.setUserId(ShiroUtil.getProfile().getId());
             temp.setCreated(LocalDateTime.now());
             temp.setStatus(0);
         }

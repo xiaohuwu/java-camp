@@ -8,8 +8,6 @@ import com.example.springboottest.dto.LoginDto;
 import com.example.springboottest.entity.User;
 import com.example.springboottest.service.UserService;
 import com.example.springboottest.utils.JwtUtils;
-import org.apache.shiro.SecurityUtils;
-import org.apache.shiro.authz.annotation.RequiresAuthentication;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.Assert;
 import org.springframework.validation.annotation.Validated;
@@ -54,7 +52,12 @@ public class AccountController {
     //@RequiresAuthentication
     @GetMapping("/logout")
     public Result logout() {
-        SecurityUtils.getSubject().logout();
+//        SecurityUtils.getSubject().logout();
         return Result.succ(null);
+    }
+
+    public static void main(String[] args) {
+        String s = SecureUtil.md5("12345678");
+        System.out.println("s = " + s);
     }
 }

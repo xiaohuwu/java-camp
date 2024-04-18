@@ -1,7 +1,7 @@
 package com.example.springboottest.controller;
 
-import com.example.springboottest.entity.Users;
-import com.example.springboottest.service.UsersService;
+import com.example.springboottest.entity.User;
+import com.example.springboottest.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -19,7 +19,7 @@ public class UsersController {
      * 服务对象
      */
     @Resource
-    private UsersService usersService;
+    private UserService usersService;
 
     /**
      * 通过主键查询单条数据
@@ -28,8 +28,8 @@ public class UsersController {
      * @return 单条数据
      */
     @GetMapping("selectOne")
-    public Users selectOne(Long id) {
-        return this.usersService.queryById(id);
+    public User selectOne(Long id) {
+        return this.usersService.getById(id);
     }
 
 }

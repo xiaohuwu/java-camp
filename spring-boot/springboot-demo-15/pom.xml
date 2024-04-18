@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ktb</groupId>
-    <artifactId>springboot-demo</artifactId>
+    <artifactId>springboot-demo-15</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>springboot-demo</name>
+    <name>springboot-demo-15</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>

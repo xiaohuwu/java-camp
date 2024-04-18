@@ -10,9 +10,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.filter.CommonsRequestLoggingFilter;
 import org.springframework.web.filter.ShallowEtagHeaderFilter;
-import org.springframework.web.method.support.HandlerMethodArgumentResolver;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor;
 
 import java.util.List;
 
@@ -43,16 +40,16 @@ public class SpringbootDemoApplication {
 
 
 
-    @Bean
-    public MyMvcConfigurer mvcConfigurer() {
-        return new MyMvcConfigurer();
-    }
+//    @Bean
+//    public MyMvcConfigurer mvcConfigurer() {
+//        return new MyMvcConfigurer();
+//    }
 
-    public static class MyMvcConfigurer implements WebMvcConfigurer {
-        public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
-            resolvers.add(new GamePHPMethodProcessor());
-        }
-    }
+//    public static class MyMvcConfigurer extends WebMvcConfigurerAdapter {
+//        public void addArgumentResolvers(List<HandlerMethodArgumentResolver> resolvers) {
+//            resolvers.add(new GamePHPMethodProcessor());
+//        }
+//    }
 
 
 

@@ -6,6 +6,7 @@ import com.ktb.springbootdemo.model.Product;
 import org.springframework.util.StringUtils;
 
 import java.beans.PropertyEditorSupport;
+import java.io.IOException;
 
 public class ProductEditor extends PropertyEditorSupport {
 
@@ -26,6 +27,8 @@ public class ProductEditor extends PropertyEditorSupport {
                 prod = objectMapper.readValue(text, Product.class);
             } catch (JsonProcessingException e) {
                 throw new IllegalArgumentException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
             }
             setValue(prod);
         }
